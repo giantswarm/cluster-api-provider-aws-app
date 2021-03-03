@@ -1,15 +1,3 @@
-# TEMPLATE-APP: This is set as a reasonable default, feel free to change.
-
-name: cluster-api-provider-aws
-namespace: kube-system
-serviceType: managed
-
 project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"
-
-image:
-  registry: quay.io
-  name: giantswarm/cluster-api-provider-aws
-  tag: v0.0.1
-  pullPolicy: IfNotPresent
