@@ -266,7 +266,7 @@ metadata:
     cluster.x-k8s.io/provider: control-plane-eks
     control-plane: controller-manager
   name: {{ include "resource.default.name" . }}-control-plane
-  namespace: capa-eks-control-plane-system
+  namespace: giantswarm
 spec:
   replicas: 1
   selector:
@@ -328,7 +328,7 @@ metadata:
     cluster.x-k8s.io/provider: control-plane-eks
     control-plane: controller-manager
   name: {{ include "resource.default.name" . }}-control-plane
-  namespace: capi-webhook-system
+  namespace: giantswarm
 spec:
   replicas: 1
   selector:
