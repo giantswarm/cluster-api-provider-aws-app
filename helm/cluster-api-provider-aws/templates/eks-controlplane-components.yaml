@@ -287,6 +287,8 @@ spec:
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
+        - name: AWS_CONTROLLER_IAM_ROLE
+          value: {{ .Values.aws.role.arn }}
         image: gcr.io/k8s-staging-cluster-api-aws/eks-controlplane-controller:v0.6.4
         imagePullPolicy: IfNotPresent
         name: manager
