@@ -10,7 +10,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   annotations:
-    ${AWS_CONTROLLER_IAM_ROLE/#arn/eks.amazonaws.com/role-arn: arn}
+    {{ .Values.aws.role.arn }}/#arn/eks.amazonaws.com/role-arn: arn
   labels:
     cluster.x-k8s.io/provider: control-plane-eks
     control-plane: controller-manager
@@ -216,7 +216,10 @@ subjects:
 ---
 apiVersion: v1
 data:
-  credentials: ${AWS_B64ENCODED_CREDENTIALS}
+  credentials: 
+    aws_access_key_id: {{ .Values.aws.accessKeyID }}
+    aws_secret_access_key: {{ .Values.aws.secretAccessKey }}
+    region: {{ .Values.Installation.V1.Provider.AWS.Region }}
 kind: Secret
 metadata:
   labels:
@@ -262,7 +265,7 @@ metadata:
   labels:
     cluster.x-k8s.io/provider: control-plane-eks
     control-plane: controller-manager
-  name: capa-eks-control-plane-controller-manager
+  name: {{ include "resource.default.name" . }}-control-plane
   namespace: capa-eks-control-plane-system
 spec:
   replicas: 1
@@ -280,15 +283,13 @@ spec:
       - args:
         - --metrics-addr=127.0.0.1:8080
         - --enable-leader-election
-        - --feature-gates=EKSEnableIAM=${EXP_EKS_IAM:=false},EKSAllowAddRoles=${EXP_EKS_ADD_ROLES:=false},MachinePool=${EXP_MACHINE_POOL:=false}
+        - --feature-gates=EKSEnableIAM=false,EKSAllowAddRoles=false,MachinePool=false
         - --v=${EKS_CP_LOGLEVEL:=4}
         command:
         - /manager
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
-        - name: AWS_CONTROLLER_IAM_ROLE
-          value: {{ .Values.aws.role.arn }}
         image: gcr.io/k8s-staging-cluster-api-aws/eks-controlplane-controller:v0.6.4
         imagePullPolicy: IfNotPresent
         name: manager
@@ -307,7 +308,7 @@ spec:
           name: http
       metadata:
         annotations:
-          iam.amazonaws.com/role: ${AWS_CONTROLLER_IAM_ROLE:=""}
+          iam.amazonaws.com/role: {{ .Values.aws.role.arn }}:=""
       securityContext:
         fsGroup: 1000
       serviceAccountName: capa-eks-control-plane-controller-manager
@@ -326,7 +327,7 @@ metadata:
   labels:
     cluster.x-k8s.io/provider: control-plane-eks
     control-plane: controller-manager
-  name: capa-eks-control-plane-controller-manager
+  name: {{ include "resource.default.name" . }}-control-plane
   namespace: capi-webhook-system
 spec:
   replicas: 1
