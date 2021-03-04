@@ -4,7 +4,8 @@ metadata:
   creationTimestamp: null
   labels:
     cluster.x-k8s.io/provider: infrastructure-aws
-  name: capa-manager-role
+    {{- include "labels.common" . | nindent 4 }}
+  name: {{ include "resource.default.name" . }}-manager
 rules:
 - apiGroups:
   - ""
@@ -181,7 +182,8 @@ kind: ClusterRole
 metadata:
   labels:
     cluster.x-k8s.io/provider: infrastructure-aws
-  name: capa-proxy-role
+    {{- include "labels.common" . | nindent 4 }}
+  name: {{ include "resource.default.name" . }}-proxy
 rules:
 - apiGroups:
   - authentication.k8s.io
@@ -201,8 +203,9 @@ kind: Role
 metadata:
   labels:
     cluster.x-k8s.io/provider: infrastructure-aws
-  name: capa-leader-election-role
-  namespace: capa-system
+    {{- include "labels.common" . | nindent 4 }}
+  name: {{ include "resource.default.name" . }}-leader-election
+  namespace: {{ include "resource.default.namespace" . }}
 rules:
 - apiGroups:
   - ""
