@@ -12,10 +12,10 @@ featuregates:
   eks: false
 
 aws:
-  accessKeyID: ""
-  secretAccessKey: ""
+  accessKeyID: defaultID
+  secretAccessKey: defaultKey
   arn: defaultARN
-  region: ""
+  region: defaultRegion
 
 project:
   branch: "[[ .Branch ]]"
