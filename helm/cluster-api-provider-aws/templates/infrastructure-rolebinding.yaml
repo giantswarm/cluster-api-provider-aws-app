@@ -2,7 +2,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
-    cluster.x-k8s.io/provider: infrastructure-aws
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-manager
 roleRef:
@@ -18,7 +17,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
-    cluster.x-k8s.io/provider: infrastructure-aws
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-proxy
 roleRef:
@@ -34,7 +32,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   labels:
-    cluster.x-k8s.io/provider: infrastructure-aws
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-leader-election
   namespace: {{ include "resource.default.namespace" . }}

@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    cluster.x-k8s.io/provider: infrastructure-aws
     control-plane: capa-controller-manager
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}
@@ -11,13 +10,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      cluster.x-k8s.io/provider: infrastructure-aws
       control-plane: capa-controller-manager
       {{- include "labels.selector" . | nindent 6 }}
   template:
     metadata:
       labels:
-        cluster.x-k8s.io/provider: infrastructure-aws
         control-plane: capa-controller-manager
         {{- include "labels.selector" . | nindent 8 }}
     spec:
