@@ -59,7 +59,7 @@ spec:
           name: https
       metadata:
         annotations:
-          iam.amazonaws.com/role: {{ .Values.aws.role.arn }}:=""
+          iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
       securityContext:
         fsGroup: 1000
       serviceAccountName: {{ include "resource.default.name" . }}

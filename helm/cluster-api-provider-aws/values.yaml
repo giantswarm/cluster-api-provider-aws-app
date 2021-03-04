@@ -11,6 +11,12 @@ featuregates:
   eksallowedroles: false
   eks: false
 
+aws:
+  accessKeyID: ""
+  secretAccessKey: ""
+  arn: ""
+  region: ""
+
 project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"
