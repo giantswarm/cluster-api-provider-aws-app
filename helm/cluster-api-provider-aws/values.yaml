@@ -14,7 +14,7 @@ featuregates:
 aws:
   accessKeyID: ""
   secretAccessKey: ""
-  arn: ""
+  arn: defaultARN
   region: ""
 
 project:
