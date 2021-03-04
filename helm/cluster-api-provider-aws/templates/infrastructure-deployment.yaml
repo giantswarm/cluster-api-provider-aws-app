@@ -67,4 +67,4 @@ spec:
       volumes:
       - name: credentials
         secret:
-          secretName: capa-manager-bootstrap-credentials
+          secretName: {{ include "resource.default.name" . }}
