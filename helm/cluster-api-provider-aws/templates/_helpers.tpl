@@ -28,6 +28,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
 giantswarm.io/service-type: {{ .Values.serviceType }}
+cluster.x-k8s.io/provider: infrastructure-aws
 {{- end -}}
 
 {{/*

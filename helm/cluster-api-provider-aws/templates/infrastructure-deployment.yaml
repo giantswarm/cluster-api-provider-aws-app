@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    control-plane: capa-controller-manager
+    {{- include "labels.common" . | nindent 4 }}
+  name: {{ include "resource.default.name" . }}
+  namespace: {{ include "resource.default.namespace" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      control-plane: capa-controller-manager
+      {{- include "labels.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        control-plane: capa-controller-manager
+        {{- include "labels.selector" . | nindent 8 }}
+    spec:
+      containers:
+      - args:
+        - --metrics-addr=127.0.0.1:8080
+        - --enable-leader-election
+        - --feature-gates=EKSAllowAddRoles={{ .Values.featuregates.eks }},MachinePool={{ .Values.featuregates.machinepool }}
+        env:
+        - name: AWS_SHARED_CREDENTIALS_FILE
+          value: /home/.aws/credentials
+        image: "{{ .Values.infrastructure.image.registry }}/{{ .Values.infrastructure.image.name }}:{{ .Values.infrastructure.image.tag }}"
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: healthz
+        name: manager
+        ports:
+        - containerPort: 9440
+          name: healthz
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: healthz
+        volumeMounts:
+        - mountPath: /home/.aws
+          name: credentials
+      - args:
+        - --secure-listen-address=0.0.0.0:8443
+        - --upstream=http://127.0.0.1:8080/
+        - --logtostderr=true
+        - --v=10
+        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.4.1
+        name: kube-rbac-proxy
+        ports:
+        - containerPort: 8443
+          name: https
+      metadata:
+        annotations:
+          iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
+      securityContext:
+        fsGroup: 1000
+      serviceAccountName: {{ include "resource.default.name" . }}
+      terminationGracePeriodSeconds: 10
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+      volumes:
+      - name: credentials
+        secret:
+          secretName: {{ include "resource.default.name" . }}

@@ -1,15 +1,22 @@
-# TEMPLATE-APP: This is set as a reasonable default, feel free to change.
-
 name: cluster-api-provider-aws
-namespace: kube-system
-serviceType: managed
+infrastructure:
+  image:
+    registry: us.gcr.io
+    name: k8s-artifacts-prod/cluster-api-aws/cluster-api-aws-controller
+    tag: v0.6.4
+
+featuregates:
+  machinepool: false
+  eksenableiam: false
+  eksallowedroles: false
+  eks: false
+
+aws:
+  accessKeyID: defaultID
+  secretAccessKey: defaultKey
+  arn: defaultARN
+  region: defaultRegion
 
 project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"
-
-image:
-  registry: quay.io
-  name: giantswarm/cluster-api-provider-aws
-  tag: v0.0.1
-  pullPolicy: IfNotPresent
