@@ -8,8 +8,8 @@ metadata:
   namespace: {{ include "resource.webhook.namespace" . }}
 spec:
   dnsNames:
-  - {{ include "resource.default.name" . }}.{{ include "resource.webhook.namespace" . }}.svc
-  - {{ include "resource.default.name" . }}.{{ include "resource.webhook.namespace" . }}.svc.cluster.local
+  - {{ include "resource.default.name" . }}-webhook.{{ include "resource.webhook.namespace" . }}.svc
+  - {{ include "resource.default.name" . }}-webhook.{{ include "resource.webhook.namespace" . }}.svc.cluster.local
   issuerRef:
     kind: Issuer
     name: {{ include "resource.default.name" . }}
