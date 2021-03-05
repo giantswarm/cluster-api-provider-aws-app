@@ -4,7 +4,7 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-webhook
-  namespace: {{ include "resource.default.namespace" . }}
+  namespace: {{ include "resource.webhook.namespace" . }}
 spec:
   ports:
   - port: 443

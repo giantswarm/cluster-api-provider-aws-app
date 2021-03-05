@@ -12,7 +12,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awscluster
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -32,7 +32,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachine
   failurePolicy: Fail
   name: mutation.awsmachine.infrastructure.cluster.x-k8s.io
@@ -51,7 +51,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -71,7 +71,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmanagedmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -101,7 +101,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awscluster
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -121,7 +121,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachine
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -141,7 +141,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinetemplate
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -161,7 +161,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -181,7 +181,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.default.namespace" . }}
+      namespace: {{ include "resource.webhook.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmanagedmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent
