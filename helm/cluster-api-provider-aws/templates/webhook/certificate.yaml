@@ -5,11 +5,11 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}
-  namespace: {{ include "resource.webhook.namespace" . }}
+  namespace: {{ include "resource.default.namespace" . }}
 spec:
   dnsNames:
-  - {{ include "resource.default.name" . }}-webhook.{{ include "resource.webhook.namespace" . }}.svc
-  - {{ include "resource.default.name" . }}-webhook.{{ include "resource.webhook.namespace" . }}.svc.cluster.local
+  - {{ include "resource.default.name" . }}-webhook.{{ include "resource.default.namespace" . }}.svc
+  - {{ include "resource.default.name" . }}-webhook.{{ include "resource.default.namespace" . }}.svc.cluster.local
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
