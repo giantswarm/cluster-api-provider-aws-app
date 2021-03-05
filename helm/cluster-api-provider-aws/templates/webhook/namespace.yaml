@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    {{- include "labels.common" . | nindent 4 }}
-  name: {{ include "resource.webhook.namespace" . }}

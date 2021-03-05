@@ -3,7 +3,7 @@ apiVersion: admissionregistration.k8s.io/v1beta1
 kind: MutatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: {{ include "resource.webhook.namespace" . }}/{{ include "resource.default.name" . }}-cert
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}/{{ include "resource.default.name" . }}-cert
   labels:
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}
@@ -12,7 +12,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awscluster
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -32,7 +32,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachine
   failurePolicy: Fail
   name: mutation.awsmachine.infrastructure.cluster.x-k8s.io
@@ -51,7 +51,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -71,7 +71,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmanagedmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -92,7 +92,7 @@ apiVersion: admissionregistration.k8s.io/v1beta1
 kind: ValidatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: {{ include "resource.webhook.namespace" . }}/{{ include "resource.default.name" . }}-cert
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}/{{ include "resource.default.name" . }}-cert
   labels:
     {{- include "labels.common" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-webhook
@@ -101,7 +101,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awscluster
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -121,7 +121,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachine
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -141,7 +141,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinetemplate
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -161,7 +161,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -181,7 +181,7 @@ webhooks:
     caBundle: Cg==
     service:
       name: {{ include "resource.default.name" . }}-webhook
-      namespace: {{ include "resource.webhook.namespace" . }}
+      namespace: {{ include "resource.default.namespace" . }}
       path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmanagedmachinepool
   failurePolicy: Fail
   matchPolicy: Equivalent

@@ -4,8 +4,8 @@ metadata:
   labels:
     control-plane: capa-controller-manager
     {{- include "labels.common" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}
-  namespace: {{ include "resource.webhook.namespace" . }}
+  name: {{ include "resource.default.name" . }}-webhook
+  namespace: {{ include "resource.default.namespace" . }}
 spec:
   replicas: 1
   selector:
