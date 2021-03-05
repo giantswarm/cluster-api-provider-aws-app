@@ -25,3 +25,7 @@ room for such suffix.
 {{- define "resource.default.namespace" -}}
 giantswarm
 {{- end -}}
+
+{{- define "resource.webhook.namespace" -}}
+capi-webhook-system
+{{- end -}}
