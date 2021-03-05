@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
-  name: {{ include "resource.webook.namespace" . }}
+  name: {{ include "resource.webhook.namespace" . }}
