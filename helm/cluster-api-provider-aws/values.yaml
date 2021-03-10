@@ -23,7 +23,6 @@ Installation:
           SecretAccessKey: defaultKey
           Region: defaultRegion
 
-
 project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"
