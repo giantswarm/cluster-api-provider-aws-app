@@ -1,0 +1,9 @@
+---
+Installation:
+  V1:
+    Secret:
+      CAPI:
+        AWS:
+          AccessKeyID: defaultID
+          SecretAccessKey: defaultKey
+          Region: defaultRegion
