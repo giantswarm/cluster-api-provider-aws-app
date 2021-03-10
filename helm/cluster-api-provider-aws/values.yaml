@@ -14,15 +14,6 @@ featuregates:
 aws:
   arn: defaultARN
 
-Installation:
-  V1:
-    Secret:
-      CAPI:
-        AWS:
-          AccessKeyID: defaultID
-          SecretAccessKey: defaultKey
-          Region: defaultRegion
-
 project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"
