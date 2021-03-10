@@ -59,9 +59,9 @@ Create the user
 ```
 aws iam create-user --user-name capa-controller
 ```
-Attach all the policies from the previous step like so
+Attach the controller policy from the previous step like so
 ```
-aws iam attach-user-policy --user-name capa-controller --policy-arn $POLICY_ARN
+aws iam attach-user-policy --user-name capa-controller ----policy-arn arn:aws:iam::$ACCOUNT:policy/controllers.cluster-api-provider-aws.sigs.k8s.io
 ```
 
 ## Set Credentials
@@ -69,4 +69,39 @@ Create the access key
 ```
 aws iam create-access-key --user-name capa-controller
 ```
-This key will be used in the CAPA-controller secret. 
+You should now have all the following:
+
+- `AccessKeyId`
+- `SecretAccessKey`
+- `Region` (The same region from previous steps)
+
+These credentials will be used in the CAPA controllers secret. It looks like this:
+
+```
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: <some name>
+  namespace: <some namespace>
+stringData:
+  credentials: |-
+    [default]
+    aws_access_key_id: < AccessKeyId >
+    aws_secret_access_key: < SecretAccessKey >
+    region: < Region >
+```
+
+ For use on your installation, they should be added to the `$INSTALLATION/draughtsman-secret-values.yaml` in the [installations](https://github.com/giantswarm/installations) repo.
+
+```
+Installation:
+  V1:
+    Secret:
+      CAPI:
+        AWS:
+          AccessKeyId: [...]
+          SecretAccessKey: [...]
+          Region: [...]
+```
+        
