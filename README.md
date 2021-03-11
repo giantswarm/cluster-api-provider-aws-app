@@ -28,11 +28,11 @@ export AWS_SESSION_TOKEN=[...]
 ``` 
 Use `opsctl` to find the management cluster AWS account on your installation.
 ```
-opsctl open -a cloudprovider -i $INSTALLATION --no-browser
+opsctl open -a cloudprovider -i $INSTALLATION --tenant-cluster default --no-browser
 ```
 It will give you something like
 ```
-Accessing control plane cloud provider console
+[...]
 Role to assume: `$ARN`
 [...]
 ```
@@ -57,17 +57,17 @@ The output will give you the policies that have been created for the next step.
 ## Create a user for the CAPA-Controller
 Create the user
 ```
-aws iam create-user --user-name capa-controller
+aws iam create-user --user-name $INSTALLATION-capa-controller
 ```
 Attach the controller policy from the previous step like so
 ```
-aws iam attach-user-policy --user-name capa-controller ----policy-arn arn:aws:iam::$ACCOUNT:policy/controllers.cluster-api-provider-aws.sigs.k8s.io
+aws iam attach-user-policy --user-name $INSTALLATION-capa-controller ----policy-arn arn:aws:iam::$ACCOUNT:policy/controllers.cluster-api-provider-aws.sigs.k8s.io
 ```
 
 ## Set Credentials
 Create the access key
 ```
-aws iam create-access-key --user-name capa-controller
+aws iam create-access-key --user-name $INSTALLATION-capa-controller
 ```
 You should now have all the following:
 
