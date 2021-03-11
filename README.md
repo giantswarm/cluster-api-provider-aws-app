@@ -33,12 +33,12 @@ opsctl open -a cloudprovider -i $INSTALLATION --tenant-cluster default --no-brow
 It will give you something like
 ```
 [...]
-Role to assume: `$ARN`
+Role to assume: `arn:aws:iam::$ACCOUNT:role/GiantSwarmAdmin`
 [...]
 ```
-Assume this role.
+Assume the admin role. (Please note that this is called GiantSwarmAdmin_Policy_, not GiantSwarmAdmin)
 ```
-aws sts assume-role  --role-arn $ARN --role-session-name $YOURNAME
+aws sts assume-role  --role-arn arn:aws:iam::$ACCOUNT:role/GiantSwarmAdminPolicy --role-session-name $YOURNAME
 ```
 
 ## Create Policies and Roles for CAPA
@@ -61,7 +61,7 @@ aws iam create-user --user-name $INSTALLATION-capa-controller
 ```
 Attach the controller policy from the previous step like so
 ```
-aws iam attach-user-policy --user-name $INSTALLATION-capa-controller ----policy-arn arn:aws:iam::$ACCOUNT:policy/controllers.cluster-api-provider-aws.sigs.k8s.io
+aws iam attach-user-policy --user-name $INSTALLATION-capa-controller --policy-arn arn:aws:iam::$ACCOUNT:policy/controllers.cluster-api-provider-aws.sigs.k8s.io
 ```
 
 ## Set Credentials
