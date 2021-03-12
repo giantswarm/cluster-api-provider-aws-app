@@ -6,7 +6,7 @@ infrastructure:
     tag: v0.6.4
 
 featuregates:
-  machinepool: false
+  machinepool: true
   eksenableiam: false
   eksallowedroles: false
   eks: false
