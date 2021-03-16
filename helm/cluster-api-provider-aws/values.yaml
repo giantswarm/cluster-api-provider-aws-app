@@ -1,9 +1,9 @@
 name: cluster-api-provider-aws
 infrastructure:
   image:
-    registry: us.gcr.io
-    name: k8s-artifacts-prod/cluster-api-aws/cluster-api-aws-controller
-    tag: v0.6.4
+    registry: quay.io
+    name: giantswarm/cluster-api-aws-controller
+    tag: 668d0a6e4bf6bdff862d821ae89b8c15acb7d001
 
 featuregates:
   machinepool: true
