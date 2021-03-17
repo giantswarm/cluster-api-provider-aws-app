@@ -17,6 +17,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awscluster.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -36,6 +39,9 @@ webhooks:
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachine
   failurePolicy: Fail
   name: mutation.awsmachine.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -56,6 +62,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmachinepool.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -76,6 +85,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmanagedmachinepool.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -106,6 +118,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.awscluster.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -126,6 +141,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.awsmachine.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -146,6 +164,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.awsmachinetemplate.infrastructure.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -166,6 +187,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.awsmachinepool.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -186,6 +210,9 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.awsmanagedmachinepool.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
