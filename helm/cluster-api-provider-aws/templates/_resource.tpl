@@ -27,5 +27,5 @@ giantswarm
 {{- end -}}
 
 {{- define "resource.app.version" -}}
-0.0.0-dev
+0.0.1
 {{- end -}}
