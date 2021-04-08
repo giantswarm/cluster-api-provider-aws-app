@@ -3,7 +3,7 @@ infrastructure:
   image:
     registry: quay.io
     name: giantswarm/cluster-api-aws-controller
-    tag: 668d0a6e4bf6bdff862d821ae89b8c15acb7d001
+    tag: 157fc190fc977ab1be8c974e849a343b35464c2a
 
 featuregates:
   machinepool: true
