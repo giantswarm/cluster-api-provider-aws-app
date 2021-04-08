@@ -26,7 +26,7 @@ spec:
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
-        image: "{{ .Values.infrastructure.image.registry }}/{{ .Values.infrastructure.image.name }}:{{ .Values.infrastructure.image.tag }}"
+        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.infrastructure.image.name }}:{{ .Values.infrastructure.image.tag }}"
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -49,7 +49,7 @@ spec:
         - --upstream=http://127.0.0.1:8080/
         - --logtostderr=true
         - --v=10
-        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.4.1
+        image: {{ .Values.Installation.V1.Registry.Domain }}/kube-rbac-proxy:v0.4.1
         name: kube-rbac-proxy
         ports:
         - containerPort: 8443
