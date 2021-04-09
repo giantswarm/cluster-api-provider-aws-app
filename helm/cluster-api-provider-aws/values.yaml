@@ -3,6 +3,10 @@ infrastructure:
   image:
     name: giantswarm/cluster-api-aws-controller
     tag: 157fc190fc977ab1be8c974e849a343b35464c2a
+rbacproxy:
+  image:
+    name: giantswarm/kube-rbac-proxy
+    tag: v0.4.1
 
 featuregates:
   machinepool: true
