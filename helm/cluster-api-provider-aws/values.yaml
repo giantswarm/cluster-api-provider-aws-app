@@ -2,7 +2,7 @@ name: cluster-api-provider-aws
 infrastructure:
   image:
     name: giantswarm/cluster-api-aws-controller
-    tag: 157fc190fc977ab1be8c974e849a343b35464c2a
+    tag: 787579502a18152ab2c1f99b7b460e60c607b7ab
 rbacproxy:
   image:
     name: giantswarm/kube-rbac-proxy
@@ -13,6 +13,8 @@ featuregates:
   eksenableiam: false
   eksallowedroles: false
   eks: false
+  eventbridgeinstancestate: true
+  autocontrolleridentitycreator: true
 
 aws:
   arn: defaultARN
