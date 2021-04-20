@@ -8,6 +8,8 @@ rbacproxy:
     name: giantswarm/kube-rbac-proxy
     tag: v0.4.1
 
+crdConvertOnly: true
+
 featuregates:
   machinepool: true
   eksenableiam: false
