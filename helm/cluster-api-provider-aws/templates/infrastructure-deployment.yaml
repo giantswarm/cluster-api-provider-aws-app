@@ -1,3 +1,4 @@
+{{ if eq (include "resource.app.unique" .) "false" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -68,3 +69,4 @@ spec:
       - name: credentials
         secret:
           secretName: {{ include "resource.default.name" . }}
+{{ end }}
