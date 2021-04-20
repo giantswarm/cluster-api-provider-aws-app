@@ -61,4 +61,4 @@ spec:
       - name: cert
         secret:
           defaultMode: 420
-          secretName: {{ include "resource.default.name" . }}-cert
+          secretName: {{ include "resource.default.name" . }}

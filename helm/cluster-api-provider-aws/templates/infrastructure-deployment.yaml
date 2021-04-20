@@ -68,5 +68,5 @@ spec:
       volumes:
       - name: credentials
         secret:
-          secretName: {{ include "resource.default.name" . }}
+          secretName: {{ include "resource.default.name" . }}-aws-credentials
 {{ end }}
