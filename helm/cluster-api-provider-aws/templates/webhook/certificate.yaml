@@ -14,4 +14,4 @@ spec:
     group: cert-manager.io
     kind: ClusterIssuer
     name: selfsigned-giantswarm
-  secretName: {{ include "resource.default.name" . }}-cert
+  secretName: {{ include "resource.default.name" . }}
