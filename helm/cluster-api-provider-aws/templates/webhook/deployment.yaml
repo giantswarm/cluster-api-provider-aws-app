@@ -20,7 +20,7 @@ spec:
       - args:
         - --metrics-addr=127.0.0.1:8080
         - --webhook-port=9443
-        - --feature-gates=EKS={{ .Values.featuregates.eks }},MachinePool={{ .Values.featuregates.machinepool }}
+        - --feature-gates=EKS={{ .Values.featuregates.eks }},EKSEnableIAM={{ .Values.featuregates.eksenableiam }},MachinePool={{ .Values.featuregates.machinepool }},EventBridgeInstanceState={{ .Values.featuregates.eventbridgeinstancestate }},AutoControllerIdentityCreator={{ .Values.featuregates.autocontrolleridentitycreator }}
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.infrastructure.image.name }}:{{ .Values.infrastructure.image.tag }}"
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -61,4 +61,4 @@ spec:
       - name: cert
         secret:
           defaultMode: 420
-          secretName: {{ include "resource.default.name" . }}-cert
+          secretName: {{ include "resource.default.name" . }}

@@ -1,3 +1,4 @@
+{{ if eq (include "resource.app.unique" .) "false" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,7 +22,7 @@ spec:
       containers:
       - args:
         - --metrics-addr=127.0.0.1:8080
-        - --feature-gates=EKSAllowAddRoles={{ .Values.featuregates.eks }},MachinePool={{ .Values.featuregates.machinepool }}
+        - --feature-gates=EKS={{ .Values.featuregates.eks }},EKSEnableIAM={{ .Values.featuregates.eksenableiam }},MachinePool={{ .Values.featuregates.machinepool }},EventBridgeInstanceState={{ .Values.featuregates.eventbridgeinstancestate }},AutoControllerIdentityCreator={{ .Values.featuregates.autocontrolleridentitycreator }}
         - --watch-filter={{ include "resource.app.version" . }}
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
@@ -67,4 +68,5 @@ spec:
       volumes:
       - name: credentials
         secret:
-          secretName: {{ include "resource.default.name" . }}
+          secretName: {{ include "resource.default.name" . }}-aws-credentials
+{{ end }}
