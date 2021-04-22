@@ -15,7 +15,7 @@ featuregates:
   eksenableiam: false
   eksallowedroles: false
   eks: false
-  eventbridgeinstancestate: true
+  eventbridgeinstancestate: false
   autocontrolleridentitycreator: true
 
 aws:
