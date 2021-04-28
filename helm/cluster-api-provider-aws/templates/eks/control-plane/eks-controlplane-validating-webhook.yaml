@@ -1,5 +1,4 @@
-{{ if eq (include "resource.app.unique" .) "false" }}
-{{ if eq ({{ .Values.featuregates.eks }}) "true" }}
+{{- if and (eq (include "resource.app.unique" .) "false") (eq .Values.featuregates.eks "true") }}
 apiVersion: admissionregistration.k8s.io/v1beta1
 kind: ValidatingWebhookConfiguration
 metadata:

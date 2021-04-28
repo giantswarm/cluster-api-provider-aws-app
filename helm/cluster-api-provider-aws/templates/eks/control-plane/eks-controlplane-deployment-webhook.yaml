@@ -1,4 +1,4 @@
-{{ if eq ({{ .Values.featuregates.eks }}) "true" }}
+{{- if eq .Values.featuregates.eks "true" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:

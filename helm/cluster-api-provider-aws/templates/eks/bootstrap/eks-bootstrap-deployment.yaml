@@ -1,5 +1,4 @@
-{{ if eq (include "resource.app.unique" .) "false" }}
-{{ if eq ({{ .Values.featuregates.eks }}) "true" }}
+{{- if and (eq (include "resource.app.unique" .) "false") (eq .Values.featuregates.eks "true") }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -51,5 +50,4 @@ spec:
       tolerations:
       - effect: NoSchedule
         key: node-role.kubernetes.io/master
-{{ end }}
 {{ end }}

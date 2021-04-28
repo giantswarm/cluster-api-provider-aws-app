@@ -1,5 +1,4 @@
-{{ if eq (include "resource.app.unique" .) "false" }}
-{{ if eq ({{ .Values.featuregates.eks }}) "true" }}
+{{- if and (eq (include "resource.app.unique" .) "false") (eq .Values.featuregates.eks "true") }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -20,5 +19,4 @@ spec:
   selector:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
     control-plane: controller-manager
-{{ end }}
 {{ end }}

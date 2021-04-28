@@ -1,5 +1,4 @@
-{{ if eq (include "resource.app.unique" .) "false" }}
-{{ if eq ({{ .Values.featuregates.eks }}) "true" }}
+{{- if and (eq (include "resource.app.unique" .) "false") (eq .Values.featuregates.eks "true") }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -61,5 +60,4 @@ spec:
       - name: credentials
         secret:
           secretName: {{ include "resource.default.name" . }}-eks-control-plane-credentials
-{{ end }}
 {{ end }}

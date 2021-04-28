@@ -1,4 +1,4 @@
-{{ if eq ({{ .Values.featuregates.eks }}) "true" }}
+{{- if eq .Values.featuregates.eks "true" }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -13,3 +13,4 @@ spec:
     targetPort: webhook-server
   selector:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
+{{ end }}
