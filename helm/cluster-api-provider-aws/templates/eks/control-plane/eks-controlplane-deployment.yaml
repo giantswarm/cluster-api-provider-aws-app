@@ -56,7 +56,7 @@ spec:
       tolerations:
       - effect: NoSchedule
         key: node-role.kubernetes.io/master
-            volumes:
+      volumes:
       - name: credentials
         secret:
           secretName: {{ include "resource.default.name" . }}-eks-control-plane-credentials
