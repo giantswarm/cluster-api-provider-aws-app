@@ -11,7 +11,7 @@ webhooks:
 - clientConfig:
     caBundle: Cg==
     service:
-      {{ include "resource.default.name" . }}-eks-control-plane-webhook
+      name: {{ include "resource.default.name" . }}-eks-control-plane-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /validate-controlplane-cluster-x-k8s-io-v1alpha3-awsmanagedcontrolplane
   failurePolicy: Fail
