@@ -1,0 +1,21 @@
+{{ if eq (include "resource.app.unique" .) "false" }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+  name: name: {{ include "resource.default.name" . }}-eks-bootstrap-proxy
+rules:
+- apiGroups:
+  - authentication.k8s.io
+  resources:
+  - tokenreviews
+  verbs:
+  - create
+- apiGroups:
+  - authorization.k8s.io
+  resources:
+  - subjectaccessreviews
+  verbs:
+  - create
+{{ end }}
