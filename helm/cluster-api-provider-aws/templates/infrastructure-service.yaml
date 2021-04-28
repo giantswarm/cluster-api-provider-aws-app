@@ -8,7 +8,7 @@ metadata:
     prometheus.io/scrape: "true"
   labels:
     control-plane: capa-controller-manager
-    {{- include "labels.common" . | nindent 4 }}
+    {{- include "labels.infrastructure" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-metrics
   namespace: {{ include "resource.default.namespace" . }}
 spec:

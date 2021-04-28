@@ -8,9 +8,9 @@ metadata:
     prometheus.io/scheme: https
     prometheus.io/scrape: "true"
   labels:
-    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+    {{- include "labels.eks.controlplane" . | nindent 4 }}
     control-plane: controller-manager
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-metrics
+  name: {{ include "resource.default.name" . }}-eks-control-plane-metrics
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:
@@ -18,7 +18,6 @@ spec:
     port: 8443
     targetPort: https
   selector:
-    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+    {{- include "labels.eks.controlplane" . | nindent 4 }}
     control-plane: controller-manager
-{{ end }}
 {{ end }}
