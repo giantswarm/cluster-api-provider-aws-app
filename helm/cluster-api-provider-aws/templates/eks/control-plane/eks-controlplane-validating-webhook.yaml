@@ -6,7 +6,7 @@ metadata:
     cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}-eks-control-plane/{{ include "resource.default.name" . }}-eks-control-plane
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  {{ include "resource.default.name" . }}-eks-control-plane
+  name: {{ include "resource.default.name" . }}-eks-control-plane
 webhooks:
 - clientConfig:
     caBundle: Cg==
