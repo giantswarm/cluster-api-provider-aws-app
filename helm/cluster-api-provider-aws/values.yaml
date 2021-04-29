@@ -1,17 +1,17 @@
 name: cluster-api-provider-aws
+tag: dc78088f53cc09c2d219e43fed0f144d8f6c551f
+
 infrastructure:
   image:
     name: giantswarm/cluster-api-aws-controller
-    tag: 787579502a18152ab2c1f99b7b460e60c607b7ab
 eks:
   bootstrap:
     image:
       name: giantswarm/cluster-api-eks-bootstrap-controller
-      tag: 787579502a18152ab2c1f99b7b460e60c607b7ab
   controlplane:
     image:
       name: giantswarm/cluster-api-eks-controlplane-controller
-      tag: 787579502a18152ab2c1f99b7b460e60c607b7ab
+
 rbacproxy:
   image:
     name: giantswarm/kube-rbac-proxy

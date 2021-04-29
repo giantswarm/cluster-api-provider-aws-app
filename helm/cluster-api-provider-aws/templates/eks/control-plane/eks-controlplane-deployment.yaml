@@ -40,7 +40,7 @@ spec:
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.controlplane.image.name }}:{{ .Values.eks.controlplane.image.tag }}"
+        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.controlplane.image.name }}:{{ .Values.tag }}"
         imagePullPolicy: IfNotPresent
         name: manager
         volumeMounts:

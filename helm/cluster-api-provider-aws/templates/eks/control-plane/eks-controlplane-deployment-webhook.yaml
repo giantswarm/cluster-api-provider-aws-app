@@ -36,7 +36,7 @@ spec:
         command:
         - /manager
         env:
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.controlplane.image.name }}:{{ .Values.eks.controlplane.image.tag }}"
+        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.controlplane.image.name }}:{{ .Values.tag }}"
         imagePullPolicy: IfNotPresent
         name: manager
         ports:

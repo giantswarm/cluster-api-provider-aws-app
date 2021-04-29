@@ -37,7 +37,7 @@ spec:
         - --watch-filter={{ include "resource.app.version" . }}
         command:
         - /manager
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.bootstrap.image.name }}:{{ .Values.eks.bootstrap.image.tag }}"
+        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.bootstrap.image.name }}:{{ .Values.tag }}"
         imagePullPolicy: IfNotPresent
         name: manager
       metadata:
