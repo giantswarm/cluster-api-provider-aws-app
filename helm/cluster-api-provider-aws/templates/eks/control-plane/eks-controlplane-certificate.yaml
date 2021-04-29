@@ -4,7 +4,7 @@ kind: Certificate
 metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.ekscontrolplane.name" . }}
+  name: {{ include "resource.ekscontrolplane.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   dnsNames:
@@ -14,5 +14,5 @@ spec:
     group: cert-manager.io
     kind: ClusterIssuer
     name: selfsigned-giantswarm
-  secretName: {{ include "resource.ekscontrolplane.name" . }}
+  secretName: {{ include "resource.ekscontrolplane.name" . }}-webhook
 {{ end }}

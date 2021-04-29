@@ -55,5 +55,5 @@ spec:
       - name: cert
         secret:
           defaultMode: 420
-          secretName: {{ include "resource.ekscontrolplane.name" . }}
+          secretName: {{ include "resource.ekscontrolplane.name" . }}-webhook
 {{ end }}

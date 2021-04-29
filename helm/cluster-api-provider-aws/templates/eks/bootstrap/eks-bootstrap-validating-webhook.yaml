@@ -3,7 +3,7 @@ apiVersion: admissionregistration.k8s.io/v1beta1
 kind: ValidatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}-eks-bootstrap/{{ include "resource.eksbootstrap.name" . }}
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}/{{ include "resource.eksbootstrap.name" . }}-webhook
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
   name: {{ include "resource.eksbootstrap.name" . }}

@@ -3,7 +3,7 @@ apiVersion: admissionregistration.k8s.io/v1beta1
 kind: MutatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}-eks-control-plane/{{ include "resource.ekscontrolplane.name" . }}
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}/{{ include "resource.ekscontrolplane.name" . }}-webhook
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
   name: zzz-{{ include "resource.ekscontrolplane.name" . }}
