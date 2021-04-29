@@ -11,11 +11,11 @@ room for such suffix.
 {{- end -}}
 
 {{- define "resource.eksbootstrap.name" -}}
-{{- include "resource.default.name" . | trimSuffix "unique" -}}-eks-bootstrap{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
+{{- include "resource.default.name" . | trimSuffix "-unique" -}}-eks-bootstrap{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
 {{- end -}}
 
 {{- define "resource.ekscontrolplane.name" -}}
-{- include "resource.default.name" . | trimSuffix "unique" -}}-eks-control-plane{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
+{- include "resource.default.name" . | trimSuffix "-unique" -}}-eks-control-plane{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
 {{- end -}}
 
 {{- define "resource.networkPolicy.name" -}}
