@@ -1,0 +1,16 @@
+{{- if .Values.featuregates.eks }}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+    control-plane: controller-manager
+  name: {{ include "resource.default.name" . }}-eks-bootstrap-webhook
+  namespace: {{ include "resource.default.namespace" . }}
+spec:
+  ports:
+  - port: 443
+    targetPort: webhook-server
+  selector:
+    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+{{ end }}
