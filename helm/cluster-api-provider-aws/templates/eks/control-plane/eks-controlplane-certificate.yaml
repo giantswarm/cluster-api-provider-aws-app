@@ -9,7 +9,7 @@ metadata:
 spec:
   dnsNames:
   - {{ include "resource.ekscontrolplane.name" . }}-webhook.{{ include "resource.default.namespace" . }}.svc
-  - {{ include "resource.ekscontrolplane.name" . }}--webhook.{{ include "resource.default.namespace" . }}.svc.cluster.local
+  - {{ include "resource.ekscontrolplane.name" . }}-webhook.{{ include "resource.default.namespace" . }}.svc.cluster.local
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
