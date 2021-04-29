@@ -4,7 +4,7 @@ kind: Role
 metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-control-plane-leader-election
+  name: {{ include "resource.ekscontrolplane.name" . }}-leader-election
   namespace: {{ include "resource.default.namespace" . }}
 rules:
 - apiGroups:

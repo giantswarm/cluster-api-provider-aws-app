@@ -4,13 +4,13 @@ kind: ClusterRoleBinding
 metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-manager
+  name: {{ include "resource.eksbootstrap.name" . }}-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-manager
+  name: {{ include "resource.eksbootstrap.name" . }}-manager
 subjects:
 - kind: ServiceAccount
-  name: {{ include "resource.default.name" . }}-eks-bootstrap
+  name: {{ include "resource.eksbootstrap.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 {{ end }}

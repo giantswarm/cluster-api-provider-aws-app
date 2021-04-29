@@ -5,7 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-control-plane-manager
+  name: {{ include "resource.ekscontrolplane.name" . }}-manager
 rules:
 - apiGroups:
   - ""

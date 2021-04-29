@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-proxy
+  name: {{ include "resource.eksbootstrap.name" . }}-proxy
 rules:
 - apiGroups:
   - authentication.k8s.io

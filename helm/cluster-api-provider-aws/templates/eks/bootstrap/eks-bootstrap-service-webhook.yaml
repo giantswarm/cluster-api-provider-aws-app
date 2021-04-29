@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
     control-plane: controller-manager
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-webhook
+  name: {{ include "resource.eksbootstrap.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:

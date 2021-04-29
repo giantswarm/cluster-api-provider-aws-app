@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-control-plane-proxy
+  name: {{ include "resource.ekscontrolplane.name" . }}-proxy
 rules:
 - apiGroups:
   - authentication.k8s.io

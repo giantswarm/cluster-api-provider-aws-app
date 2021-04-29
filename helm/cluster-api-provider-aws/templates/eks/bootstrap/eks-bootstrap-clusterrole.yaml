@@ -5,7 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-manager
+  name: {{ include "resource.eksbootstrap.name" . }}-manager
 rules:
 - apiGroups:
   - ""

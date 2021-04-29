@@ -4,14 +4,14 @@ kind: RoleBinding
 metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-leader-election
+  name: {{ include "resource.eksbootstrap.name" . }}-leader-election
   namespace: {{ include "resource.default.namespace" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-leader-election
+  name: {{ include "resource.eksbootstrap.name" . }}-leader-election
 subjects:
 - kind: ServiceAccount
-  name: {{ include "resource.default.name" . }}-eks-bootstrap
+  name: {{ include "resource.eksbootstrap.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 {{ end }}

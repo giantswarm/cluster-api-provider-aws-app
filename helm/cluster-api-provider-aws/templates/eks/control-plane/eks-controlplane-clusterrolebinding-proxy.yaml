@@ -4,13 +4,13 @@ kind: ClusterRoleBinding
 metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-control-plane-proxy
+  name: {{ include "resource.ekscontrolplane.name" . }}-proxy
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ include "resource.default.name" . }}-eks-control-plane-proxy
+  name: {{ include "resource.ekscontrolplane.name" . }}-proxy
 subjects:
 - kind: ServiceAccount
-  name: {{ include "resource.default.name" . }}-eks-control-plane
+  name: {{ include "resource.ekscontrolplane.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 {{ end }}

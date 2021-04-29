@@ -5,5 +5,5 @@ metadata:
   creationTimestamp: null
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}eks-control-plane-webhook
+  name: {{ include "resource.ekscontrolplane.name" . }}-webhook
 {{ end }}

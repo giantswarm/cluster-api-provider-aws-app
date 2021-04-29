@@ -9,7 +9,7 @@ metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
     control-plane: controller-manager
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-metrics
+  name: {{ include "resource.eksbootstrap.name" . }}-metrics
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:

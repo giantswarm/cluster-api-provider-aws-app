@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-metrics
+  name: {{ include "resource.eksbootstrap.name" . }}-metrics
 rules:
 - nonResourceURLs:
   - /metrics

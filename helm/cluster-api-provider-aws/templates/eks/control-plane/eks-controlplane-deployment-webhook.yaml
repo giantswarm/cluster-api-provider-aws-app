@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
     control-plane: controller-manager
-  name: {{ include "resource.default.name" . }}-eks-control-plane-webhook
+  name: {{ include "resource.ekscontrolplane.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   replicas: 1
@@ -55,5 +55,5 @@ spec:
       - name: cert
         secret:
           defaultMode: 420
-          secretName: {{ include "resource.default.name" . }}-eks-control-plane
+          secretName: {{ include "resource.ekscontrolplane.name" . }}
 {{ end }}

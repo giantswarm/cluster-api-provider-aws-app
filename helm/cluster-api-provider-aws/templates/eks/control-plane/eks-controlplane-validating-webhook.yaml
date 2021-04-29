@@ -3,15 +3,15 @@ apiVersion: admissionregistration.k8s.io/v1beta1
 kind: ValidatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}-eks-control-plane/{{ include "resource.default.name" . }}-eks-control-plane
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}-eks-control-plane/{{ include "resource.ekscontrolplane.name" . }}
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-control-plane
+  name: {{ include "resource.ekscontrolplane.name" . }}
 webhooks:
 - clientConfig:
     caBundle: Cg==
     service:
-      name: {{ include "resource.default.name" . }}-eks-control-plane-webhook
+      name: {{ include "resource.ekscontrolplane.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /validate-controlplane-cluster-x-k8s-io-v1alpha3-awsmanagedcontrolplane
   failurePolicy: Fail

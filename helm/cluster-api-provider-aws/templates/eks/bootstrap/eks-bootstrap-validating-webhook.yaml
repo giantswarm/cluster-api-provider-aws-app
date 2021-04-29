@@ -3,15 +3,15 @@ apiVersion: admissionregistration.k8s.io/v1beta1
 kind: ValidatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}-eks-bootstrap/{{ include "resource.default.name" . }}-eks-bootstrap
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}-eks-bootstrap/{{ include "resource.eksbootstrap.name" . }}
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-bootstrap
+  name: {{ include "resource.eksbootstrap.name" . }}
 webhooks:
 - clientConfig:
     caBundle: Cg==
     service:
-      name: {{ include "resource.default.name" . }}-eks-bootstrap-webhook
+      name: {{ include "resource.eksbootstrap.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /validate-bootstrap-cluster-x-k8s-io-v1alpha3-eksconfig
   failurePolicy: Fail

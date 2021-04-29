@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-control-plane-metrics
+  name: {{ include "resource.ekscontrolplane.name" . }}-metrics
 rules:
 - nonResourceURLs:
   - /metrics

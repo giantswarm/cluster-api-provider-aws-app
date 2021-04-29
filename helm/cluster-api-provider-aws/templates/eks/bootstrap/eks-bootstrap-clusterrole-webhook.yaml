@@ -5,5 +5,5 @@ metadata:
   creationTimestamp: null
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}eks-bootstrap-webhook
+  name: {{ include "resource.eksbootstrap.name" . }}-webhook
 {{ end }}

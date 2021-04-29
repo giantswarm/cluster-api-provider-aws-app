@@ -4,7 +4,7 @@ kind: Role
 metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-eks-bootstrap-leader-election
+  name: {{ include "resource.eksbootstrap.name" . }}-leader-election
   namespace: {{ include "resource.default.namespace" . }}
 rules:
 - apiGroups:
