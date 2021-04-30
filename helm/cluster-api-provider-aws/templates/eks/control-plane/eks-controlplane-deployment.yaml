@@ -51,7 +51,7 @@ spec:
           iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
       securityContext:
         fsGroup: 1000
-      serviceAccountname: {{ include "resource.ekscontrolplane.name" . }}
+      serviceAccountName: {{ include "resource.ekscontrolplane.name" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule

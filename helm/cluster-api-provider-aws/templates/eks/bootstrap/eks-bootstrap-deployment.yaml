@@ -45,7 +45,7 @@ spec:
           iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
       securityContext:
         fsGroup: 1000
-      serviceAccountname: {{ include "resource.eksbootstrap.name" . }}
+      serviceAccountName: {{ include "resource.eksbootstrap.name" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule
