@@ -9,7 +9,7 @@ metadata:
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:
-  - port: 443
+  - port: 9443
     targetPort: webhook-server
   selector:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
