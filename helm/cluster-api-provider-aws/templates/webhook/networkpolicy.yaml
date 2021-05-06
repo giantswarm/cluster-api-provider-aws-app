@@ -14,15 +14,13 @@ spec:
   - {}
   ingress:
   - ports:
-    - port: 443
+    - port: {{ .Values.ports.proxy }}
       protocol: TCP
-    - port: 8443
+    - port: {{ .Values.ports.metrics }}
       protocol: TCP
-    - port: 8080
+    - port: {{ .Values.ports.webhook }}
       protocol: TCP
-    - port: 9443
-      protocol: TCP
-    - port: 9440
+    - port: {{ .Values.ports.healthz }}
       protocol: TCP
   policyTypes:
   - Egress

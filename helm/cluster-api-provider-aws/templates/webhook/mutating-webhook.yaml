@@ -14,6 +14,7 @@ webhooks:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awscluster
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awscluster.infrastructure.cluster.x-k8s.io
@@ -37,6 +38,7 @@ webhooks:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsclustercontrolleridentity
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsclustercontrolleridentity.infrastructure.cluster.x-k8s.io
@@ -60,6 +62,7 @@ webhooks:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsclusterroleidentity
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsclusterroleidentity.infrastructure.cluster.x-k8s.io
@@ -83,6 +86,7 @@ webhooks:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachine
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   name: mutation.awsmachine.infrastructure.cluster.x-k8s.io
   objectSelector:
@@ -105,6 +109,7 @@ webhooks:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsfargateprofile
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsfargateprofile.infrastructure.cluster.x-k8s.io
@@ -128,6 +133,7 @@ webhooks:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinepool
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmachinepool.infrastructure.cluster.x-k8s.io
@@ -151,6 +157,7 @@ webhooks:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmanagedmachinepool
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmanagedmachinepool.infrastructure.cluster.x-k8s.io

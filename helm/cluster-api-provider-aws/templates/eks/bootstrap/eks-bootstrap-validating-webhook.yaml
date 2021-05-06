@@ -14,6 +14,7 @@ webhooks:
       name: {{ include "resource.eksbootstrap.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /validate-bootstrap-cluster-x-k8s-io-v1alpha3-eksconfig
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: validation.eksconfig.bootstrap.cluster.x-k8s.io

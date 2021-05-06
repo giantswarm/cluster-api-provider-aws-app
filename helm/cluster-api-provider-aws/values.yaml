@@ -30,6 +30,12 @@ featuregates:
 aws:
   arn: defaultARN
 
+ports:
+  proxy: 8443
+  healthz: 9440
+  metrics: 8080
+  webhook: 9443
+
 project:
   branch: "[[ .Branch ]]"
   commit: "[[ .SHA ]]"

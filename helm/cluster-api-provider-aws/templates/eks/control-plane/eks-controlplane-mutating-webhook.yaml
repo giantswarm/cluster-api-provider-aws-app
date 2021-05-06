@@ -14,6 +14,7 @@ webhooks:
       name: {{ include "resource.ekscontrolplane.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
       path: /mutate-controlplane-cluster-x-k8s-io-v1alpha3-awsmanagedcontrolplane
+      port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmanagedcontrolplanes.controlplane.cluster.x-k8s.io
