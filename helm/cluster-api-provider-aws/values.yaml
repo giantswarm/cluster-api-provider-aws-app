@@ -2,7 +2,7 @@ name: cluster-api-provider-aws
 infrastructure:
   image:
     name: giantswarm/cluster-api-aws-controller
-    tag: 787579502a18152ab2c1f99b7b460e60c607b7ab
+    tag: 750d0a3ff8b0b11a5e9c38837de08b97c0b05fab
 rbacproxy:
   image:
     name: giantswarm/kube-rbac-proxy
