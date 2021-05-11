@@ -21,9 +21,9 @@ crdConvertOnly: true
 
 featuregates:
   machinepool: true
-  eksenableiam: true
-  eksallowedroles: true
-  eks: true
+  eksenableiam: false
+  eksallowedroles: false
+  eks: false
   eventbridgeinstancestate: false
   autocontrolleridentitycreator: true
 
