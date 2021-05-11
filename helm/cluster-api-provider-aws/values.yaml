@@ -1,12 +1,21 @@
 name: cluster-api-provider-aws
+tag: 093033f3c6f8a0660fdd913b94435133e62991b1
+
 infrastructure:
   image:
     name: giantswarm/cluster-api-aws-controller
-    tag: 787579502a18152ab2c1f99b7b460e60c607b7ab
+eks:
+  bootstrap:
+    image:
+      name: giantswarm/eks-bootstrap-controller
+  controlplane:
+    image:
+      name: giantswarm/eks-controlplane-controller
+
 rbacproxy:
   image:
     name: giantswarm/kube-rbac-proxy
-    tag: v0.4.1
+    tag: v0.5.0
 
 crdConvertOnly: true
 
@@ -20,6 +29,12 @@ featuregates:
 
 aws:
   arn: defaultARN
+
+ports:
+  proxy: 8443
+  healthz: 9440
+  metrics: 8080
+  webhook: 9443
 
 project:
   branch: "[[ .Branch ]]"

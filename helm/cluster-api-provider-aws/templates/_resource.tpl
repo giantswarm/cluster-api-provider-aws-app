@@ -10,6 +10,14 @@ room for such suffix.
 {{- .Release.Name | replace "." "-" | trunc 47 | trimSuffix "-" -}}
 {{- end -}}
 
+{{- define "resource.eksbootstrap.name" -}}
+{{- include "resource.default.name" . | trimSuffix "-unique" -}}-eks-bootstrap{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
+{{- end -}}
+
+{{- define "resource.ekscontrolplane.name" -}}
+{{- include "resource.default.name" . | trimSuffix "-unique" -}}-eks-control-plane{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
+{{- end -}}
+
 {{- define "resource.networkPolicy.name" -}}
 {{- include "resource.default.name" . -}}-network-policy
 {{- end -}}

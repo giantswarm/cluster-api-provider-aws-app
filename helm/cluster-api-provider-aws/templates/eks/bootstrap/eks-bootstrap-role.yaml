@@ -1,10 +1,10 @@
-{{ if eq (include "resource.app.unique" .) "false" }}
+{{- if and (eq (include "resource.app.unique" .) "false") (.Values.featuregates.eks) }}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   labels:
-    {{- include "labels.infrastructure" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-leader-election
+    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+  name: {{ include "resource.eksbootstrap.name" . }}-leader-election
   namespace: {{ include "resource.default.namespace" . }}
 rules:
 - apiGroups:
@@ -27,4 +27,10 @@ rules:
   - get
   - update
   - patch
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
 {{ end }}
