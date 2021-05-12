@@ -35,7 +35,7 @@ giantswarm
 {{- end -}}
 
 {{- define "resource.app.version" -}}
-0.0.1
+0.6.5-gs1
 {{- end -}}
 
 {{- define "resource.app.unique" -}}
