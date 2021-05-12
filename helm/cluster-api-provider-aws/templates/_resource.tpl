@@ -35,7 +35,7 @@ giantswarm
 {{- end -}}
 
 {{- define "resource.app.version" -}}
-{{- .Chart.appVersion -}}
+{{- .Chart.AppVersion | quote -}}
 {{- end -}}
 
 {{- define "resource.app.unique" -}}
