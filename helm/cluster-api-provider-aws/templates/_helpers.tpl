@@ -16,6 +16,30 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{/*
+Bootstrap EKS labels
+*/}}
+{{- define "labels.eks.bootstrap" -}}
+{{ include "labels.common" . }}
+cluster.x-k8s.io/provider: bootstrap-eks
+{{- end -}}
+
+{{/*
+Controlplane EKS labels
+*/}}
+{{- define "labels.eks.controlplane" -}}
+{{ include "labels.common" . }}
+cluster.x-k8s.io/provider: control-plane-eks
+{{- end -}}
+
+{{/*
+Infrastructure labels
+*/}}
+{{- define "labels.infrastructure" -}}
+{{ include "labels.common" . }}
+cluster.x-k8s.io/provider: infrastructure-aws
+{{- end -}}
+
+{{/*
 Common labels
 */}}
 {{- define "labels.common" -}}
@@ -28,7 +52,6 @@ app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
 giantswarm.io/service-type: {{ .Values.serviceType }}
-cluster.x-k8s.io/provider: infrastructure-aws
 {{- end -}}
 
 {{/*
