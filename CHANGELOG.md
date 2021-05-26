@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Changed watch-filter value to `capi`.
+
 ## [0.0.1] - 2021-03-18
 
 [Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.0.1...HEAD

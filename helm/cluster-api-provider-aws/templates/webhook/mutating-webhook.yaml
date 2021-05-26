@@ -19,7 +19,7 @@ webhooks:
   name: default.awscluster.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -42,7 +42,7 @@ webhooks:
   name: default.awsclustercontrolleridentity.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -65,7 +65,7 @@ webhooks:
   name: default.awsclusterroleidentity.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -87,7 +87,7 @@ webhooks:
   name: mutation.awsmachine.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -110,7 +110,7 @@ webhooks:
   name: default.awsfargateprofile.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -133,7 +133,7 @@ webhooks:
   name: default.awsmachinepool.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -156,7 +156,7 @@ webhooks:
   name: default.awsmanagedmachinepool.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
