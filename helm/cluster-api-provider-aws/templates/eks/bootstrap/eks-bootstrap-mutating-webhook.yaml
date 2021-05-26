@@ -1,0 +1,35 @@
+{{- if and (eq (include "resource.app.unique" .) "false") (.Values.featuregates.eks) }}
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: MutatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}/{{ include "resource.eksbootstrap.name" . }}-webhook
+  labels:
+    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+  name: zzz-{{ include "resource.eksbootstrap.name" . }}
+webhooks:
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: {{ include "resource.eksbootstrap.name" . }}-webhook
+      namespace: {{ include "resource.default.namespace" . }}
+      path: /mutate-bootstrap-cluster-x-k8s-io-v1alpha3-eksconfig
+      port: {{ .Values.ports.webhook }}
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: default.eksconfig.bootstrap.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+  rules:
+  - apiGroups:
+    - bootstrap.cluster.x-k8s.io
+    apiVersions:
+    - v1alpha3
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - eksconfigs
+  sideEffects: None
+{{ end }}

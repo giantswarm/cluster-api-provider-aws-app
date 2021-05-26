@@ -1,0 +1,16 @@
+{{- if .Values.featuregates.eks }}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    {{- include "labels.eks.controlplane" . | nindent 4 }}
+    control-plane: controller-manager
+  name: {{ include "resource.ekscontrolplane.name" . }}-webhook
+  namespace: {{ include "resource.default.namespace" . }}
+spec:
+  ports:
+  - port: {{ .Values.ports.webhook }}
+    targetPort: webhook-server
+  selector:
+    {{- include "labels.eks.controlplane" . | nindent 4 }}
+{{ end }}

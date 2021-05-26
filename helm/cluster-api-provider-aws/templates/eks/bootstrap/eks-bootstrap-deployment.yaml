@@ -1,0 +1,53 @@
+{{- if and (eq (include "resource.app.unique" .) "false") (.Values.featuregates.eks) }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+    control-plane: controller-manager
+  name: {{ include "resource.eksbootstrap.name" . }}
+  namespace: {{ include "resource.default.namespace" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "labels.eks.bootstrap" . | nindent 6 }}
+      control-plane: controller-manager
+  template:
+    metadata:
+      labels:
+        {{- include "labels.eks.bootstrap" . | nindent 8 }}
+        control-plane: controller-manager
+    spec:
+      containers:
+      - args:
+        - --secure-listen-address=0.0.0.0:{{ .Values.ports.proxy }}
+        - --upstream=http://127.0.0.1:{{ .Values.ports.metrics }}/
+        - --logtostderr=true
+        - --v=10
+        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.rbacproxy.image.name }}:{{ .Values.rbacproxy.image.tag }}"
+        imagePullPolicy: IfNotPresent
+        name: kube-rbac-proxy
+        ports:
+        - containerPort: {{ .Values.ports.proxy }}
+          name: https
+      - args:
+        - --metrics-addr=127.0.0.1:{{ .Values.ports.metrics }}
+        - --feature-gates=MachinePool={{ .Values.featuregates.machinepool }}
+        - --watch-filter={{ include "resource.app.version" . }}
+        command:
+        - /manager
+        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.bootstrap.image.name }}:{{ .Values.tag }}"
+        imagePullPolicy: IfNotPresent
+        name: manager
+      metadata:
+        annotations:
+          iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
+      securityContext:
+        fsGroup: 1000
+      serviceAccountName: {{ include "resource.eksbootstrap.name" . }}
+      terminationGracePeriodSeconds: 10
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+{{ end }}

@@ -1,0 +1,18 @@
+{{- if .Values.featuregates.eks }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  labels:
+    {{- include "labels.eks.controlplane" . | nindent 4 }}
+  name: {{ include "resource.ekscontrolplane.name" . }}-webhook
+  namespace: {{ include "resource.default.namespace" . }}
+spec:
+  dnsNames:
+  - {{ include "resource.ekscontrolplane.name" . }}-webhook.{{ include "resource.default.namespace" . }}.svc
+  - {{ include "resource.ekscontrolplane.name" . }}-webhook.{{ include "resource.default.namespace" . }}.svc.cluster.local
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: selfsigned-giantswarm
+  secretName: {{ include "resource.ekscontrolplane.name" . }}-webhook
+{{ end }}
