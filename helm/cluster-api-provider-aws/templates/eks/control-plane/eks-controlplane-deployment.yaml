@@ -34,7 +34,7 @@ spec:
         - --metrics-addr=127.0.0.1:{{ .Values.ports.metrics }}
         - --feature-gates=EKSEnableIAM={{ .Values.featuregates.eksenableiam }},EKSEnableIAM={{ .Values.featuregates.eksallowedroles }},MachinePool={{ .Values.featuregates.machinepool }}
         - --v=4
-        - --watch-filter={{ include "resource.app.version" . }}
+        - --watch-filter={{ .Values.watchfilter }}
         command:
         - /manager
         env:
