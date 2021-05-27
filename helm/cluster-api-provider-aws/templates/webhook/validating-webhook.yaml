@@ -20,7 +20,7 @@ webhooks:
   name: validation.awscluster.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -44,7 +44,7 @@ webhooks:
   name: validation.awsclustercontrolleridentity.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -68,7 +68,7 @@ webhooks:
   name: validation.awsclusterroleidentity.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -92,7 +92,7 @@ webhooks:
   name: validation.awsmachine.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -116,7 +116,7 @@ webhooks:
   name: validation.awsmachinetemplate.infrastructure.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -140,7 +140,7 @@ webhooks:
   name: validation.awsfargateprofile.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -164,7 +164,7 @@ webhooks:
   name: validation.awsmachinepool.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -188,7 +188,7 @@ webhooks:
   name: validation.awsmanagedmachinepool.infrastructure.cluster.x-k8s.io
   objectSelector:
     matchLabels:
-      cluster.x-k8s.io/watch-filter: {{ include "resource.app.version" . }}
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Changed watch-filter value to `capi`.
+
 ## [0.6.5-gs2] - 2021-05-24
 
 ## [0.6.5-gs1] - 2021-05-12
