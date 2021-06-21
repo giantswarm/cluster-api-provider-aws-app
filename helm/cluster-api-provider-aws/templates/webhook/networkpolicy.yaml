@@ -14,8 +14,6 @@ spec:
   - {}
   ingress:
   - ports:
-    - port: {{ .Values.ports.proxy }}
-      protocol: TCP
     - port: {{ .Values.ports.metrics }}
       protocol: TCP
     - port: {{ .Values.ports.webhook }}
