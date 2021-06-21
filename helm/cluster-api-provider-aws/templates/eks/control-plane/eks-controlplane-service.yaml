@@ -11,9 +11,9 @@ metadata:
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:
-  - name: https
-    port: {{ .Values.ports.proxy }}
-    targetPort: https
+  - name: http
+    port: {{ .Values.ports.metrics }}
+    targetPort: http
   selector:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
     control-plane: controller-manager
