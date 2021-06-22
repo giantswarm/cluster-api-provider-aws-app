@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated CAPA to version to 0.6.6
+
+### Removed
+
 - Remove kube-rbac-proxy for the metrics endpoint.
 
 ## [0.6.5-gs3] - 2021-05-27
