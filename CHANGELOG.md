@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add secret to store ssh sso public key for later use.
+
 ## [0.6.6-gs1] - 2021-06-25
 
 ### Changed
