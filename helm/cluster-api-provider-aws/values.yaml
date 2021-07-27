@@ -35,3 +35,9 @@ project:
   commit: "[[ .SHA ]]"
 
 watchfilter: capi
+
+Installation:
+  V1:
+    Guest:
+      SSH:
+        SSOPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm'
