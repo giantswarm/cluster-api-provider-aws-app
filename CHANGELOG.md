@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.8-gs1] - 2021-07-27
+
 ## [0.6.7-gs1] - 2021-07-27
 
 ### Added
@@ -35,7 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.7-gs1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs1...HEAD
+[0.6.8-gs1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.7-gs1...v0.6.8-gs1
 [0.6.7-gs1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.6-gs1...v0.6.7-gs1
 [0.6.6-gs1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.5-gs3...v0.6.6-gs1
 [0.6.5-gs3]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.5-gs2...v0.6.5-gs3
