@@ -36,4 +36,4 @@ project:
 
 watchfilter: capi
 
-serviceType: capi
+serviceType: managed
