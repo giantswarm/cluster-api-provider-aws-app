@@ -9,3 +9,6 @@ Installation:
           AccessKeyID: defaultID
           SecretAccessKey: defaultKey
           Region: defaultRegion
+    Guest:
+      SSH:
+        SSOPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm'
