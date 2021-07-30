@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Updated cluster-api to v0.3.22.
+- Updated CAPA to v0.6.8.
 
 ## [0.6.6-gs2] - 2021-07-28
 
