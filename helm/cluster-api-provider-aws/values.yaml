@@ -1,5 +1,5 @@
 name: cluster-api-provider-aws
-tag: f297e6f478169d1b1f5b317019b74a911e2084f9
+tag: v0.6.8-gs1
 
 infrastructure:
   image:
