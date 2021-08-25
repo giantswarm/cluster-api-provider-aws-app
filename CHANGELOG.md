@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Activated eks feature flags
+
 ## [0.6.8-gs1] - 2021-08-02
 
 - Updated CAPA to v0.6.8.
