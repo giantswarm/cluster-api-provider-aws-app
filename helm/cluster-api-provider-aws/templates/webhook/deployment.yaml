@@ -20,7 +20,7 @@ spec:
       - args:
         - --metrics-addr=0.0.0.0:{{ .Values.ports.metrics }}
         - --webhook-port={{ .Values.ports.webhook }}
-        - --feature-gates=EKS={{ .Values.featuregates.eks }},EKSEnableIAM={{ .Values.featuregates.eksenableiam }},MachinePool={{ .Values.featuregates.machinepool }},EventBridgeInstanceState={{ .Values.featuregates.eventbridgeinstancestate }},AutoControllerIdentityCreator={{ .Values.featuregates.autocontrolleridentitycreator }}
+        - --feature-gates=EKS=false,EKSEnableIAM={{ .Values.featuregates.eksenableiam }},MachinePool={{ .Values.featuregates.machinepool }},EventBridgeInstanceState={{ .Values.featuregates.eventbridgeinstancestate }},AutoControllerIdentityCreator={{ .Values.featuregates.autocontrolleridentitycreator }}
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.infrastructure.image.name }}:{{ .Values.tag }}"
         imagePullPolicy: IfNotPresent
         livenessProbe:
