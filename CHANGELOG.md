@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Deactivate eks flag only for core aws webhook
+
+
 ## [0.6.8-gs2] - 2021-08-25
 
 ### Changed
