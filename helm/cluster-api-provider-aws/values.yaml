@@ -37,3 +37,16 @@ project:
 watchfilter: capi
 
 serviceType: managed
+
+provider:
+  region: defaultRegion
+registry:
+  domain: docker.io
+secret:
+  provider:
+    capi:
+      accessKeyID: defaultID
+      secretAccessKey: defaultKey
+tenant:
+  ssh:
+    ssoPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm

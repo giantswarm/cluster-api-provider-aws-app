@@ -4,3 +4,6 @@ description: "Helm chart for cluster-api-provider-aws."
 home: "https://github.com/giantswarm/cluster-api-provider-aws-app"
 version: "[[ .Version ]]"
 appVersion: [[ .AppVersion ]]
+annotations:
+  application.giantswarm.io/team: "firecracker"
+  config.giantswarm.io/version: 1.x.x
