@@ -49,5 +49,4 @@ secret:
       secretAccessKey: defaultKey
 tenant:
   ssh:
-    ssoPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm
-    
+    ssoPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm'
