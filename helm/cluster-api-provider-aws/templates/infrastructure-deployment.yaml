@@ -29,7 +29,7 @@ spec:
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.infrastructure.image.name }}:{{ .Values.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.infrastructure.image.name }}:{{ .Values.tag }}"
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

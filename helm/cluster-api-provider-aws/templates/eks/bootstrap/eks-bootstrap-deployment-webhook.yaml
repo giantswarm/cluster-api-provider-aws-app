@@ -25,7 +25,7 @@ spec:
         - --webhook-port={{ .Values.ports.webhook }}
         command:
         - /manager
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.eks.bootstrap.image.name }}:{{ .Values.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.eks.bootstrap.image.name }}:{{ .Values.tag }}"
         imagePullPolicy: IfNotPresent
         name: manager
         ports:
