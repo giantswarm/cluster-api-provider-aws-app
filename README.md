@@ -28,7 +28,7 @@ export AWS_SESSION_TOKEN=[...]
 ``` 
 Use `opsctl` to find the management cluster AWS account on your installation.
 ```
-opsctl open -a cloudprovider -i $INSTALLATION --workloadCluster-cluster default --no-browser
+opsctl open -a cloudprovider -i $INSTALLATION --tenant-cluster default --no-browser
 ```
 It will give you something like
 ```
