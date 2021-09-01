@@ -47,6 +47,6 @@ secret:
     capi:
       accessKeyID: defaultID
       secretAccessKey: defaultKey
-tenant:
+workloadCluster:
   ssh:
     ssoPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm'
