@@ -40,13 +40,13 @@ serviceType: managed
 
 provider:
   region: defaultRegion
+  capi:
+    accessKeyID: defaultID
+    secretAccessKey: defaultKey
+
 registry:
   domain: docker.io
-secret:
-  provider:
-    capi:
-      accessKeyID: defaultID
-      secretAccessKey: defaultKey
+
 workloadCluster:
   ssh:
     ssoPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm'
