@@ -46,8 +46,6 @@ provider:
 
 registry:
   domain: docker.io
-secret:
-  provider:
 
 workloadCluster:
   ssh:
