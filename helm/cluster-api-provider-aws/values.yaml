@@ -43,7 +43,7 @@ provider:
   capi:
     accessKeyID: defaultID
     secretAccessKey: defaultKey
-    
+
 registry:
   domain: docker.io
 secret:
