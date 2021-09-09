@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-    control-plane: controller-manager
+    component: eks-bootstrap
   name: {{ include "resource.eksbootstrap.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 spec:
@@ -12,12 +12,12 @@ spec:
   selector:
     matchLabels:
       {{- include "labels.eks.bootstrap" . | nindent 6 }}
-      control-plane: controller-manager
+      component: eks-bootstrap
   template:
     metadata:
       labels:
         {{- include "labels.eks.bootstrap" . | nindent 8 }}
-        control-plane: controller-manager
+        component: eks-bootstrap
     spec:
       containers:
       - args:

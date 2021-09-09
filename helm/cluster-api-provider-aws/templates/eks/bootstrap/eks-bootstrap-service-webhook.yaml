@@ -4,7 +4,7 @@ kind: Service
 metadata:
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-    control-plane: controller-manager
+    component: eks-bootstrap-webhook
   name: {{ include "resource.eksbootstrap.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
@@ -12,5 +12,6 @@ spec:
   - port: {{ .Values.ports.webhook }}
     targetPort: webhook-server
   selector:
+    component: eks-bootstrap-webhook
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
 {{ end }}

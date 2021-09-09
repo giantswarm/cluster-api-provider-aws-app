@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-    control-plane: controller-manager
+    component: eks-control-plane-webhook
   name: {{ include "resource.ekscontrolplane.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
@@ -12,12 +12,12 @@ spec:
   selector:
     matchLabels:
       {{- include "labels.eks.controlplane" . | nindent 6 }}
-      control-plane: controller-manager
+      component: eks-control-plane-webhook
   template:
     metadata:
       labels:
         {{- include "labels.eks.controlplane" . | nindent 8 }}
-        control-plane: controller-manager
+        component: eks-control-plane-webhook
     spec:
       containers:
       - args:

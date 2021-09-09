@@ -4,7 +4,7 @@ kind: Service
 metadata:
   labels:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
-    control-plane: controller-manager
+    component: eks-control-plane-webhook
   name: {{ include "resource.ekscontrolplane.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
@@ -13,4 +13,5 @@ spec:
     targetPort: webhook-server
   selector:
     {{- include "labels.eks.controlplane" . | nindent 4 }}
+    component: eks-control-plane-webhook
 {{ end }}
