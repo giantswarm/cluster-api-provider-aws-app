@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Fix labels for all deployment and services.
+
 ## [0.6.8-gs4] - 2021-09-02
 
 ### Changed
