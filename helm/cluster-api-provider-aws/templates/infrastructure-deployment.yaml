@@ -12,14 +12,14 @@ spec:
   selector:
     matchLabels:
       component: capa-controller-manager
-      {{- include "labels.selector" . | nindent 6 }}
+      {{- include "labels.infrastructure" . | nindent 6 }}
   template:
     metadata:
       annotations:
         iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
       labels:
         component: capa-controller-manager
-        {{- include "labels.selector" . | nindent 8 }}
+        {{- include "labels.infrastructure" . | nindent 8 }}
     spec:
       containers:
       - args:
