@@ -5,7 +5,7 @@ metadata:
   annotations:
     prometheus.io/scrape: "true"
   labels:
-    control-plane: capa-controller-manager
+    component: capa-controller-manager
     {{- include "labels.infrastructure" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-metrics
   namespace: {{ include "resource.default.namespace" . }}
@@ -15,5 +15,6 @@ spec:
     port: {{ .Values.ports.metrics }}
     targetPort: http
   selector:
-    {{- include "labels.selector" . | nindent 4 }}
+    component: capa-controller-manager
+    {{- include "labels.infrastructure" . | nindent 4 }}
 {{ end }}

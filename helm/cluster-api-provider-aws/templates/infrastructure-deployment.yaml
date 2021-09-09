@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    control-plane: capa-controller-manager
+    component: capa-controller-manager
     {{- include "labels.infrastructure" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
@@ -11,14 +11,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      control-plane: capa-controller-manager
+      component: capa-controller-manager
       {{- include "labels.selector" . | nindent 6 }}
   template:
     metadata:
       annotations:
         iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
       labels:
-        control-plane: capa-controller-manager
+        component: capa-controller-manager
         {{- include "labels.selector" . | nindent 8 }}
     spec:
       containers:

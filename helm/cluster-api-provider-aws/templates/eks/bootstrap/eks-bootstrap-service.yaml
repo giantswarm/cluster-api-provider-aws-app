@@ -6,7 +6,7 @@ metadata:
     prometheus.io/scrape: "true"
   labels:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-    control-plane: controller-manager
+    component: eks-bootstrap
   name: {{ include "resource.eksbootstrap.name" . }}-metrics
   namespace: {{ include "resource.default.namespace" . }}
 spec:
@@ -16,5 +16,5 @@ spec:
     targetPort: http
   selector:
     {{- include "labels.eks.bootstrap" . | nindent 4 }}
-    control-plane: controller-manager
+    component: eks-bootstrap
 {{ end }}

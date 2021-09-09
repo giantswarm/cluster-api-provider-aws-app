@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    control-plane: capa-controller-manager
+    component: capa-controller-manager-webhook
     {{- include "labels.infrastructure" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
@@ -10,10 +10,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "labels.selector" . | nindent 6 }}
+      component: capa-controller-manager-webhook
+      {{- include "labels.infrastructure" . | nindent 6 }}
   template:
     metadata:
       labels:
+        component: capa-controller-manager-webhook
         {{- include "labels.infrastructure" . | nindent 8 }}
     spec:
       containers:
