@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Enable EKS in CAPA webhook
+
 ## [0.6.8-gs5] - 2021-09-09
 
 ### Changed
