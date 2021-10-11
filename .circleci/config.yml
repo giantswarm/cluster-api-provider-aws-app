@@ -6,10 +6,8 @@ workflows:
   package-and-push-chart-on-tag:
     jobs:
       - architect/push-to-app-catalog:
-          name: push-to-app-catalog
           context: "architect"
-          # executor: "app-build-suite" # uncomment this if you want automatic metadata generation
-          name: "package and push cluster-api-provider-aws chart"
+          name: push-to-app-catalog
           app_catalog: "control-plane-test-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "cluster-api-provider-aws"
