@@ -8,7 +8,7 @@ workflows:
       - architect/push-to-app-catalog:
           context: "architect"
           name: push-to-app-catalog
-          app_catalog: "control-plane-test-catalog"
+          app_catalog: "control-plane-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "cluster-api-provider-aws"
           # Trigger job on git tag.
