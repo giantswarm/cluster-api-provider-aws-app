@@ -11,11 +11,11 @@ room for such suffix.
 {{- end -}}
 
 {{- define "resource.eksbootstrap.name" -}}
-{{- include "resource.default.name" . | trimSuffix "-unique" -}}-eks-bootstrap{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
+{{- include "resource.default.name" . -}}-eks-bootstrap
 {{- end -}}
 
 {{- define "resource.ekscontrolplane.name" -}}
-{{- include "resource.default.name" . | trimSuffix "-unique" -}}-eks-control-plane{{- if hasSuffix "-unique" .Release.Name }}-unique{{ end }}
+{{- include "resource.default.name" . -}}-eks-control-plane
 {{- end -}}
 
 {{- define "resource.networkPolicy.name" -}}
@@ -39,5 +39,5 @@ giantswarm
 {{- end -}}
 
 {{- define "resource.app.unique" -}}
-{{- if hasSuffix "-unique" .Release.Name }}true{{ else }}false{{ end }}
+{{- if eq $.Chart.Name $.Release.Name }}true{{ else }}false{{ end }}
 {{- end -}}
