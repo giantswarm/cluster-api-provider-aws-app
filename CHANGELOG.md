@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix selector labels for EKS webhook.
+
 ## [0.6.8-gs9] - 2021-11-24
 
 ### Fixed
