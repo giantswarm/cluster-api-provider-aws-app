@@ -60,7 +60,6 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 Common labels
 */}}
 {{- define "labels.common" -}}
-{{ include "labels.selector" . }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 app.giantswarm.io/branch: {{ .Values.project.branch | replace "#" "-" | replace "/" "-" | replace "." "-" | trunc 63 | trimSuffix "-" | quote }}
 app.giantswarm.io/commit: {{ .Values.project.commit | quote }}
