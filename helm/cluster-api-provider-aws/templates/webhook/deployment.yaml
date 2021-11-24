@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       component: capa-controller-manager-webhook
-      {{- include "labels.infrastructure" . | nindent 6 }}
+      {{- include "labels.selector.infrastructure" . | nindent 6 }}
   template:
     metadata:
       labels:

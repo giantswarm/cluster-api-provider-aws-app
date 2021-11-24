@@ -13,5 +13,5 @@ spec:
     targetPort: webhook-server
   selector:
     component: eks-bootstrap-webhook
-    {{- include "labels.eks.bootstrap" . | nindent 4 }}
+    {{- include "labels.selector.eks.bootstrap" . | nindent 4 }}
 {{ end }}

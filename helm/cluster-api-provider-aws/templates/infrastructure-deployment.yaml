@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       component: capa-controller-manager
-      {{- include "labels.infrastructure" . | nindent 6 }}
+      {{- include "labels.selector.infrastructure" . | nindent 6 }}
   template:
     metadata:
       annotations:
