@@ -20,6 +20,7 @@ Bootstrap EKS labels
 */}}
 {{- define "labels.eks.bootstrap" -}}
 {{ include "labels.common" . }}
+{{ include "labels.selector.eks.bootstrap" . }}
 cluster.x-k8s.io/provider: bootstrap-eks
 {{- end -}}
 
