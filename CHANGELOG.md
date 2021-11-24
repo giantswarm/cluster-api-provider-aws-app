@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.8-gs10] - 2021-11-24
+
 ### Fixed
 
 - Fix selector labels for EKS webhook.
@@ -85,7 +87,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs9...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs10...HEAD
+[0.6.8-gs10]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs9...v0.6.8-gs10
 [0.6.8-gs9]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs8...v0.6.8-gs9
 [0.6.8-gs8]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs7...v0.6.8-gs8
 [0.6.8-gs7]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs6...v0.6.8-gs7
