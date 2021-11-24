@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix match labels to be unique for all deployments and services.
+
 ## [0.6.8-gs8] - 2021-10-11
 
 ## [0.6.8-gs7] - 2021-10-11
