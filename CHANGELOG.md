@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update CAPA to v1.2.0-gsalpha.2 (version from Giant Swarm CAPA fork).
+- Remove EKS manifests as EKS is now a part of the main AWS infrastructure provider and it's enabled by default.
+
 ## [0.6.8-gs10-crd] - 2021-11-24
 
 ## [0.6.8-gs10] - 2021-11-24

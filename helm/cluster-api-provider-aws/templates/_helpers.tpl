@@ -16,34 +16,6 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{/*
-Bootstrap EKS labels
-*/}}
-{{- define "labels.eks.bootstrap" -}}
-{{ include "labels.common" . }}
-{{ include "labels.selector.eks.bootstrap" . }}
-cluster.x-k8s.io/provider: bootstrap-eks
-{{- end -}}
-
-{{- define "labels.selector.eks.bootstrap" -}}
-app.kubernetes.io/name: {{ include "resource.eksbootstrap.name" . | quote }}
-app.kubernetes.io/instance: {{ .Release.Name | quote }}
-{{- end -}}
-
-{{/*
-Controlplane EKS labels
-*/}}
-{{- define "labels.eks.controlplane" -}}
-{{ include "labels.common" . }}
-{{ include "labels.selector.eks.controlplane" . }}
-cluster.x-k8s.io/provider: control-plane-eks
-{{- end -}}
-
-{{- define "labels.selector.eks.controlplane" -}}
-app.kubernetes.io/name: {{ include "resource.ekscontrolplane.name" . | quote }}
-app.kubernetes.io/instance: {{ .Release.Name | quote }}
-{{- end -}}
-
-{{/*
 Infrastructure labels
 */}}
 {{- define "labels.infrastructure" -}}
