@@ -20,7 +20,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-addr=0.0.0.0:{{ .Values.ports.metrics }}
         - --webhook-port={{ .Values.ports.webhook }}
         - --feature-gates=EKSEnableIAM={{ .Values.featuregates.eksenableiam }},MachinePool={{ .Values.featuregates.machinepool }},EventBridgeInstanceState={{ .Values.featuregates.eventbridgeinstancestate }},AutoControllerIdentityCreator={{ .Values.featuregates.autocontrolleridentitycreator }}
         image: "{{ .Values.registry.domain }}/{{ .Values.infrastructure.image.name }}:{{ .Values.tag }}"
