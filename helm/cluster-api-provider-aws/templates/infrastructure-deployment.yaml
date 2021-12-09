@@ -23,7 +23,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-addr=0.0.0.0:{{ .Values.ports.metrics }}
         - --feature-gates=EKSEnableIAM={{ .Values.featuregates.eksenableiam }},MachinePool={{ .Values.featuregates.machinepool }},EventBridgeInstanceState={{ .Values.featuregates.eventbridgeinstancestate }},AutoControllerIdentityCreator={{ .Values.featuregates.autocontrolleridentitycreator }}
         - --watch-filter={{ .Values.watchfilter }}
         env:
