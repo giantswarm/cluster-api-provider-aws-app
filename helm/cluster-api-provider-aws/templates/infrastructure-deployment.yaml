@@ -23,6 +23,7 @@ spec:
     spec:
       containers:
       - args:
+        - --webhook-cert-dir=/home/.aws
         - --feature-gates=EKSEnableIAM={{ .Values.featuregates.eksenableiam }},MachinePool={{ .Values.featuregates.machinepool }},EventBridgeInstanceState={{ .Values.featuregates.eventbridgeinstancestate }},AutoControllerIdentityCreator={{ .Values.featuregates.autocontrolleridentitycreator }}
         - --watch-filter={{ .Values.watchfilter }}
         env:
@@ -49,9 +50,6 @@ spec:
         volumeMounts:
         - mountPath: /home/.aws
           name: credentials
-        - mountPath: /tmp/k8s-webhook-server/serving-certs
-          name: cert
-          readOnly: true
       securityContext:
         fsGroup: 1000
       serviceAccountName: {{ include "resource.default.name" . }}
