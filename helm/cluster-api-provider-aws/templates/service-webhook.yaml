@@ -1,20 +1,15 @@
-{{ if eq (include "resource.app.unique" .) "false" }}
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    prometheus.io/scrape: "true"
   labels:
     component: capa-controller-manager
     {{- include "labels.infrastructure" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-metrics
+  name: {{ include "resource.default.name" . }}-webhook
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   ports:
-  - name: http
-    port: {{ .Values.ports.metrics }}
-    targetPort: http
+  - port: {{ .Values.ports.webhook }}
+    targetPort: webhook-server
   selector:
     component: capa-controller-manager
     {{- include "labels.selector.infrastructure" . | nindent 4 }}
-{{ end }}

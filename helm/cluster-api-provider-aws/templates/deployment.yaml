@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    component: capa-controller-manager-webhook
+    component: capa-controller-manager
     {{- include "labels.infrastructure" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-webhook
+  name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: capa-controller-manager-webhook
+      component: capa-controller-manager
       {{- include "labels.selector.infrastructure" . | nindent 6 }}
   template:
     metadata:
       annotations:
         iam.amazonaws.com/role: {{ .Values.aws.arn }}:=""
       labels:
-        component: capa-controller-manager-webhook
+        component: capa-controller-manager
         {{- include "labels.infrastructure" . | nindent 8 }}
     spec:
       containers:
@@ -55,7 +55,9 @@ spec:
         - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
           readOnly: true
-      serviceAccountName: {{ include "resource.default.name" . }}-webhook
+      securityContext:
+        fsGroup: 1000
+      serviceAccountName: {{ include "resource.default.name" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule
@@ -67,4 +69,4 @@ spec:
       - name: cert
         secret:
           defaultMode: 420
-          secretName: {{ include "resource.default.name" . }}-webhook
+          secretName: {{ include "resource.default.name" . }}

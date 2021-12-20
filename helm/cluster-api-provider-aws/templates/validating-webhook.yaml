@@ -1,9 +1,8 @@
-{{ if eq (include "resource.app.unique" .) "false" }}
 apiVersion: admissionregistration.k8s.io/v1beta1
 kind: ValidatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}/{{ include "resource.default.name" . }}-webhook
+    cert-manager.io/inject-ca-from: {{ include "resource.default.namespace" . }}/{{ include "resource.default.name" . }}
   labels:
     {{- include "labels.infrastructure" . | nindent 4 }}
   name: {{ include "resource.default.name" . }}-webhook
@@ -13,7 +12,7 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awscluster
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awscluster
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -25,7 +24,7 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -37,7 +36,7 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsclustercontrolleridentity
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsclustercontrolleridentity
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -49,7 +48,7 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -61,7 +60,7 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsclusterroleidentity
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsclusterroleidentity
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -73,7 +72,7 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -85,7 +84,55 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachine
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsclusterstaticidentity
+      port: {{ .Values.ports.webhook }}
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: validation.awsclusterstaticidentity.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - awsclusterstaticidentities
+  sideEffects: None
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: {{ include "resource.default.name" . }}-webhook
+      namespace: {{ include "resource.default.namespace" . }}
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsclustertemplate
+      port: {{ .Values.ports.webhook }}
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: validation.awsclustertemplate.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - awsclustertemplates
+  sideEffects: None
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: {{ include "resource.default.name" . }}-webhook
+      namespace: {{ include "resource.default.namespace" . }}
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsmachine
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -97,7 +144,7 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -109,7 +156,7 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinetemplate
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsmachinetemplate
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -121,7 +168,7 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -133,7 +180,7 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsfargateprofile
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsfargateprofile
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -145,7 +192,7 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -157,7 +204,7 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmachinepool
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsmachinepool
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -169,7 +216,7 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -181,7 +228,7 @@ webhooks:
     service:
       name: {{ include "resource.default.name" . }}-webhook
       namespace: {{ include "resource.default.namespace" . }}
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha3-awsmanagedmachinepool
+      path: /validate-infrastructure-cluster-x-k8s-io-v1beta1-awsmanagedmachinepool
       port: {{ .Values.ports.webhook }}
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -193,11 +240,82 @@ webhooks:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
     apiVersions:
-    - v1alpha3
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
     resources:
     - awsmanagedmachinepools
   sideEffects: None
-{{ end }}
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: {{ include "resource.default.name" . }}-webhook
+      namespace: {{ include "resource.default.namespace" . }}
+      path: /validate-bootstrap-cluster-x-k8s-io-v1beta1-eksconfig
+      port: {{ .Values.ports.webhook }}
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: validation.eksconfigs.bootstrap.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
+  rules:
+  - apiGroups:
+    - bootstrap.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - eksconfig
+  sideEffects: None
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: {{ include "resource.default.name" . }}-webhook
+      namespace: {{ include "resource.default.namespace" . }}
+      path: /validate-bootstrap-cluster-x-k8s-io-v1beta1-eksconfigtemplate
+      port: {{ .Values.ports.webhook }}
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: validation.eksconfigtemplates.bootstrap.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
+  rules:
+  - apiGroups:
+    - bootstrap.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - eksconfigtemplate
+  sideEffects: None
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: {{ include "resource.default.name" . }}-webhook
+      namespace: {{ include "resource.default.namespace" . }}
+      path: /validate-controlplane-cluster-x-k8s-io-v1beta1-awsmanagedcontrolplane
+      port: {{ .Values.ports.webhook }}
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: validation.awsmanagedcontrolplanes.controlplane.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: {{ .Values.watchfilter }}
+  rules:
+  - apiGroups:
+    - controlplane.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - awsmanagedcontrolplanes
+  sideEffects: None

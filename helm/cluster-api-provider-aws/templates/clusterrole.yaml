@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     {{- include "labels.infrastructure" . | nindent 4 }}
-  name: {{ include "resource.default.name" . }}-webhook
+  name: {{ include "resource.default.name" . }}-manager
 rules:
 - apiGroups:
   - ""
