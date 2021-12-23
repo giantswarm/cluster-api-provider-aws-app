@@ -1,5 +1,5 @@
 name: cluster-api-provider-aws
-tag: v1.1.0
+tag: v1.2.0
 
 infrastructure:
   image:
