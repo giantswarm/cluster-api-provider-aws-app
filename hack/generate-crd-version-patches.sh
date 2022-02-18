@@ -6,11 +6,11 @@ set -o pipefail
 
 ROOT_DIR="./$(dirname "$0")/.."
 ROOT_DIR="$(realpath "$ROOT_DIR")"
-KUSTOMIZE_CRD_DIR="$ROOT_DIR/helm/cluster-api/files"
+KUSTOMIZE_CRD_DIR="$ROOT_DIR/helm/cluster-api-provider-aws/files"
 
 # YQ="./$(dirname "$0")/tools/bin/yq"
 
-for CRD_DIR in "$KUSTOMIZE_CRD_DIR/core" "$KUSTOMIZE_CRD_DIR/bootstrap" "$KUSTOMIZE_CRD_DIR/controlplane"; do
+for CRD_DIR in "$KUSTOMIZE_CRD_DIR/infrastructure" "$KUSTOMIZE_CRD_DIR/bootstrap" "$KUSTOMIZE_CRD_DIR/controlplane"; do
     CRD_BASE_DIR="${CRD_DIR}/bases"
     CRD_VERSION_PATCHES_DIR="${CRD_DIR}/patches/versions"
 

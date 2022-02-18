@@ -22,6 +22,7 @@ patchesStrategicMerge:
   - webhook-certificate.yaml
   - service-add-metrics-port.yaml
   - certificate.yaml
+  - secret.yaml
 
 patches:
   - path: crd_cainjection.yaml

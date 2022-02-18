@@ -10,6 +10,6 @@ spec:
       containers:
         - name: manager
           ports:
-            - containerPort: {{ .Values.ports.metrics }}
+            - containerPort: 8080
               name: metrics
               protocol: TCP

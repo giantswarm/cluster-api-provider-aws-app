@@ -61,7 +61,7 @@ webhooks: null
             watch_filter="$watch_filter" \
             yq e --null-input \
                 '.name = env(webhook_name) |
-                .objectSelector.matchLabels["cluster.x-k8s.io/watch-filter"] = "env(watch_filter)"'
+                .objectSelector.matchLabels["cluster.x-k8s.io/watch-filter"] = env(watch_filter)'
             )"
 
         webhook_patch="$(
