@@ -17,6 +17,7 @@ patchesStrategicMerge:
   - delete-issuer.yaml
   - deployment-args.yaml
   - deployment-metrics-port.yaml
+  - deployment-iam-role.yaml
   - delete-namespace.yaml
   - webhook-watchfilter.yaml
   - webhook-certificate.yaml
