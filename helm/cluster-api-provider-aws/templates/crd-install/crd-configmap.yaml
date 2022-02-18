@@ -3,7 +3,6 @@ We have to create individual configmaps for each CRD - they exceed the total
 allowed length for a configmap if they are combined.
 */}}
 {{ $currentScope := . }}
-{{- if .Values.crds.install }}
   {{- range $path, $_ := .Files.Glob "files/**.yaml" }}
     {{- with $currentScope }}
 ---
@@ -25,4 +24,3 @@ data:
 {{ tpl ($.Files.Get $path) . | indent 4 }}
     {{- end }}
   {{- end }}
-{{- end }}
