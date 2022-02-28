@@ -19,6 +19,7 @@ patchesStrategicMerge:
   - deployment-metrics-port.yaml
   - deployment-iam-role.yaml
   - delete-namespace.yaml
+  - delete-serviceaccount-annotation.yaml
   - webhook-watchfilter.yaml
   - webhook-certificate.yaml
   - service-add-metrics-port.yaml
