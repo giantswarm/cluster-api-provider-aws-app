@@ -32,7 +32,7 @@ spec:
           preferredDuringSchedulingIgnoredDuringExecution:
           - preference:
               matchExpressions:
-              - key: ${K8S_CP_LABEL:=node-role.kubernetes.io/control-plane}
+              - key: node-role.kubernetes.io/control-plane
                 operator: Exists
             weight: 10
           - preference:

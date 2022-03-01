@@ -18,6 +18,7 @@ patchesStrategicMerge:
   - deployment-args.yaml
   - deployment-metrics-port.yaml
   - deployment-iam-role.yaml
+  - deployment-nodeaffinity.yaml
   - delete-namespace.yaml
   - delete-serviceaccount-annotation.yaml
   - webhook-watchfilter.yaml
