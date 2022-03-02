@@ -43,10 +43,10 @@ spec:
       containers:
       - args:
         - --leader-elect
-        - --metrics-bind-addr='0.0.0.0:{{ .Values.ports.metrics }}'
-        - --feature-gates=EKS='{{ .Values.featuregates.eks.enable }}',EKSEnableIAM='{{ .Values.featuregates.eks.enableIAM }}',EKSAllowAddRoles='{{ .Values.featuregates.eks.allowAddRoles }}',EKSFargate='{{ .Values.featuregates.eks.fargate }}',MachinePool='{{ .Values.featuregates.machinePool }}',EventBridgeInstanceState='{{ .Values.featuregates.eventBridgeInstanceState }}',AutoControllerIdentityCreator='{{ .Values.featuregates.autoControllerIdentityCreator }}'
-        - --watch-filter='{{ .Values.watchfilter }}'
-        - --v='{{ .Values.log.level }}'
+        - --metrics-bind-addr=0.0.0.0:8080
+        - --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true
+        - --watch-filter=capi
+        - --v=0
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
