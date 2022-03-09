@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Installing CRDs via crd-install job.
 - Generating all manifests with kustomize by using upstream manifests a base and applying custom overlays.
 
+### Removed
+
+- Push to aws-app-collection.
+
 ## [0.6.8-gs10-crd] - 2021-11-24
 
 ## [0.6.8-gs10] - 2021-11-24
