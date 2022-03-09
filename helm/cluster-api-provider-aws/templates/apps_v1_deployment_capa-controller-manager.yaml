@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.giantswarm.io/branch: '{{ .Values.project.branch }}'
+    app.giantswarm.io/commit: '{{ .Values.project.commit }}'
+    app.kubernetes.io/instance: '{{ .Release.Name }}'
+    app.kubernetes.io/managed-by: '{{ .Release.Service }}'
+    app.kubernetes.io/name: '{{ .Chart.Name }}'
+    app.kubernetes.io/version: '{{ .Chart.AppVersion }}'
+    cluster.x-k8s.io/provider: infrastructure-aws
+    control-plane: capa-controller-manager
+    helm.sh/chart: '{{ .Chart.Name }}'
+  name: capa-controller-manager
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cluster.x-k8s.io/provider: infrastructure-aws
+      control-plane: capa-controller-manager
+  template:
+    metadata:
+      annotations:
+        iam.amazonaws.com/role: '{{ .Values.aws.arn }}:=""'
+      labels:
+        cluster.x-k8s.io/provider: infrastructure-aws
+        control-plane: capa-controller-manager
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - preference:
+              matchExpressions:
+              - key: node-role.kubernetes.io/control-plane
+                operator: Exists
+            weight: 10
+          - preference:
+              matchExpressions:
+              - key: node-role.kubernetes.io/master
+                operator: Exists
+            weight: 10
+      containers:
+      - args:
+        - --leader-elect
+        - --metrics-bind-addr=0.0.0.0:8080
+        - --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true
+        - --watch-filter=capi
+        - --v=0
+        env:
+        - name: AWS_SHARED_CREDENTIALS_FILE
+          value: /home/.aws/credentials
+        image: '{{ .Values.infrastructure.image.name }}:{{ .Values.tag }}'
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: healthz
+          periodSeconds: 10
+        name: manager
+        ports:
+        - containerPort: 8080
+          name: metrics
+          protocol: TCP
+        - containerPort: 9443
+          name: webhook-server
+          protocol: TCP
+        - containerPort: 9440
+          name: healthz
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: healthz
+        volumeMounts:
+        - mountPath: /tmp/k8s-webhook-server/serving-certs
+          name: cert
+          readOnly: true
+        - mountPath: /home/.aws
+          name: credentials
+      securityContext:
+        fsGroup: 1000
+      serviceAccountName: capa-controller-manager
+      terminationGracePeriodSeconds: 10
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
+      volumes:
+      - name: cert
+        secret:
+          defaultMode: 420
+          secretName: capa-webhook-service-cert
+      - name: credentials
+        secret:
+          secretName: capa-manager-bootstrap-credentials

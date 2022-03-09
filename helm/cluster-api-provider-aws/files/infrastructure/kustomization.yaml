@@ -1,0 +1,186 @@
+resources:
+  - bases/awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsclusterroleidentities.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsclusters.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsclusterstaticidentities.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsclustertemplates.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsfargateprofiles.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsmachinepools.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsmachines.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsmachinetemplates.infrastructure.cluster.x-k8s.io.yaml
+  - bases/awsmanagedmachinepools.infrastructure.cluster.x-k8s.io.yaml
+patches:
+  - path: patches/versions/v1alpha3/awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsclusterroleidentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusterroleidentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsclusterroleidentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusterroleidentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsclusterroleidentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusterroleidentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsclusters.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusters.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsclusters.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusters.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsclusters.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusters.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsclusterstaticidentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusterstaticidentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsclusterstaticidentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusterstaticidentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsclusterstaticidentities.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclusterstaticidentities.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsclustertemplates.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclustertemplates.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsclustertemplates.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsclustertemplates.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsfargateprofiles.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsfargateprofiles.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsfargateprofiles.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsfargateprofiles.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsfargateprofiles.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsfargateprofiles.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsmachinepools.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachinepools.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsmachinepools.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachinepools.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsmachinepools.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachinepools.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsmachines.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachines.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsmachines.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachines.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsmachines.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachines.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsmachinetemplates.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachinetemplates.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsmachinetemplates.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachinetemplates.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsmachinetemplates.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmachinetemplates.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha3/awsmanagedmachinepools.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmanagedmachinepools.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1alpha4/awsmanagedmachinepools.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmanagedmachinepools.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta1/awsmanagedmachinepools.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: awsmanagedmachinepools.infrastructure.cluster.x-k8s.io
