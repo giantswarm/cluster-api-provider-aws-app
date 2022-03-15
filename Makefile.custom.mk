@@ -20,4 +20,4 @@ $(CRD_BUILD_DIR):
 .PHONY: release-manifests
 release-manifests: $(CRD_BUILD_DIR) ## Builds the manifests to publish with a release
 	# Build core-components.
-	kustomize build config/helm/files > $(CRD_BUILD_DIR)/crds.yaml
+	kustomize build helm/cluster-api-provider-aws/files > $(CRD_BUILD_DIR)/crds.yaml
