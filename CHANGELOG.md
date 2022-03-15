@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-03-09
+
 ### Added
 
 - Installing CRDs via crd-install job.
@@ -98,7 +100,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs10-crd...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs10...v1.2.0
 [0.6.8-gs10-crd]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs10...v0.6.8-gs10-crd
 [0.6.8-gs10]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs9...v0.6.8-gs10
 [0.6.8-gs9]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v0.6.8-gs8...v0.6.8-gs9
