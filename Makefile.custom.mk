@@ -10,6 +10,7 @@ generate:
 delete-generated-helm-charts:
 	@mv ./helm/cluster-api-provider-aws/templates/ssh-sso-public-key-secret.yaml ./ssh-sso-public-key-secret.yaml
 	@rm -rf ./helm/cluster-api-provider-aws/templates/*.yaml
+	@cp helm/cluster-api-provider-aws/files/copy/* helm/cluster-api-provider-aws/templates/
 	@mv ./ssh-sso-public-key-secret.yaml ./helm/cluster-api-provider-aws/templates/ssh-sso-public-key-secret.yaml
 
 CRD_BUILD_DIR := out
