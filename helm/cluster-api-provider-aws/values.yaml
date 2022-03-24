@@ -53,3 +53,6 @@ registry:
 workloadCluster:
   ssh:
     ssoPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm'
+
+verticalPodAutoscaler:
+  enabled: true
