@@ -1,5 +1,5 @@
 name: cluster-api-provider-aws
-tag: v1.2.0
+tag: nightly_main_20220404
 
 infrastructure:
   image:
