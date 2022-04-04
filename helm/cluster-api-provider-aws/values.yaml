@@ -3,7 +3,7 @@ tag: nightly_main_20220404
 
 infrastructure:
   image:
-    name: giantswarm/cluster-api-aws-controller
+    name: gcr.io/k8s-staging-cluster-api-aws/cluster-api-aws-controller
 
 crdConvertOnly: true
 crdInstall:
