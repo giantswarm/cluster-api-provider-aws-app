@@ -3,6 +3,7 @@ tag: v1.2.0
 
 infrastructure:
   image:
+    domain: quay.io
     name: giantswarm/cluster-api-aws-controller
 
 crdConvertOnly: true
