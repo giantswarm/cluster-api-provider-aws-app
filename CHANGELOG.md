@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
 - Add VerticalPodAutoscaler CR.
+- Value to set image registry domain
 
 ### Fixed
 

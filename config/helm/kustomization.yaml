@@ -5,7 +5,7 @@ resources:
 
 images:
   - name: k8s.gcr.io/cluster-api-aws/cluster-api-aws-controller
-    newName: "{{ .Values.infrastructure.image.name }}"
+    newName: "{{ .Values.infrastructure.image.domain }}/{{ .Values.infrastructure.image.name }}"
     newTag: "{{ .Values.tag }}"
 
 transformers:
