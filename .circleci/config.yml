@@ -15,3 +15,16 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+      - architect/push-to-app-collection:
+          name: capa-app-collection
+          context: "architect"
+          app_name: "cluster-api-provider-aws"
+          app_namespace: "giantswarm"
+          app_collection_repo: "capa-app-collection"
+          requires:
+            - push-to-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
