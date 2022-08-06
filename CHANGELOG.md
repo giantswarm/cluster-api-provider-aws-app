@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Remove ssh SSO public key value from the repository as its no longer used.
+
 ## [1.2.2] - 2022-08-05
 
 ## [1.2.1] - 2022-07-07
