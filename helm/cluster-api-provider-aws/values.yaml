@@ -51,9 +51,5 @@ provider:
 registry:
   domain: docker.io
 
-workloadCluster:
-  ssh:
-    ssoPublicKey: 'ssh-rsa AAASbn3n fake@giantswarm'
-
 verticalPodAutoscaler:
   enabled: true
