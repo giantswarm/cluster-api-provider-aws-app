@@ -31,10 +31,10 @@
                 additionalSecurityGroups:
                   description: AdditionalSecurityGroups is an array of references to security groups that should be applied to the instances. These security groups would be set in addition to any security groups defined at the cluster level or in the actuator.
                   items:
-                    description: AWSResourceReference is a reference to a specific AWS resource by ID, ARN, or filters. Only one of ID, ARN or Filters may be specified. Specifying more than one will result in a validation error.
+                    description: AWSResourceReference is a reference to a specific AWS resource by ID or filters. Only one of ID or Filters may be specified. Specifying more than one will result in a validation error.
                     properties:
                       arn:
-                        description: ARN of resource
+                        description: 'ARN of resource. Deprecated: This field has no function and is going to be removed in the next release.'
                         type: string
                       filters:
                         description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
@@ -145,7 +145,7 @@
               default: 1
               description: MinSize defines the minimum size of the group.
               format: int32
-              minimum: 1
+              minimum: 0
               type: integer
             mixedInstancesPolicy:
               description: MixedInstancesPolicy describes how multiple instance types will be used by the ASG.
@@ -212,10 +212,10 @@
             subnets:
               description: Subnets is an array of subnet configurations
               items:
-                description: AWSResourceReference is a reference to a specific AWS resource by ID, ARN, or filters. Only one of ID, ARN or Filters may be specified. Specifying more than one will result in a validation error.
+                description: AWSResourceReference is a reference to a specific AWS resource by ID or filters. Only one of ID or Filters may be specified. Specifying more than one will result in a validation error.
                 properties:
                   arn:
-                    description: ARN of resource
+                    description: 'ARN of resource. Deprecated: This field has no function and is going to be removed in the next release.'
                     type: string
                   filters:
                     description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
