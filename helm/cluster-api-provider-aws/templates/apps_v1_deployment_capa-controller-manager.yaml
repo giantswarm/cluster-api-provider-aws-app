@@ -50,7 +50,8 @@ spec:
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
-        image: registry.k8s.io/cluster-api-aws/cluster-api-aws-controller:v1.5.0
+        image: '{{ .Values.infrastructure.image.domain }}/{{ .Values.infrastructure.image.name
+          }}:{{ .Values.tag }}'
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
