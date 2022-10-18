@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Don't delete crd-install job when the `Job` fails so that we can inspect what happened.
+
 ## [1.6.0] - 2022-10-04
 
 ### Changed
