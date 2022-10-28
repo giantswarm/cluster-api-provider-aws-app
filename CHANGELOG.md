@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add clusterctl labels to CRDs to support `clusterctl move`.
 
+## [1.7.0] - 2022-10-18
+
+### Changed
+
+- Don't delete crd-install job when the `Job` fails so that we can inspect what happened.
+
 ## [1.6.0] - 2022-10-04
 
 ### Changed
@@ -135,7 +141,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.2.3...v1.5.0
 [1.2.3]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.2.2...v1.2.3
