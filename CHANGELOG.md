@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2022-11-03
+
 ### Added
 
 - Add clusterctl labels to CRDs to support `clusterctl move`.
@@ -141,7 +143,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.7.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.0...HEAD
+[1.8.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.2.3...v1.5.0
