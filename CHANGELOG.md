@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgraded image used to `v1.5.2-gs` (fork until upstream `1.5.2` release is available)
+
 ## [1.8.0] - 2022-11-03
 
 ### Added
