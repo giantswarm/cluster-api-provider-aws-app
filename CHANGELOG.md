@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Fixed
+
+- Switched to using fork-built image for `v1.5.2`. The fork contains a fix setting the LoadBalancerReadyCondition to Deleted
+
 ## [1.8.2] - 2022-11-21
 
 ### Fixed
