@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Enabled external resource gc feature gate
+
+
 ## [1.8.2] - 2022-11-21
 
 ### Fixed
