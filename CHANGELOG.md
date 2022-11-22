@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.3] - 2022-11-22
+
 ## Fixed
 
 - Switched to using fork-built image for `v1.5.2`. The fork contains a fix setting the LoadBalancerReadyCondition to Deleted
@@ -159,7 +161,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.2...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.3...HEAD
+[1.8.3]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.2...v1.8.3
 [1.8.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.1...v1.8.2
 [1.8.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.0...v1.8.1
 [1.8.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.7.0...v1.8.0
