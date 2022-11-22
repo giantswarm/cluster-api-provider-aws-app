@@ -12,6 +12,6 @@ spec:
           args:
             - --leader-elect
             - --metrics-bind-addr=0.0.0.0:8080
-            - --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true
+            - --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true
             - --watch-filter=capi
             - --v=0
