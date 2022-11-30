@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.0] - 2022-11-30
+
 ### Changed
 
 - Enabled external resource gc feature gate
@@ -165,7 +167,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.3...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.9.0...HEAD
+[1.9.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.3...v1.9.0
 [1.8.3]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.2...v1.8.3
 [1.8.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.1...v1.8.2
 [1.8.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.0...v1.8.1
