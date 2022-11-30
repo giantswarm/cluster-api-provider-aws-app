@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Generation of Helm chart will fail if we get a 404 from Github.
+
+### Fixed
+
+- Re-generate helm chart after adading feature gate.
+
 ## [1.9.0] - 2022-11-30
 
 ### Changed
 
-- Enabled external resource gc feature gate
+- Enabled external resource gc feature gate.
 
 ## [1.8.3] - 2022-11-22
 

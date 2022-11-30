@@ -20,3 +20,10 @@ $(CRD_BUILD_DIR):
 release-manifests: $(CRD_BUILD_DIR) ## Builds the manifests to publish with a release
 	# Build core-components.
 	kustomize build helm/cluster-api-provider-aws/files > $(CRD_BUILD_DIR)/crds.yaml
+
+.PHONY: verify
+verify: generate
+	@if !(git diff --quiet HEAD); then \
+		git diff; \
+		echo "generated files are out of date, run make generate"; exit 1; \
+	fi
