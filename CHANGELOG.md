@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Set Helm chart ownership to team hydra.
+- Bumped controller to latest changes from upstream `release-1.5` branch
 
 ## [1.9.1] - 2022-11-30
 
