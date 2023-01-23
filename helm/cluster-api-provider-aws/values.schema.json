@@ -89,13 +89,13 @@
             "type": "object",
             "properties": {
                 "healtz": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "metrics": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "webhook": {
-                    "type": "string"
+                    "type": "integer"
                 }
             }
         },
@@ -103,7 +103,7 @@
             "type": "object",
             "properties": {
                 "level": {
-                    "type": "string"
+                    "type": "integer"
                 }
             }
         },
