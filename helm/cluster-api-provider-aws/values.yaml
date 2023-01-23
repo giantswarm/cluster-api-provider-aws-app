@@ -11,7 +11,7 @@ crdInstall:
   enable: true
   kubectl:
     image: "giantswarm/docker-kubectl"
-    tag: "1.23.3"
+    tag: "1.24.4"
 
 featuregates:
   machinePool: true
