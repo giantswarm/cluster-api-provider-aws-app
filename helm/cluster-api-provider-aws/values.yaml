@@ -10,8 +10,8 @@ crdConvertOnly: true
 crdInstall:
   enable: true
   kubectl:
-    image: "giantswarm/docker-kubectl"
-    tag: "1.24.4"
+    image: "giantswarm/kubectl"
+    tag: "1.24.10"
 
 featuregates:
   machinePool: true
