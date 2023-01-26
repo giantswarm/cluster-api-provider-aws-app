@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Change `kubectl` image source to `giantswarm/kubectl`
+- Bump `kubectl` version to `v1.24.10`
+
 ## [1.9.2] - 2023-01-19
 
 ### Changed
