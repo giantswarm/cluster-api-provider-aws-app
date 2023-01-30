@@ -1,5 +1,5 @@
 - op: replace
-  path: /spec/versions/2/schema
+  path: /spec/versions/0/schema
   value:
     openAPIV3Schema:
       description: EKSConfig is the schema for the Amazon EKS Machine Bootstrap Configuration API.
@@ -45,6 +45,9 @@
                 - accountNumber
                 - version
               type: object
+            serviceIPV6Cidr:
+              description: ServiceIPV6Cidr is the ipv6 cidr range of the cluster. If this is specified then the ip family will be set to ipv6.
+              type: string
             useMaxPods:
               description: UseMaxPods  sets --max-pods for the kubelet when true.
               type: boolean

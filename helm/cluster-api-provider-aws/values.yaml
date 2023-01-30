@@ -1,5 +1,10 @@
 name: cluster-api-provider-aws
-tag: v1.5.2-gs-5d8786d
+tag: v2.0.2-gs-fc1a0d241  # latest upstream release v2.0.2 does not have our `infrav1.LoadBalancerReadyCondition` patch (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/3871)
+
+# Not used by the chart, but in `hack/generate-kustomize-patches.sh` (via `make generate`). Choose a tag here that
+# exists as upstream release. For example if `tag` points to a custom tag `v9.8.7-gs-1234abc` of our fork, you may
+# want `v9.8.7` here. The manifests and CRDs from that release are used.
+upstreamTagForManifestGeneration: v2.0.2
 
 infrastructure:
   image:

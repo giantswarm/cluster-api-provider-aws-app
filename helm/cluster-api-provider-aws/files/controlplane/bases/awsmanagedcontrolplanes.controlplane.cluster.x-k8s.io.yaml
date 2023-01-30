@@ -3,7 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/capa-serving-cert'
-    controller-gen.kubebuilder.io/version: v0.7.1-0.20211110210727-ab52f76cc7d1
+    controller-gen.kubebuilder.io/version: v0.10.0
   labels:
     app.giantswarm.io/branch: '{{ .Values.project.branch }}'
     app.giantswarm.io/commit: '{{ .Values.project.commit }}'
@@ -14,7 +14,7 @@ metadata:
     cluster.x-k8s.io/provider: infrastructure-aws
     cluster.x-k8s.io/v1alpha3: v1alpha3
     cluster.x-k8s.io/v1alpha4: v1alpha4
-    cluster.x-k8s.io/v1beta1: v1beta1
+    cluster.x-k8s.io/v1beta1: v1beta1_v1beta2
     clusterctl.cluster.x-k8s.io: ""
     clusterctl.cluster.x-k8s.io/move: ""
     helm.sh/chart: '{{ .Chart.Name }}'
@@ -55,62 +55,6 @@ spec:
           name: Ready
           type: string
         - description: AWS VPC the control plane is using
-          jsonPath: .spec.networkSpec.vpc.id
-          name: VPC
-          type: string
-        - description: API Endpoint
-          jsonPath: .spec.controlPlaneEndpoint.host
-          name: Endpoint
-          priority: 1
-          type: string
-        - description: Bastion IP address for breakglass access
-          jsonPath: .status.bastion.publicIp
-          name: Bastion IP
-          type: string
-      name: v1alpha3
-      schema: {}
-      served: true
-      storage: false
-      subresources:
-        status: {}
-    - additionalPrinterColumns:
-        - description: Cluster to which this AWSManagedControl belongs
-          jsonPath: .metadata.labels.cluster\.x-k8s\.io/cluster-name
-          name: Cluster
-          type: string
-        - description: Control plane infrastructure is ready for worker nodes
-          jsonPath: .status.ready
-          name: Ready
-          type: string
-        - description: AWS VPC the control plane is using
-          jsonPath: .spec.network.vpc.id
-          name: VPC
-          type: string
-        - description: API Endpoint
-          jsonPath: .spec.controlPlaneEndpoint.host
-          name: Endpoint
-          priority: 1
-          type: string
-        - description: Bastion IP address for breakglass access
-          jsonPath: .status.bastion.publicIp
-          name: Bastion IP
-          type: string
-      name: v1alpha4
-      schema: {}
-      served: true
-      storage: false
-      subresources:
-        status: {}
-    - additionalPrinterColumns:
-        - description: Cluster to which this AWSManagedControl belongs
-          jsonPath: .metadata.labels.cluster\.x-k8s\.io/cluster-name
-          name: Cluster
-          type: string
-        - description: Control plane infrastructure is ready for worker nodes
-          jsonPath: .status.ready
-          name: Ready
-          type: string
-        - description: AWS VPC the control plane is using
           jsonPath: .spec.network.vpc.id
           name: VPC
           type: string
@@ -126,12 +70,34 @@ spec:
       name: v1beta1
       schema: {}
       served: true
+      storage: false
+      subresources:
+        status: {}
+    - additionalPrinterColumns:
+        - description: Cluster to which this AWSManagedControl belongs
+          jsonPath: .metadata.labels.cluster\.x-k8s\.io/cluster-name
+          name: Cluster
+          type: string
+        - description: Control plane infrastructure is ready for worker nodes
+          jsonPath: .status.ready
+          name: Ready
+          type: string
+        - description: AWS VPC the control plane is using
+          jsonPath: .spec.network.vpc.id
+          name: VPC
+          type: string
+        - description: API Endpoint
+          jsonPath: .spec.controlPlaneEndpoint.host
+          name: Endpoint
+          priority: 1
+          type: string
+        - description: Bastion IP address for breakglass access
+          jsonPath: .status.bastion.publicIp
+          name: Bastion IP
+          type: string
+      name: v1beta2
+      schema: {}
+      served: true
       storage: true
       subresources:
         status: {}
-status:
-  acceptedNames:
-    kind: ""
-    plural: ""
-  conditions: []
-  storedVersions: []

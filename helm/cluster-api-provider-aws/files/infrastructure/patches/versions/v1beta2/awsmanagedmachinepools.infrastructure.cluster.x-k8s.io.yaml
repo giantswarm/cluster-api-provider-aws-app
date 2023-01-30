@@ -2,7 +2,7 @@
   path: /spec/versions/1/schema
   value:
     openAPIV3Schema:
-      description: AWSMachinePool is the Schema for the awsmachinepools API
+      description: AWSManagedMachinePool is the Schema for the awsmanagedmachinepools API.
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
@@ -13,33 +13,43 @@
         metadata:
           type: object
         spec:
-          description: AWSMachinePoolSpec defines the desired state of AWSMachinePool
+          description: AWSManagedMachinePoolSpec defines the desired state of AWSManagedMachinePool.
           properties:
             additionalTags:
               additionalProperties:
                 type: string
-              description: AdditionalTags is an optional set of tags to add to an instance, in addition to the ones added by default by the AWS provider.
+              description: AdditionalTags is an optional set of tags to add to AWS resources managed by the AWS provider, in addition to the ones added by default.
               type: object
+            amiType:
+              default: AL2_x86_64
+              description: AMIType defines the AMI type
+              enum:
+                - AL2_x86_64
+                - AL2_x86_64_GPU
+                - AL2_ARM_64
+                - CUSTOM
+              type: string
+            amiVersion:
+              description: AMIVersion defines the desired AMI release version. If no version number is supplied then the latest version for the Kubernetes version will be used
+              minLength: 2
+              type: string
             availabilityZones:
               description: AvailabilityZones is an array of availability zones instances can run in
               items:
                 type: string
               type: array
             awsLaunchTemplate:
-              description: AWSLaunchTemplate specifies the launch template and version to use when an instance is launched.
+              description: AWSLaunchTemplate specifies the launch template to use to create the managed node group. If AWSLaunchTemplate is specified, certain node group configuraions outside of launch template are prohibited (https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
               properties:
                 additionalSecurityGroups:
                   description: AdditionalSecurityGroups is an array of references to security groups that should be applied to the instances. These security groups would be set in addition to any security groups defined at the cluster level or in the actuator.
                   items:
-                    description: AWSResourceReference is a reference to a specific AWS resource by ID, ARN, or filters. Only one of ID, ARN or Filters may be specified. Specifying more than one will result in a validation error.
+                    description: AWSResourceReference is a reference to a specific AWS resource by ID or filters. Only one of ID or Filters may be specified. Specifying more than one will result in a validation error.
                     properties:
-                      arn:
-                        description: ARN of resource
-                        type: string
                       filters:
                         description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
                         items:
-                          description: Filter is a filter used to identify an AWS resource
+                          description: Filter is a filter used to identify an AWS resource.
                           properties:
                             name:
                               description: Name of the filter. Filter names are case-sensitive.
@@ -121,6 +131,13 @@
                   required:
                     - size
                   type: object
+                spotMarketOptions:
+                  description: SpotMarketOptions are options for configuring AWSMachinePool instances to be run using AWS Spot instances.
+                  properties:
+                    maxPrice:
+                      description: MaxPrice defines the maximum price the user is willing to pay for Spot VM instances
+                      type: string
+                  type: object
                 sshKeyName:
                   description: SSHKeyName is the name of the ssh key to attach to the instance. Valid values are empty string (do not use SSH keys), a valid SSH key name, or omitted (use the default SSH key name)
                   type: string
@@ -129,130 +146,115 @@
                   format: int64
                   type: integer
               type: object
-            capacityRebalance:
-              description: Enable or disable the capacity rebalance autoscaling group feature
-              type: boolean
-            defaultCoolDown:
-              description: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. If no value is supplied by user a default value of 300 seconds is set
+            capacityType:
+              default: onDemand
+              description: CapacityType specifies the capacity type for the ASG behind this pool
+              enum:
+                - onDemand
+                - spot
               type: string
-            maxSize:
-              default: 1
-              description: MaxSize defines the maximum size of the group.
+            diskSize:
+              description: DiskSize specifies the root disk size
               format: int32
-              minimum: 1
               type: integer
-            minSize:
-              default: 1
-              description: MinSize defines the minimum size of the group.
-              format: int32
-              minimum: 1
-              type: integer
-            mixedInstancesPolicy:
-              description: MixedInstancesPolicy describes how multiple instance types will be used by the ASG.
-              properties:
-                instancesDistribution:
-                  description: InstancesDistribution to configure distribution of On-Demand Instances and Spot Instances.
-                  properties:
-                    onDemandAllocationStrategy:
-                      default: prioritized
-                      description: OnDemandAllocationStrategy indicates how to allocate instance types to fulfill On-Demand capacity.
-                      enum:
-                        - prioritized
-                      type: string
-                    onDemandBaseCapacity:
-                      default: 0
-                      format: int64
-                      type: integer
-                    onDemandPercentageAboveBaseCapacity:
-                      default: 100
-                      format: int64
-                      type: integer
-                    spotAllocationStrategy:
-                      default: lowest-price
-                      description: SpotAllocationStrategy indicates how to allocate instances across Spot Instance pools.
-                      enum:
-                        - lowest-price
-                        - capacity-optimized
-                      type: string
-                  type: object
-                overrides:
-                  items:
-                    description: Overrides are used to override the instance type specified by the launch template with multiple instance types that can be used to launch On-Demand Instances and Spot Instances.
-                    properties:
-                      instanceType:
-                        type: string
-                    required:
-                      - instanceType
-                    type: object
-                  type: array
+            eksNodegroupName:
+              description: EKSNodegroupName specifies the name of the nodegroup in AWS corresponding to this MachinePool. If you don't specify a name then a default name will be created based on the namespace and name of the managed machine pool.
+              type: string
+            instanceType:
+              description: InstanceType specifies the AWS instance type
+              type: string
+            labels:
+              additionalProperties:
+                type: string
+              description: Labels specifies labels for the Kubernetes node objects
               type: object
-            providerID:
-              description: ProviderID is the ARN of the associated ASG
-              type: string
             providerIDList:
-              description: ProviderIDList are the identification IDs of machine instances provided by the provider. This field must match the provider IDs as seen on the node objects corresponding to a machine pool's machine instances.
+              description: ProviderIDList are the provider IDs of instances in the autoscaling group corresponding to the nodegroup represented by this machine pool
               items:
                 type: string
               type: array
-            refreshPreferences:
-              description: RefreshPreferences describes set of preferences associated with the instance refresh request.
+            remoteAccess:
+              description: RemoteAccess specifies how machines can be accessed remotely
               properties:
-                instanceWarmup:
-                  description: The number of seconds until a newly launched instance is configured and ready to use. During this time, the next replacement will not be initiated. The default is to use the value for the health check grace period defined for the group.
-                  format: int64
-                  type: integer
-                minHealthyPercentage:
-                  description: The amount of capacity as a percentage in ASG that must remain healthy during an instance refresh. The default is 90.
-                  format: int64
-                  type: integer
-                strategy:
-                  description: The strategy to use for the instance refresh. The only valid value is Rolling. A rolling update is an update that is applied to all instances in an Auto Scaling group until all instances have been updated.
+                public:
+                  description: Public specifies whether to open port 22 to the public internet
+                  type: boolean
+                sourceSecurityGroups:
+                  description: SourceSecurityGroups specifies which security groups are allowed access
+                  items:
+                    type: string
+                  type: array
+                sshKeyName:
+                  description: SSHKeyName specifies which EC2 SSH key can be used to access machines. If left empty, the key from the control plane is used.
                   type: string
               type: object
-            subnets:
-              description: Subnets is an array of subnet configurations
+            roleAdditionalPolicies:
+              description: RoleAdditionalPolicies allows you to attach additional polices to the node group role. You must enable the EKSAllowAddRoles feature flag to incorporate these into the created role.
               items:
-                description: AWSResourceReference is a reference to a specific AWS resource by ID, ARN, or filters. Only one of ID, ARN or Filters may be specified. Specifying more than one will result in a validation error.
+                type: string
+              type: array
+            roleName:
+              description: RoleName specifies the name of IAM role for the node group. If the role is pre-existing we will treat it as unmanaged and not delete it on deletion. If the EKSEnableIAM feature flag is true and no name is supplied then a role is created.
+              type: string
+            scaling:
+              description: Scaling specifies scaling for the ASG behind this pool
+              properties:
+                maxSize:
+                  format: int32
+                  type: integer
+                minSize:
+                  format: int32
+                  type: integer
+              type: object
+            subnetIDs:
+              description: SubnetIDs specifies which subnets are used for the auto scaling group of this nodegroup
+              items:
+                type: string
+              type: array
+            taints:
+              description: Taints specifies the taints to apply to the nodes of the machine pool
+              items:
+                description: Taint defines the specs for a Kubernetes taint.
                 properties:
-                  arn:
-                    description: ARN of resource
+                  effect:
+                    description: Effect specifies the effect for the taint
+                    enum:
+                      - no-schedule
+                      - no-execute
+                      - prefer-no-schedule
                     type: string
-                  filters:
-                    description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
-                    items:
-                      description: Filter is a filter used to identify an AWS resource
-                      properties:
-                        name:
-                          description: Name of the filter. Filter names are case-sensitive.
-                          type: string
-                        values:
-                          description: Values includes one or more filter values. Filter values are case-sensitive.
-                          items:
-                            type: string
-                          type: array
-                      required:
-                        - name
-                        - values
-                      type: object
-                    type: array
-                  id:
-                    description: ID of resource
+                  key:
+                    description: Key is the key of the taint
                     type: string
+                  value:
+                    description: Value is the value of the taint
+                    type: string
+                required:
+                  - effect
+                  - key
+                  - value
                 type: object
               type: array
-          required:
-            - awsLaunchTemplate
-            - maxSize
-            - minSize
+            updateConfig:
+              description: UpdateConfig holds the optional config to control the behaviour of the update to the nodegroup.
+              properties:
+                maxUnavailable:
+                  description: MaxUnavailable is the maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. The maximum number is 100.
+                  maximum: 100
+                  minimum: 1
+                  type: integer
+                maxUnavailablePercentage:
+                  description: MaxUnavailablePercentage is the maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once.
+                  maximum: 100
+                  minimum: 1
+                  type: integer
+              type: object
           type: object
         status:
-          description: AWSMachinePoolStatus defines the observed state of AWSMachinePool
+          description: AWSManagedMachinePoolStatus defines the observed state of AWSManagedMachinePool.
           properties:
-            asgStatus:
-              description: ASGStatus is a status string returned by the autoscaling API
-              type: string
             conditions:
-              description: Conditions defines current service state of the AWSMachinePool.
+              description: Conditions defines current service state of the managed machine pool
               items:
                 description: Condition defines an observation of a Cluster API resource operational state.
                 properties:
@@ -276,38 +278,32 @@
                     description: Type of condition in CamelCase or in foo.example.com/CamelCase. Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important.
                     type: string
                 required:
+                  - lastTransitionTime
                   - status
                   - type
                 type: object
               type: array
             failureMessage:
-              description: "FailureMessage will be set in the event that there is a terminal problem reconciling the Machine and will contain a more verbose string suitable for logging and human consumption. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the Machine's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of Machines can be added as events to the Machine object and/or logged in the controller's output."
+              description: "FailureMessage will be set in the event that there is a terminal problem reconciling the MachinePool and will contain a more verbose string suitable for logging and human consumption. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the MachinePool's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of MachinePools can be added as events to the MachinePool object and/or logged in the controller's output."
               type: string
             failureReason:
-              description: "FailureReason will be set in the event that there is a terminal problem reconciling the Machine and will contain a succinct value suitable for machine interpretation. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the Machine's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of Machines can be added as events to the Machine object and/or logged in the controller's output."
+              description: "FailureReason will be set in the event that there is a terminal problem reconciling the MachinePool and will contain a succinct value suitable for machine interpretation. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the Machine's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of MachinePools can be added as events to the MachinePool object and/or logged in the controller's output."
               type: string
-            instances:
-              description: Instances contains the status for each instance in the pool
-              items:
-                description: AWSMachinePoolInstanceStatus defines the status of the AWSMachinePoolInstance.
-                properties:
-                  instanceID:
-                    description: InstanceID is the identification of the Machine Instance within ASG
-                    type: string
-                  version:
-                    description: Version defines the Kubernetes version for the Machine Instance
-                    type: string
-                type: object
-              type: array
             launchTemplateID:
               description: The ID of the launch template
               type: string
+            launchTemplateVersion:
+              description: The version of the launch template
+              type: string
             ready:
-              description: Ready is true when the provider resource is ready.
+              default: false
+              description: Ready denotes that the AWSManagedMachinePool nodegroup has joined the cluster
               type: boolean
             replicas:
-              description: Replicas is the most recently observed number of replicas
+              description: Replicas is the most recently observed number of replicas.
               format: int32
               type: integer
+          required:
+            - ready
           type: object
       type: object

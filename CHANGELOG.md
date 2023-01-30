@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Change `kubectl` image source to `giantswarm/kubectl`
 - Bump `kubectl` version to `v1.24.10`
+- Upgrade image and CRDs to a version newer than v2.0.2 (still including our `LoadBalancerReadyCondition` patch)
 
 ## [1.9.2] - 2023-01-19
 

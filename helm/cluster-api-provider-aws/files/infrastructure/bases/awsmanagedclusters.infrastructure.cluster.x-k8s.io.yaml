@@ -17,9 +17,8 @@ metadata:
     cluster.x-k8s.io/v1beta1: v1beta1_v1beta2
     clusterctl.cluster.x-k8s.io: ""
     clusterctl.cluster.x-k8s.io/move: ""
-    clusterctl.cluster.x-k8s.io/move-hierarchy: ""
     helm.sh/chart: '{{ .Chart.Name }}'
-  name: awsclusterroleidentities.infrastructure.cluster.x-k8s.io
+  name: awsmanagedclusters.infrastructure.cluster.x-k8s.io
 spec:
   conversion:
     strategy: Webhook
@@ -38,19 +37,31 @@ spec:
   names:
     categories:
       - cluster-api
-    kind: AWSClusterRoleIdentity
-    listKind: AWSClusterRoleIdentityList
-    plural: awsclusterroleidentities
+    kind: AWSManagedCluster
+    listKind: AWSManagedClusterList
+    plural: awsmanagedclusters
     shortNames:
-      - awsri
-    singular: awsclusterroleidentity
-  scope: Cluster
+      - awsmc
+    singular: awsmanagedcluster
+  scope: Namespaced
   versions:
-    - name: v1beta1
-      schema: {}
-      served: true
-      storage: false
-    - name: v1beta2
+    - additionalPrinterColumns:
+        - description: Cluster to which this AWSManagedControl belongs
+          jsonPath: .metadata.labels.cluster\.x-k8s\.io/cluster-name
+          name: Cluster
+          type: string
+        - description: Control plane infrastructure is ready for worker nodes
+          jsonPath: .status.ready
+          name: Ready
+          type: string
+        - description: API Endpoint
+          jsonPath: .spec.controlPlaneEndpoint.host
+          name: Endpoint
+          priority: 1
+          type: string
+      name: v1beta2
       schema: {}
       served: true
       storage: true
+      subresources:
+        status: {}
