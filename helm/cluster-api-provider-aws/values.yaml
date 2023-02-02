@@ -1,10 +1,10 @@
 name: cluster-api-provider-aws
-tag: v2.0.2-gs-fc1a0d241  # latest upstream release v2.0.2 does not have our `infrav1.LoadBalancerReadyCondition` patch (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/3871)
-
-# Not used by the chart, but in `hack/generate-kustomize-patches.sh` (via `make generate`). Choose a tag here that
-# exists as upstream release. For example if `tag` points to a custom tag `v9.8.7-gs-1234abc` of our fork, you may
-# want `v9.8.7` here. The manifests and CRDs from that release are used.
-upstreamTagForManifestGeneration: v2.0.2
+# Latest upstream release v2.0.2 does not have our `infrav1.LoadBalancerReadyCondition` patch
+# (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/3871), so we use a newer version than v2.0.2.
+# This value can also be a commit (even works for `make generate`), but tags are preferred since those can include a
+# message and tell us explicitly that the commit is important. Please include the short commit SHA in the tag name,
+# such as `v2.0.2-gs-123abcd`.
+tag: 407bd9806fd50e1c970aa75ae79acfa7728070cf
 
 infrastructure:
   image:

@@ -20,13 +20,21 @@ KUSTOMIZE_INPUT_DIR="$ROOT_DIR/config/helm/input"
 
 # Download upstream manifests
 helm_values="$HELM_DIR/values.yaml"
-org="kubernetes-sigs"
-repo="cluster-api-provider-aws"
-version="$(yq e '.upstreamTagForManifestGeneration' "$helm_values")"
+# Giant Swarm specific, since we don't use GitHub releases in https://github.com/giantswarm/cluster-api-provider-aws
+version="$(yq e '.tag' "$helm_values")"
 release_asset_filename="infrastructure-components.yaml"
-url="https://github.com/$org/$repo/releases/download/$version/$release_asset_filename"
 mkdir -p "$KUSTOMIZE_INPUT_DIR"
-curl --fail -L "$url" -o "$KUSTOMIZE_INPUT_DIR/$release_asset_filename"
+# Image does not have a shell or `cat` installed, so extract the file using busybox
+empty_context="$(mktemp -d)"
+cat >"${empty_context}/Dockerfile.manifest" <<EOF
+FROM quay.io/giantswarm/cluster-api-aws-controller:${version} as src
+FROM docker.io/library/busybox:1
+COPY --from=src /for-cluster-api-provider-aws-app-only/infrastructure-components.yaml /file
+EOF
+docker build -f "${empty_context}/Dockerfile.manifest" -t manifest "${empty_context}"
+rm -r "${empty_context}"
+docker run --rm manifest cat /file >"$KUSTOMIZE_INPUT_DIR/$release_asset_filename"
+[ "$(grep -c ^ "$KUSTOMIZE_INPUT_DIR/$release_asset_filename")" -gt 12000 ] || { >&2 echo "Downloaded ${release_asset_filename} does not seem right"; exit 1; }
 
 # Update kustomize patches for webhooks. We do this for every CRD
 

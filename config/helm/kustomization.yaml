@@ -11,6 +11,11 @@ images:
     newName: "{{.Values.infrastructure.image.domain}}/{{.Values.infrastructure.image.name}}"
     newTag: "{{.Values.tag}}"
 
+  # See https://github.com/giantswarm/cluster-api-provider-aws/blob/main/.circleci/config.yml
+  - name: REPLACE_ME_REGISTRY/cluster-api-aws-controller
+    newName: "{{.Values.infrastructure.image.domain}}/{{.Values.infrastructure.image.name}}"
+    newTag: "{{.Values.tag}}"
+
 transformers:
   - common-labels.yaml
   - monitoring-annotations.yaml
