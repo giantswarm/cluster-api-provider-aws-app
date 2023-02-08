@@ -49,6 +49,9 @@ move-infrastructure-manifests() {
     for crd_file in apiextensions.k8s.io_v1_customresourcedefinition_*.cluster.x-k8s.io.yaml; do
         new_crd_file="$(echo "$crd_file" | cut -c50-)" # remove first 50 chars
         mv "$crd_file" "$new_crd_file"
+
+        # Consistently remove `creationTimestamp`
+        yq e -i 'del .metadata.creationTimestamp' "$new_crd_file"
     done
     cd ../../../../..
 }
