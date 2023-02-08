@@ -1,5 +1,5 @@
 name: verify helm manifests are up to date
-on: pull_request
+on: push
 jobs:
   make-verify:
     runs-on: ubuntu-latest
