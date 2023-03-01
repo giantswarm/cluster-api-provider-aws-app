@@ -2,7 +2,7 @@
   path: /spec/versions/1/schema
   value:
     openAPIV3Schema:
-      description: AWSMachineTemplate is the Schema for the awsmachinetemplates API
+      description: AWSMachineTemplate is the schema for the Amazon EC2 Machine Templates API.
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
@@ -13,26 +13,37 @@
         metadata:
           type: object
         spec:
-          description: AWSMachineTemplateSpec defines the desired state of AWSMachineTemplate
+          description: AWSMachineTemplateSpec defines the desired state of AWSMachineTemplate.
           properties:
             template:
-              description: AWSMachineTemplateResource describes the data needed to create am AWSMachine from a template
+              description: AWSMachineTemplateResource describes the data needed to create am AWSMachine from a template.
               properties:
+                metadata:
+                  description: 'Standard object''s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata'
+                  properties:
+                    annotations:
+                      additionalProperties:
+                        type: string
+                      description: 'Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations'
+                      type: object
+                    labels:
+                      additionalProperties:
+                        type: string
+                      description: 'Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels'
+                      type: object
+                  type: object
                 spec:
                   description: Spec is the specification of the desired behavior of the machine.
                   properties:
                     additionalSecurityGroups:
                       description: AdditionalSecurityGroups is an array of references to security groups that should be applied to the instance. These security groups would be set in addition to any security groups defined at the cluster level or in the actuator. It is possible to specify either IDs of Filters. Using Filters will cause additional requests to AWS API and if tags change the attached security groups might change too.
                       items:
-                        description: AWSResourceReference is a reference to a specific AWS resource by ID, ARN, or filters. Only one of ID, ARN or Filters may be specified. Specifying more than one will result in a validation error.
+                        description: AWSResourceReference is a reference to a specific AWS resource by ID or filters. Only one of ID or Filters may be specified. Specifying more than one will result in a validation error.
                         properties:
-                          arn:
-                            description: ARN of resource
-                            type: string
                           filters:
                             description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
                             items:
-                              description: Filter is a filter used to identify an AWS resource
+                              description: Filter is a filter used to identify an AWS resource.
                               properties:
                                 name:
                                   description: Name of the filter. Filter names are case-sensitive.
@@ -90,12 +101,19 @@
                             - ssm-parameter-store
                           type: string
                       type: object
-                    failureDomain:
-                      description: FailureDomain is the failure domain unique identifier this Machine should be attached to, as defined in Cluster API. For this infrastructure provider, the ID is equivalent to an AWS Availability Zone. If multiple subnets are matched for the availability zone, the first one returned is picked.
-                      type: string
                     iamInstanceProfile:
                       description: IAMInstanceProfile is a name of an IAM instance profile to assign to the instance
                       type: string
+                    ignition:
+                      description: Ignition defined options related to the bootstrapping systems where Ignition is used.
+                      properties:
+                        version:
+                          default: "2.3"
+                          description: Version defines which version of Ignition will be used to generate bootstrap data.
+                          enum:
+                            - "2.3"
+                          type: string
+                      type: object
                     imageLookupBaseOS:
                       description: ImageLookupBaseOS is the name of the base operating system to use for image lookup the AMI is not set.
                       type: string
@@ -121,7 +139,7 @@
                     nonRootVolumes:
                       description: Configuration options for the non root storage volumes.
                       items:
-                        description: Volume encapsulates the configuration options for the storage device
+                        description: Volume encapsulates the configuration options for the storage device.
                         properties:
                           deviceName:
                             description: Device name
@@ -202,13 +220,10 @@
                     subnet:
                       description: Subnet is a reference to the subnet to use for this instance. If not specified, the cluster subnet will be used.
                       properties:
-                        arn:
-                          description: ARN of resource
-                          type: string
                         filters:
                           description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
                           items:
-                            description: Filter is a filter used to identify an AWS resource
+                            description: Filter is a filter used to identify an AWS resource.
                             properties:
                               name:
                                 description: Name of the filter. Filter names are case-sensitive.
@@ -245,5 +260,18 @@
               type: object
           required:
             - template
+          type: object
+        status:
+          description: AWSMachineTemplateStatus defines a status for an AWSMachineTemplate.
+          properties:
+            capacity:
+              additionalProperties:
+                anyOf:
+                  - type: integer
+                  - type: string
+                pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                x-kubernetes-int-or-string: true
+              description: 'Capacity defines the resource capacity for this machine. This value is used for autoscaling from zero operations as defined in: https://github.com/kubernetes-sigs/cluster-api/blob/main/docs/proposals/20210310-opt-in-autoscaling-from-zero.md'
+              type: object
           type: object
       type: object

@@ -1,5 +1,5 @@
 - op: replace
-  path: /spec/versions/2/schema
+  path: /spec/versions/0/schema
   value:
     openAPIV3Schema:
       description: AWSMachinePool is the Schema for the awsmachinepools API.
@@ -33,9 +33,6 @@
                   items:
                     description: AWSResourceReference is a reference to a specific AWS resource by ID or filters. Only one of ID or Filters may be specified. Specifying more than one will result in a validation error.
                     properties:
-                      arn:
-                        description: 'ARN of resource. Deprecated: This field has no function and is going to be removed in the next release.'
-                        type: string
                       filters:
                         description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
                         items:
@@ -120,6 +117,13 @@
                       type: string
                   required:
                     - size
+                  type: object
+                spotMarketOptions:
+                  description: SpotMarketOptions are options for configuring AWSMachinePool instances to be run using AWS Spot instances.
+                  properties:
+                    maxPrice:
+                      description: MaxPrice defines the maximum price the user is willing to pay for Spot VM instances
+                      type: string
                   type: object
                 sshKeyName:
                   description: SSHKeyName is the name of the ssh key to attach to the instance. Valid values are empty string (do not use SSH keys), a valid SSH key name, or omitted (use the default SSH key name)
@@ -214,9 +218,6 @@
               items:
                 description: AWSResourceReference is a reference to a specific AWS resource by ID or filters. Only one of ID or Filters may be specified. Specifying more than one will result in a validation error.
                 properties:
-                  arn:
-                    description: 'ARN of resource. Deprecated: This field has no function and is going to be removed in the next release.'
-                    type: string
                   filters:
                     description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
                     items:
@@ -302,6 +303,9 @@
               type: array
             launchTemplateID:
               description: The ID of the launch template
+              type: string
+            launchTemplateVersion:
+              description: The version of the launch template
               type: string
             ready:
               description: Ready is true when the provider resource is ready.

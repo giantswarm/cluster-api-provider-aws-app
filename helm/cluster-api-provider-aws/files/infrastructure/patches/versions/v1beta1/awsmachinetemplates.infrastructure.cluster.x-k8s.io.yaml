@@ -1,5 +1,5 @@
 - op: replace
-  path: /spec/versions/2/schema
+  path: /spec/versions/0/schema
   value:
     openAPIV3Schema:
       description: AWSMachineTemplate is the schema for the Amazon EC2 Machine Templates API.
@@ -269,5 +269,18 @@
               type: object
           required:
             - template
+          type: object
+        status:
+          description: AWSMachineTemplateStatus defines a status for an AWSMachineTemplate.
+          properties:
+            capacity:
+              additionalProperties:
+                anyOf:
+                  - type: integer
+                  - type: string
+                pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                x-kubernetes-int-or-string: true
+              description: 'Capacity defines the resource capacity for this machine. This value is used for autoscaling from zero operations as defined in: https://github.com/kubernetes-sigs/cluster-api/blob/main/docs/proposals/20210310-opt-in-autoscaling-from-zero.md'
+              type: object
           type: object
       type: object

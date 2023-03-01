@@ -1,8 +1,8 @@
 - op: replace
-  path: /spec/versions/0/schema
+  path: /spec/versions/1/schema
   value:
     openAPIV3Schema:
-      description: AWSFargateProfile is the Schema for the awsfargateprofiles API
+      description: AWSFargateProfile is the Schema for the awsfargateprofiles API.
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
@@ -13,7 +13,7 @@
         metadata:
           type: object
         spec:
-          description: FargateProfileSpec defines the desired state of FargateProfile
+          description: FargateProfileSpec defines the desired state of FargateProfile.
           properties:
             additionalTags:
               additionalProperties:
@@ -33,7 +33,7 @@
             selectors:
               description: Selectors specify fargate pod selectors.
               items:
-                description: FargateSelector specifies a selector for pods that should run on this fargate pool
+                description: FargateSelector specifies a selector for pods that should run on this fargate pool.
                 properties:
                   labels:
                     additionalProperties:
@@ -54,7 +54,7 @@
             - clusterName
           type: object
         status:
-          description: FargateProfileStatus defines the observed state of FargateProfile
+          description: FargateProfileStatus defines the observed state of FargateProfile.
           properties:
             conditions:
               description: Conditions defines current state of the Fargate profile.
@@ -81,6 +81,7 @@
                     description: Type of condition in CamelCase or in foo.example.com/CamelCase. Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important.
                     type: string
                 required:
+                  - lastTransitionTime
                   - status
                   - type
                 type: object

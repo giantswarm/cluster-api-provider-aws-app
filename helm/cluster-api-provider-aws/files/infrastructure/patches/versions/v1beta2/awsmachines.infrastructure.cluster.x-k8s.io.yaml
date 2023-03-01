@@ -1,8 +1,8 @@
 - op: replace
-  path: /spec/versions/0/schema
+  path: /spec/versions/1/schema
   value:
     openAPIV3Schema:
-      description: AWSMachine is the Schema for the awsmachines API
+      description: AWSMachine is the schema for Amazon EC2 machines.
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
@@ -13,20 +13,17 @@
         metadata:
           type: object
         spec:
-          description: AWSMachineSpec defines the desired state of AWSMachine
+          description: AWSMachineSpec defines the desired state of an Amazon EC2 instance.
           properties:
             additionalSecurityGroups:
               description: AdditionalSecurityGroups is an array of references to security groups that should be applied to the instance. These security groups would be set in addition to any security groups defined at the cluster level or in the actuator. It is possible to specify either IDs of Filters. Using Filters will cause additional requests to AWS API and if tags change the attached security groups might change too.
               items:
-                description: AWSResourceReference is a reference to a specific AWS resource by ID, ARN, or filters. Only one of ID, ARN or Filters may be specified. Specifying more than one will result in a validation error.
+                description: AWSResourceReference is a reference to a specific AWS resource by ID or filters. Only one of ID or Filters may be specified. Specifying more than one will result in a validation error.
                 properties:
-                  arn:
-                    description: ARN of resource
-                    type: string
                   filters:
                     description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
                     items:
-                      description: Filter is a filter used to identify an AWS resource
+                      description: Filter is a filter used to identify an AWS resource.
                       properties:
                         name:
                           description: Name of the filter. Filter names are case-sensitive.
@@ -54,27 +51,12 @@
             ami:
               description: AMI is the reference to the AMI from which to create the machine instance.
               properties:
-                arn:
-                  description: ARN of resource
+                eksLookupType:
+                  description: EKSOptimizedLookupType If specified, will look up an EKS Optimized image in SSM Parameter store
+                  enum:
+                    - AmazonLinux
+                    - AmazonLinuxGPU
                   type: string
-                filters:
-                  description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
-                  items:
-                    description: Filter is a filter used to identify an AWS resource
-                    properties:
-                      name:
-                        description: Name of the filter. Filter names are case-sensitive.
-                        type: string
-                      values:
-                        description: Values includes one or more filter values. Filter values are case-sensitive.
-                        items:
-                          type: string
-                        type: array
-                    required:
-                      - name
-                      - values
-                    type: object
-                  type: array
                 id:
                   description: ID of resource
                   type: string
@@ -99,12 +81,19 @@
                     - ssm-parameter-store
                   type: string
               type: object
-            failureDomain:
-              description: FailureDomain is the failure domain unique identifier this Machine should be attached to, as defined in Cluster API. For this infrastructure provider, the ID is equivalent to an AWS Availability Zone. If multiple subnets are matched for the availability zone, the first one returned is picked.
-              type: string
             iamInstanceProfile:
               description: IAMInstanceProfile is a name of an IAM instance profile to assign to the instance
               type: string
+            ignition:
+              description: Ignition defined options related to the bootstrapping systems where Ignition is used.
+              properties:
+                version:
+                  default: "2.3"
+                  description: Version defines which version of Ignition will be used to generate bootstrap data.
+                  enum:
+                    - "2.3"
+                  type: string
+              type: object
             imageLookupBaseOS:
               description: ImageLookupBaseOS is the name of the base operating system to use for image lookup the AMI is not set.
               type: string
@@ -119,6 +108,7 @@
               type: string
             instanceType:
               description: 'InstanceType is the type of instance to create. Example: m4.xlarge'
+              minLength: 2
               type: string
             networkInterfaces:
               description: NetworkInterfaces is a list of ENIs to associate with the instance. A maximum of 2 may be specified.
@@ -129,7 +119,7 @@
             nonRootVolumes:
               description: Configuration options for the non root storage volumes.
               items:
-                description: Volume encapsulates the configuration options for the storage device
+                description: Volume encapsulates the configuration options for the storage device.
                 properties:
                   deviceName:
                     description: Device name
@@ -148,6 +138,10 @@
                     description: Size specifies size (in Gi) of the storage device. Must be greater than the image snapshot size or 8 (whichever is greater).
                     format: int64
                     minimum: 8
+                    type: integer
+                  throughput:
+                    description: Throughput to provision in MiB/s supported for the volume type. Not applicable to all types.
+                    format: int64
                     type: integer
                   type:
                     description: Type is the type of the volume (e.g. gp2, io1, etc...).
@@ -183,6 +177,10 @@
                   format: int64
                   minimum: 8
                   type: integer
+                throughput:
+                  description: Throughput to provision in MiB/s supported for the volume type. Not applicable to all types.
+                  format: int64
+                  type: integer
                 type:
                   description: Type is the type of the volume (e.g. gp2, io1, etc...).
                   type: string
@@ -202,13 +200,10 @@
             subnet:
               description: Subnet is a reference to the subnet to use for this instance. If not specified, the cluster subnet will be used.
               properties:
-                arn:
-                  description: ARN of resource
-                  type: string
                 filters:
                   description: 'Filters is a set of key/value pairs used to identify a resource They are applied according to the rules defined by the AWS API: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html'
                   items:
-                    description: Filter is a filter used to identify an AWS resource
+                    description: Filter is a filter used to identify an AWS resource.
                     properties:
                       name:
                         description: Name of the filter. Filter names are case-sensitive.
@@ -237,9 +232,11 @@
             uncompressedUserData:
               description: UncompressedUserData specify whether the user data is gzip-compressed before it is sent to ec2 instance. cloud-init has built-in support for gzip-compressed user data user data stored in aws secret manager is always gzip-compressed.
               type: boolean
+          required:
+            - instanceType
           type: object
         status:
-          description: AWSMachineStatus defines the observed state of AWSMachine
+          description: AWSMachineStatus defines the observed state of AWSMachine.
           properties:
             addresses:
               description: Addresses contains the AWS instance associated addresses.
@@ -282,6 +279,7 @@
                     description: Type of condition in CamelCase or in foo.example.com/CamelCase. Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important.
                     type: string
                 required:
+                  - lastTransitionTime
                   - status
                   - type
                 type: object
