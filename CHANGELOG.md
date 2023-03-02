@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2023-03-02
+
 ### Changed
 
 - Change `kubectl` image source to `giantswarm/kubectl`
@@ -190,7 +192,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.9.2...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.9.2...v2.0.0
 [1.9.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.9.1...v1.9.2
 [1.9.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.8.3...v1.9.0
