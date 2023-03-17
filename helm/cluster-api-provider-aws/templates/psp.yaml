@@ -59,7 +59,7 @@ metadata:
   {{- include "labels.common" . | nindent 4 }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "resource.default.name"  . }}
+  name: capa-controller-manager
   namespace: {{ include "resource.default.namespace"  . }}
 roleRef:
   kind: ClusterRole
