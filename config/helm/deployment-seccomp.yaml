@@ -15,7 +15,3 @@ spec:
           securityContext:
             seccompProfile:
               type: RuntimeDefault
-        - name: awsclidebug
-          securityContext:
-            seccompProfile:
-              type: RuntimeDefault

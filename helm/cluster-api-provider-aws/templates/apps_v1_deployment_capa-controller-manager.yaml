@@ -82,10 +82,6 @@ spec:
           readOnly: true
         - mountPath: /home/.aws
           name: credentials
-      - name: awsclidebug
-        securityContext:
-          seccompProfile:
-            type: RuntimeDefault
       securityContext:
         fsGroup: 1000
         seccompProfile:
