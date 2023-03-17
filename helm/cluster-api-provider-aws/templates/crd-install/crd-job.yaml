@@ -22,6 +22,8 @@ spec:
       securityContext:
         runAsUser: 65534
         runAsGroup: 65534
+        seccompProfile:
+          type: RuntimeDefault
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
@@ -52,6 +54,9 @@ spec:
           limits:
             cpu: 500m
             memory: 512Mi
+        securityContext:
+          seccompProfile:
+            type: RuntimeDefault
       volumes:
 {{ $currentScope := . }}
 {{- range $path, $_ := .Files.Glob "files/**.yaml" }}
