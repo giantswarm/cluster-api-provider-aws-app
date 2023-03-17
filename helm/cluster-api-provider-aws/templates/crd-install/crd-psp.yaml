@@ -4,6 +4,7 @@ kind: PodSecurityPolicy
 metadata:
   name: {{ include "capa.crdInstall" . }}
   annotations:
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'runtime/default'
     # create hook dependencies in the right order
     "helm.sh/hook-weight": "-6"
     {{- include "capa.CRDInstallAnnotations" . | nindent 4 }}
@@ -24,6 +25,8 @@ spec:
         max: 65535
   volumes:
   - 'configMap'
+  - 'secret'
+  - 'projected'
   hostPID: false
   hostIPC: false
   hostNetwork: false
