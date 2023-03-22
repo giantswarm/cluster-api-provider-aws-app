@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.2] - 2023-03-22
+
 ### Added
 
 - Added `node-role.kubernetes.io/control-plane` to crd install jobs toleration
@@ -202,7 +204,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.9.2...v2.0.0
 [1.9.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v1.9.1...v1.9.2
