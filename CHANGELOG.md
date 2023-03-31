@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.1.0] - 2023-03-31
 
+### Added
+
+- Enabled Flatcar ignition bootstrap feature gate.
+
 ## [2.0.2] - 2023-03-22
 
 ### Added
