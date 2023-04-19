@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.0] - 2023-04-19
+
 ### Changed
 
 - Change default registry in Helm chart from quay.io to docker.io.
@@ -214,7 +216,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.2...v2.1.0
 [2.0.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.0.0...v2.0.1
