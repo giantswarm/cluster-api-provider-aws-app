@@ -27,7 +27,7 @@ mkdir -p "$KUSTOMIZE_INPUT_DIR"
 # Image does not have a shell or `cat` installed, so extract the file using busybox
 empty_context="$(mktemp -d)"
 cat >"${empty_context}/Dockerfile.manifest" <<EOF
-FROM quay.io/giantswarm/cluster-api-aws-controller:${version} as src
+FROM docker.io/giantswarm/cluster-api-aws-controller:${version} as src
 FROM docker.io/library/busybox:1
 COPY --from=src /for-cluster-api-provider-aws-app-only/infrastructure-components.yaml /file
 EOF
