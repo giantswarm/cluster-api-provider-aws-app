@@ -74,6 +74,10 @@ spec:
             path: /readyz
             port: healthz
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
           seccompProfile:
             type: RuntimeDefault
         volumeMounts:
@@ -84,6 +88,7 @@ spec:
           name: credentials
       securityContext:
         fsGroup: 1000
+        runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
       serviceAccountName: capa-controller-manager
