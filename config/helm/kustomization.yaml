@@ -44,6 +44,7 @@ patches:
   - path: deployment-iam-role.yaml
   - path: deployment-nodeaffinity.yaml
   - path: deployment-seccomp.yaml
+  - path: deployment-securitycontext.yaml
   - path: delete-namespace.yaml
   - path: delete-serviceaccount-annotation.yaml
   - path: webhook-mutating-certificate.yaml

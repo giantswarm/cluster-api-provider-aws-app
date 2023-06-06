@@ -74,9 +74,12 @@ spec:
             path: /readyz
             port: healthz
         securityContext:
-          {{- with .Values.securityContext }}
-            {{- . | toYaml | nindent 12 }}
-          {{- end }}
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          seccompProfile:
+            type: RuntimeDefault
         volumeMounts:
         - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
@@ -85,9 +88,9 @@ spec:
           name: credentials
       securityContext:
         fsGroup: 1000
-        {{- with .Values.podSecurityContext }}
-          {{- . | toYaml | nindent 8 }}
-        {{- end }}
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       serviceAccountName: capa-controller-manager
       terminationGracePeriodSeconds: 10
       tolerations:
