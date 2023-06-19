@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add necessary values for PSS policy warnings. 
+- Add necessary values for PSS policy warnings
+- Add common labels to pods so that Hubble shows the app name
 
 ## [2.2.0] - 2023-04-19
 
