@@ -28,6 +28,10 @@ webhooks:
     objectSelector:
       matchLabels:
         cluster.x-k8s.io/watch-filter: capi
+  - name: validation.awsmachinetemplate.infrastructure.cluster.x-k8s.io
+    objectSelector:
+      matchLabels:
+        cluster.x-k8s.io/watch-filter: capi
   - name: validation.awsfargateprofile.infrastructure.cluster.x-k8s.io
     objectSelector:
       matchLabels:

@@ -85,6 +85,8 @@ spec:
           capabilities:
             drop:
             - ALL
+          runAsGroup: 65532
+          runAsUser: 65532
           seccompProfile:
             type: RuntimeDefault
         volumeMounts:
