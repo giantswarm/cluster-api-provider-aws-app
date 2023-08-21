@@ -21,7 +21,7 @@ KUSTOMIZE_INPUT_DIR="$ROOT_DIR/config/helm/input"
 # Download upstream manifests
 helm_values="$HELM_DIR/values.yaml"
 # Giant Swarm specific, since we don't use GitHub releases in https://github.com/giantswarm/cluster-api-provider-aws
-version="$(yq e '.tag' "$helm_values")"
+version="$(yq e -e '.tag' "$helm_values")"
 release_asset_filename="infrastructure-components.yaml"
 mkdir -p "$KUSTOMIZE_INPUT_DIR"
 # Image does not have a shell or `cat` installed, so extract the file using busybox
@@ -38,7 +38,7 @@ docker run --rm manifest cat /file >"$KUSTOMIZE_INPUT_DIR/$release_asset_filenam
 
 # Update kustomize patches for webhooks. We do this for every CRD
 
-watch_filter="$(yq e '.watchfilter' "$helm_values")"
+watch_filter="$(yq e -e '.watchfilter' "$helm_values")" || { echo "Could not find watch filter value"; exit 1; }
 
 # For every CRD, add webhook label selector
 for webhook_kind_prefix in Mutating Validating; do
