@@ -303,13 +303,8 @@
                           type: string
                         description: Tags is a collection of tags describing the resource.
                         type: object
-                    required:
-                      - id
                     type: object
                   type: array
-                  x-kubernetes-list-map-keys:
-                    - id
-                  x-kubernetes-list-type: map
                 vpc:
                   description: VPC configuration.
                   properties:
