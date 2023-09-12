@@ -200,6 +200,67 @@
             network:
               description: NetworkSpec encapsulates all things related to AWS network.
               properties:
+                additionalControlPlaneIngressRules:
+                  description: AdditionalControlPlaneIngressRules is an optional set of ingress rules to add to the control plane
+                  items:
+                    description: IngressRule defines an AWS ingress rule for security groups.
+                    properties:
+                      cidrBlocks:
+                        description: List of CIDR blocks to allow access from. Cannot be specified with SourceSecurityGroupID.
+                        items:
+                          type: string
+                        type: array
+                      description:
+                        description: Description provides extended information about the ingress rule.
+                        type: string
+                      fromPort:
+                        description: FromPort is the start of port range.
+                        format: int64
+                        type: integer
+                      ipv6CidrBlocks:
+                        description: List of IPv6 CIDR blocks to allow access from. Cannot be specified with SourceSecurityGroupID.
+                        items:
+                          type: string
+                        type: array
+                      protocol:
+                        description: Protocol is the protocol for the ingress rule. Accepted values are "-1" (all), "4" (IP in IP),"tcp", "udp", "icmp", and "58" (ICMPv6).
+                        enum:
+                          - "-1"
+                          - "4"
+                          - tcp
+                          - udp
+                          - icmp
+                          - "58"
+                        type: string
+                      sourceSecurityGroupIds:
+                        description: The security group id to allow access from. Cannot be specified with CidrBlocks.
+                        items:
+                          type: string
+                        type: array
+                      sourceSecurityGroupRoles:
+                        description: The security group role to allow access from. Cannot be specified with CidrBlocks. The field will be combined with source security group IDs if specified.
+                        items:
+                          description: SecurityGroupRole defines the unique role of a security group.
+                          enum:
+                            - bastion
+                            - node
+                            - controlplane
+                            - apiserver-lb
+                            - lb
+                            - node-eks-additional
+                          type: string
+                        type: array
+                      toPort:
+                        description: ToPort is the end of port range.
+                        format: int64
+                        type: integer
+                    required:
+                      - description
+                      - fromPort
+                      - protocol
+                      - toPort
+                    type: object
+                  type: array
                 cni:
                   description: CNI configuration
                   properties:
@@ -284,7 +345,7 @@
                       minimum: 1
                       type: integer
                     cidrBlock:
-                      description: CidrBlock is the CIDR block to be used when the provider creates a managed VPC. Defaults to 10.0.0.0/16.
+                      description: CidrBlock is the CIDR block to be used when the provider creates a managed VPC. Defaults to 10.0.0.0/16. Mutually exclusive with IPAMPool.
                       type: string
                     id:
                       description: ID is the vpc-id of the VPC this provider should use to create resources.
@@ -292,17 +353,45 @@
                     internetGatewayId:
                       description: InternetGatewayID is the id of the internet gateway associated with the VPC.
                       type: string
+                    ipamPool:
+                      description: IPAMPool defines the IPAMv4 pool to be used for VPC. Mutually exclusive with CidrBlock.
+                      properties:
+                        id:
+                          description: ID is the ID of the IPAM pool this provider should use to create VPC.
+                          type: string
+                        name:
+                          description: Name is the name of the IPAM pool this provider should use to create VPC.
+                          type: string
+                        netmaskLength:
+                          description: The netmask length of the IPv4 CIDR you want to allocate to VPC from an Amazon VPC IP Address Manager (IPAM) pool. Defaults to /16 for IPv4 if not specified.
+                          format: int64
+                          type: integer
+                      type: object
                     ipv6:
                       description: IPv6 contains ipv6 specific settings for the network. Supported only in managed clusters. This field cannot be set on AWSCluster object.
                       properties:
                         cidrBlock:
-                          description: CidrBlock is the CIDR block provided by Amazon when VPC has enabled IPv6.
+                          description: CidrBlock is the CIDR block provided by Amazon when VPC has enabled IPv6. Mutually exclusive with IPAMPool.
                           type: string
                         egressOnlyInternetGatewayId:
                           description: EgressOnlyInternetGatewayID is the id of the egress only internet gateway associated with an IPv6 enabled VPC.
                           type: string
+                        ipamPool:
+                          description: IPAMPool defines the IPAMv6 pool to be used for VPC. Mutually exclusive with CidrBlock.
+                          properties:
+                            id:
+                              description: ID is the ID of the IPAM pool this provider should use to create VPC.
+                              type: string
+                            name:
+                              description: Name is the name of the IPAM pool this provider should use to create VPC.
+                              type: string
+                            netmaskLength:
+                              description: The netmask length of the IPv4 CIDR you want to allocate to VPC from an Amazon VPC IP Address Manager (IPAM) pool. Defaults to /16 for IPv4 if not specified.
+                              format: int64
+                              type: integer
+                          type: object
                         poolId:
-                          description: PoolID is the IP pool which must be defined in case of BYO IP is defined.
+                          description: PoolID is the IP pool which must be defined in case of BYO IP is defined. Must be specified if CidrBlock is set. Mutually exclusive with IPAMPool.
                           type: string
                       type: object
                     tags:
@@ -759,6 +848,11 @@
                       description: Tags is a map of tags associated with the load balancer.
                       type: object
                   type: object
+                natGatewaysIPs:
+                  description: NatGatewaysIPs contains the public IPs of the NAT Gateways
+                  items:
+                    type: string
+                  type: array
                 securityGroups:
                   additionalProperties:
                     description: SecurityGroup defines an AWS security group.
