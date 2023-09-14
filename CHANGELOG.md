@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add network policies (`CiliumNetworkPolicy` objects depend on `ciliumNetworkPolicy.enabled`)
 
+### Changed
+
+- Upgrade to cluster-api-provider-aws v2.2.1
+- Switch to using Giant Swarm cluster-api-provider-aws fork's GitHub releases to make things consistent with the cluster-api fork
+
 ## [2.3.0] - 2023-07-14
 
 ### Fixed
