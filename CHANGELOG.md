@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add network policies (`CiliumNetworkPolicy` objects depend on `ciliumNetworkPolicy.enabled`)
+
 ### Changed
 
 - Upgrade to cluster-api-provider-aws v2.2.1

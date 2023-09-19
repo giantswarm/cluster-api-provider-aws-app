@@ -9,6 +9,9 @@ infrastructure:
     domain: docker.io
     name: giantswarm/cluster-api-aws-controller
 
+ciliumNetworkPolicy:
+  enabled: false
+
 crdConvertOnly: true
 crdInstall:
   enable: true
