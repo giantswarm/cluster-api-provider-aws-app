@@ -5,6 +5,9 @@ namespace: '{{ .Release.Namespace }}'
 
 resources:
   - input/infrastructure-components.yaml
+  - ciliumnetworkpolicy_capa-controller-manager.yaml
+  - ciliumnetworkpolicy_capa-default-deny.yaml
+  - networkpolicy_capa-controller-manager.yaml
 
 images:
   - name: registry.k8s.io/cluster-api-aws/cluster-api-aws-controller

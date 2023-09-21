@@ -24,6 +24,15 @@
                 }
             }
         },
+        "ciliumNetworkPolicy": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            },
+            "default": false
+        },
         "crdConvertOnly":{
             "type": "boolean"
         },
@@ -161,4 +170,3 @@
         }
     }
 }
-

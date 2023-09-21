@@ -2,12 +2,15 @@ name: cluster-api-provider-aws
 # This value can also be a commit (even works for `make generate`), but tags are preferred since those can include a
 # message and tell us explicitly that the commit is important. Please include the short commit SHA in the tag name,
 # such as `v2.0.2-gs-123abcd`.
-tag: v2.2.2-gs-1dc9b7537
+tag: v2.2.2-gs-df9e22a8c
 
 infrastructure:
   image:
     domain: docker.io
     name: giantswarm/cluster-api-aws-controller
+
+ciliumNetworkPolicy:
+  enabled: false
 
 crdConvertOnly: true
 crdInstall:

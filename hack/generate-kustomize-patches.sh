@@ -30,7 +30,7 @@ curl -fsSL "$url" -o "$KUSTOMIZE_INPUT_DIR/${release_asset_filename}" || { >&2 e
 
 # Update kustomize patches for webhooks. We do this for every CRD
 
-watch_filter="$(yq e '.watchfilter' "$helm_values")"
+watch_filter="$(yq e -e '.watchfilter' "$helm_values")" || { echo "Could not find watch filter value"; exit 1; }
 
 # For every CRD, add webhook label selector
 for webhook_kind_prefix in Mutating Validating; do
