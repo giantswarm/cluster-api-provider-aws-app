@@ -2,7 +2,7 @@ name: cluster-api-provider-aws
 # This value can also be a commit (even works for `make generate`), but tags are preferred since those can include a
 # message and tell us explicitly that the commit is important. Please include the short commit SHA in the tag name,
 # such as `v2.0.2-gs-123abcd`.
-tag: v2.2.4-gs-6532e7d3a  # upstream v2.2.4 + workaround for long-lasting broken subnets issue (https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/4026)
+tag: v2.2.4-gs-c9e3abe9f  # upstream v2.2.4 + workaround for long-lasting broken subnets issue (https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/4026) + S3 bucket tagging
 
 infrastructure:
   image:

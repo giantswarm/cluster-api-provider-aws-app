@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add `global.podSecurityStandards.enforced` value for PSS migration.
+- Bump to CAPA version with the backported feature "Tag S3 bucket as owned by cluster"
 
 ## [2.5.0] - 2023-10-09
 
