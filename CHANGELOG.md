@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Bump to CAPA version with the backported feature "Use `AdditionalTags` for S3 buckets"
+
 ## [2.6.0] - 2023-11-08
 
 ### Added
