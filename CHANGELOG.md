@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.1] - 2023-11-13
+
 ### Added
 
 - Bump to CAPA version with the backported feature "Use `AdditionalTags` for S3 buckets"
@@ -254,7 +256,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.6.1...HEAD
+[2.6.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.3.0...v2.4.0
