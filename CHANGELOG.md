@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.7.0] - 2023-11-30
 
+### Changed
+
+- Upgrade CAPA to v2.3.0 but comment out CRD upgrade so existing clusters reconcile fine without having the newly-required subnet `id` field yet
+
 ## [2.6.1] - 2023-11-13
 
 ### Added
