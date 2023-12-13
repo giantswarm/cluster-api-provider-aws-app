@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.8.0] - 2023-12-13
+
 ### Changed
 
 - Upgrade CAPA CRDs to v2.3.0 including required subnet `id` field
@@ -272,7 +274,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.7.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.8.0...HEAD
+[2.8.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.7.1...v2.8.0
 [2.7.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.7.0...v2.7.1
 [2.7.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.6.1...v2.7.0
 [2.6.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.6.0...v2.6.1
