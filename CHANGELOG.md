@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade CAPA CRDs to v2.3.0 including required subnet `id` field
+
 ## [2.7.1] - 2023-12-07
 
 ### Changed
