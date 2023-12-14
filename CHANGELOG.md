@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Revert CRDs upgrade since CAPA creates unlimited VPCs for EKS clusters because the subnet `id` field cannot be set ([bug](https://github.com/giantswarm/roadmap/issues/3048))
+
 ## [2.8.0] - 2023-12-13
 
 ### Changed
