@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Cherry-pick important fixes: [stuck ASG recon](https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4662) and [machine pool node rollout if bootstrap config reference changes](https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4619)
+
 ## [2.8.0] - 2023-12-13
 
 ### Changed
