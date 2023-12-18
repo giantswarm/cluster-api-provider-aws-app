@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Backported fixes and features for CAPA v2.3.x
+
+  - Enable transit encryption to S3 bucket
+  - Trigger machine pool instance refresh (node rollout) if bootstrap config reference changes
+  - Skip instance refresh attempt if ASG does not yet exist
+
 ## [2.8.1] - 2023-12-14
 
 ### Fixed
