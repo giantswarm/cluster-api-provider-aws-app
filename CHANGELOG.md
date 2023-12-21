@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Backport feature: expose new field to secure VPC default security group)[https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4707].
+
 ## [2.12.0] - 2024-01-18
 
 ### Changed
