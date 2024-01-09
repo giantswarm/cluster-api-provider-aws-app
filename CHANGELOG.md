@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Backported fixes and features for CAPA v2.3.x
+
+  - Use go 1.21.5, fix kubectl version detection after `--short` parameter was removed
+  - Make VPC creation idempotent to avoid indefinite creation of new VPCs if storage of the ID fails
+  - Log full ARN in GC error messages
+  - Fix deregistering of deleted CAPI Machines
+  - ASG: do not set desired value for machinepool which have externally managed replicas
+
 ## [2.9.0] - 2023-12-21
 
 ### Changed
