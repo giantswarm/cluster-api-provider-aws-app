@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Backported fixes and features for CAPA v2.3.x
+
+  - Use go 1.21.5, fix kubectl version detection after `--short` parameter was removed
+  - Make VPC creation idempotent to avoid indefinite creation of new VPCs if storage of the ID fails
+  - Log full ARN in GC error messages
+  - Fix deregistering of deleted CAPI Machines
+  - ASG: do not set desired value for machinepool which have externally managed replicas
+
+## [2.9.0] - 2023-12-21
+
+### Changed
+
+- Backported fixes and features for CAPA v2.3.x
+
+  - Enable transit encryption to S3 bucket
+  - Trigger machine pool instance refresh (node rollout) if bootstrap config reference changes
+  - Skip instance refresh attempt if ASG does not yet exist
+
 ## [2.8.1] - 2023-12-14
 
 ### Fixed
@@ -280,7 +300,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.8.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.9.0...HEAD
+[2.9.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.8.1...v2.9.0
 [2.8.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.8.0...v2.8.1
 [2.8.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.7.1...v2.8.0
 [2.7.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.7.0...v2.7.1
