@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update CRDs to make the subnet `id` field required again
+
 ## [2.10.1] - 2024-01-10
 
 ### Changed
