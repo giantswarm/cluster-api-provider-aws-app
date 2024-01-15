@@ -372,19 +372,13 @@
                           type: string
                         description: Tags is a collection of tags describing the resource.
                         type: object
-                    # While we migrate workload clusters to include the subnet `id` field (https://github.com/giantswarm/roadmap/issues/2870),
-                    # this is commented out on purpose in the first step so that reconciliation continues working for old cluster-aws versions.
-                    # ---
-                    # required:
-                    #   - id
+                    required:
+                      - id
                     type: object
                   type: array
-                  # While we migrate workload clusters to include the subnet `id` field (https://github.com/giantswarm/roadmap/issues/2870),
-                  # this is commented out on purpose in the first step so that reconciliation continues working for old cluster-aws versions.
-                  # ---
-                  # x-kubernetes-list-map-keys:
-                  #   - id
-                  # x-kubernetes-list-type: map
+                  x-kubernetes-list-map-keys:
+                    - id
+                  x-kubernetes-list-type: map
                 vpc:
                   description: VPC configuration.
                   properties:
