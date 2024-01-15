@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.11.0] - 2024-01-15
+
 ### Changed
 
 - Update CRDs to make the subnet `id` field required again
@@ -312,7 +314,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.10.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.11.0...HEAD
+[2.11.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.10.1...v2.11.0
 [2.10.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.10.0...v2.10.1
 [2.10.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.9.0...v2.10.0
 [2.9.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.8.1...v2.9.0
