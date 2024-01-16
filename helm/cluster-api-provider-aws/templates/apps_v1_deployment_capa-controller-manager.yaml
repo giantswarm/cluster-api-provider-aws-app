@@ -80,6 +80,13 @@ spec:
           httpGet:
             path: /readyz
             port: healthz
+        resources:
+          limits:
+            cpu: 100m
+            memory: 80Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
