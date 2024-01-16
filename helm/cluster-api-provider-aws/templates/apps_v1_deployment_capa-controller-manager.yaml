@@ -83,15 +83,16 @@ spec:
         resources:
           limits:
             cpu: 100m
-            memory: 80Mi
+            memory: 250Mi
           requests:
             cpu: 100m
-            memory: 50Mi
+            memory: 250Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
             drop:
             - ALL
+          readOnlyRootFilesystem: true
           runAsGroup: 65532
           runAsUser: 65532
           seccompProfile:
