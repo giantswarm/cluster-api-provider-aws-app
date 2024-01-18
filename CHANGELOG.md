@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Delete aws-node resources even when they have `Helm` labels when `AWSManagedControlPlane.spec.VpcCni.disabled` is set to `true`.
+
 ## [2.11.0] - 2024-01-15
 
 ### Changed

@@ -3,7 +3,7 @@ name: cluster-api-provider-aws
 # needed. Please read https://github.com/giantswarm/cluster-api-provider-aws/blob/main/README.md on how to create a
 # release. Please include the short commit SHA in the tag name, such as `v2.0.2-gs-123abcd`. After changing this
 # tag, please run `make generate` to update CRDs and other manifests.
-tag: v2.3.0-gs-e25dc0fe3  # upstream v2.3.0 + backported features/fixes (https://github.com/giantswarm/cluster-api-provider-aws/pull/576) + more backports (https://github.com/giantswarm/cluster-api-provider-aws/pull/580)
+tag: v2.3.0-gs-ba007f823  # upstream v2.3.0 + backported features/fixes (https://github.com/giantswarm/cluster-api-provider-aws/pull/576) + more backports (https://github.com/giantswarm/cluster-api-provider-aws/pull/580) + https://github.com/giantswarm/cluster-api-provider-aws/pull/582
 
 infrastructure:
   image:
