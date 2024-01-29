@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Use `app-build-suite` to build the app
+- Bump version to `v2.3.0-gs-3e18e8bef`. This version adds the `DefaultInstanceWarmup` field to AWSMachinePools.
 
 ## [2.13.0] - 2024-01-23
 
