@@ -42,10 +42,6 @@ ports:
 log:
   level: 0
 
-project:
-  branch: "[[ .Branch ]]"
-  commit: "[[ .SHA ]]"
-
 watchfilter: capi
 
 serviceType: managed
