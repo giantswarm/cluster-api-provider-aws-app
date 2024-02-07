@@ -8,6 +8,7 @@ name: cluster-api-provider-aws
 #   * backported features/fixes (https://github.com/giantswarm/cluster-api-provider-aws/pull/576)
 #   * more backports (https://github.com/giantswarm/cluster-api-provider-aws/pull/580)
 #   * https://github.com/giantswarm/cluster-api-provider-aws/pull/582
+#   * https://github.com/giantswarm/cluster-api-provider-aws/pull/583
 #   * default instance warmup field addition (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4760)
 tag: v2.3.0-gs-c857879ba
 
