@@ -10,7 +10,8 @@ name: cluster-api-provider-aws
 #   * https://github.com/giantswarm/cluster-api-provider-aws/pull/582
 #   * https://github.com/giantswarm/cluster-api-provider-aws/pull/583
 #   * default instance warmup field addition (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4760)
-tag: v2.3.0-gs-c857879ba
+#   * do not place EKS nodes in the CNI subnets (https://github.com/giantswarm/cluster-api-provider-aws/pull/587)
+tag: v2.3.0-gs-e9c5ab62c
 
 infrastructure:
   image:

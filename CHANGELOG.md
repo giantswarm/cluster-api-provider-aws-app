@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump version to `v2.3.0-gs-e9c5ab62c`. This version prevents EKS nodes from landing in the CNI subnets.
+
 ## [2.14.0] - 2024-02-07
 
 ### Changed
