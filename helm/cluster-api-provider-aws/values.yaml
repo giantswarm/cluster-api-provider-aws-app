@@ -13,10 +13,11 @@ name: cluster-api-provider-aws
 #   * do not place EKS nodes in the CNI subnets (https://github.com/giantswarm/cluster-api-provider-aws/pull/587)
 tag: v2.3.0-gs-e9c5ab62c
 
-infrastructure:
-  image:
-    domain: gsoci.azurecr.io
-    name: giantswarm/cluster-api-aws-controller
+registry:
+  domain: gsoci.azurecr.io
+
+image:
+  name: giantswarm/cluster-api-aws-controller
 
 ciliumNetworkPolicy:
   enabled: false
