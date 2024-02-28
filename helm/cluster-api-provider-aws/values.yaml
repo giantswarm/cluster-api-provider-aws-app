@@ -60,9 +60,6 @@ provider:
     accessKeyID: defaultID
     secretAccessKey: defaultKey
 
-registry:
-  domain: gsoci.azurecr.io
-
 verticalPodAutoscaler:
   enabled: true
 
