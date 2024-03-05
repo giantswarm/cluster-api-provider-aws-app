@@ -31,7 +31,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: kubectl
-        image: "{{ .Values.crdInstall.kubectl.image }}:{{ .Values.crdInstall.kubectl.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.crdInstall.kubectl.image }}:{{ .Values.crdInstall.kubectl.tag }}"
         command:
         - sh
         - -c
