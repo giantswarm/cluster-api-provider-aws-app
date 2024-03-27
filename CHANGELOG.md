@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix CRD installation job's settings so it can get admitted by Kyverno policies
+
 ## [2.15.1] - 2024-04-02
 
 ### Added
