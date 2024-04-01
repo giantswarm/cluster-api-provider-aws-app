@@ -42,10 +42,11 @@ patches:
   - path: deployment-securitycontext.yaml
   - path: delete-namespace.yaml
   - path: delete-serviceaccount-annotation.yaml
+  - path: metrics-service-named-port.yaml
   - path: webhook-mutating-certificate.yaml
   - path: webhook-mutating-watchfilter.yaml
   - path: webhook-validating-certificate.yaml
   - path: webhook-validating-watchfilter.yaml
-  - path: service-add-metrics-port.yaml
+  - path: webhook-service-named-port.yaml
   - path: certificate.yaml
   - path: secret.yaml

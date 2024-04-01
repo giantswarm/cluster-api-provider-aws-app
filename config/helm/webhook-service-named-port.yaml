@@ -2,13 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: capa-system
   name: capa-webhook-service
+  namespace: capa-system
 spec:
   ports:
-    - name: metrics
-      port: 8080
-      targetPort: metrics
     - name: webhook-server
       port: 443
       targetPort: webhook-server
