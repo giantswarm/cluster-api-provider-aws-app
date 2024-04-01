@@ -16,7 +16,6 @@ images:
 
 transformers:
   - common-labels.yaml
-  - monitoring-annotations.yaml
   - webhook-prefix.yaml
 
 patches:
