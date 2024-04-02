@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add ServiceMonitor for monitoring.
+
 ### Changed
 
 - Change container image registry values name to use values from `config` repo.
