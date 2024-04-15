@@ -11,7 +11,8 @@ name: cluster-api-provider-aws
 #   * https://github.com/giantswarm/cluster-api-provider-aws/pull/583
 #   * default instance warmup field addition (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4760)
 #   * do not place EKS nodes in the CNI subnets (https://github.com/giantswarm/cluster-api-provider-aws/pull/587)
-tag: v2.3.0-gs-e9c5ab62c
+#   * add ID to secondary subnets in AWSCluster (https://github.com/giantswarm/cluster-api-provider-aws/pull/589)
+tag: v2.3.0-gs-784b17920
 
 registry:
   domain: gsoci.azurecr.io
