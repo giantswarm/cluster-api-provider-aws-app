@@ -40,6 +40,7 @@ patches:
   - path: deployment-requests-limits.yaml
   - path: deployment-seccomp.yaml
   - path: deployment-securitycontext.yaml
+  - path: deployment-toleration.yaml
   - path: delete-namespace.yaml
   - path: delete-serviceaccount-annotation.yaml
   - path: metrics-service-named-port.yaml
