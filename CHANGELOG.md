@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Bump CAPA version v2.3.0-gs-784b17920. This fixes controller not adding ID to secondary subnet when updating AWSCluster.
+
 ### Changed
 
 - Add toleration for `node.cluster.x-k8s.io/uninitialized` taint.
