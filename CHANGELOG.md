@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.17.0] - 2024-04-25
+
 ### Added
 
 - Bump CAPA version v2.3.0-gs-16d1f6ed4. Introduces the `NonRootVolumes` field to AWSMachinePools and AWSManagedMachinePools.
@@ -370,7 +372,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.16.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.17.0...HEAD
+[2.17.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.16.0...v2.17.0
 [2.16.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.15.2...v2.16.0
 [2.15.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.15.1...v2.15.2
 [2.15.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.15.0...v2.15.1
