@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Bump CAPA version v2.3.0-gs-16d1f6ed4. Introduces the `NonRootVolumes` field to AWSMachinePools and AWSManagedMachinePools.
+
 ## [2.16.0] - 2024-04-17
 
 ### Fixed
