@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support adding custom secondary VPC CIDR blocks in `AWSCluster` (backport)
+
 ## [2.17.0] - 2024-04-25
 
 ### Added
