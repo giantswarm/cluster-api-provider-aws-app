@@ -63,6 +63,9 @@ provider:
     accessKeyID: defaultID
     secretAccessKey: defaultKey
 
+serviceMonitor:
+  enabled: true
+
 verticalPodAutoscaler:
   enabled: true
 
