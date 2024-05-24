@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.18.1] - 2024-05-24
+
 ### Changed
 
 - Make ServiceMonitor optional through `serviceMonitor.enabled` helm value (useful in mc-bootstrap).
@@ -382,7 +384,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.1...HEAD
+[2.18.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.0...v2.18.1
 [2.18.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.17.0...v2.18.0
 [2.17.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.16.0...v2.17.0
 [2.16.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.15.2...v2.16.0
