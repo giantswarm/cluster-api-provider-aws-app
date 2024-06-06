@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix for the new feature of writing user data to S3 bucket for `AWSMachinePool`: on cluster deletion, delete machine pool user data files that did not get deleted yet by the S3 bucket lifecycle policy. Otherwise, CAPA would have left the S3 bucket behind on deletion since it was not empty.
+
 ## [2.19.0] - 2024-06-06
 
 ### Added
