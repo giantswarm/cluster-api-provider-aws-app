@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support for writing user data to S3 bucket for `AWSMachinePool`
+
 ## [2.18.1] - 2024-05-24
 
 ### Changed
