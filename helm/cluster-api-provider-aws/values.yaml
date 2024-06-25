@@ -15,7 +15,8 @@ name: cluster-api-provider-aws
 #   * add non root volumes to AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/591)
 #   * support adding custom secondary VPC CIDR blocks in `AWSCluster` (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4898)
 #   * support S3 bucket storage for user data of `AWSMachinePool` (https://github.com/giantswarm/cluster-api-provider-aws/pull/592)
-tag: v2.3.0-gs-0bcf5b8ab
+#   * Delete machine pool user data files that did not get deleted yet by the lifecycle policy (https://github.com/giantswarm/cluster-api-provider-aws/pull/593)
+tag: v2.3.0-gs-97afceef9
 
 registry:
   domain: gsoci.azurecr.io
