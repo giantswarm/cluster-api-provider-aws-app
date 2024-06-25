@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.19.1] - 2024-06-25
+
 ### Fixed
 
 - Fix for the new feature of writing user data to S3 bucket for `AWSMachinePool`: on cluster deletion, delete machine pool user data files that did not get deleted yet by the S3 bucket lifecycle policy. Otherwise, CAPA would have left the S3 bucket behind on deletion since it was not empty.
@@ -394,7 +396,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.1...HEAD
+[2.19.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.0...v2.19.1
 [2.19.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.1...v2.19.0
 [2.18.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.0...v2.18.1
 [2.18.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.17.0...v2.18.0
