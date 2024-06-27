@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Cancel instance refresh on any relevant change to ASG instead of blocking until previous one is finished (which may have led to failing nodes due to outdated join token)
+
 ## [2.19.1] - 2024-06-25
 
 ### Fixed
