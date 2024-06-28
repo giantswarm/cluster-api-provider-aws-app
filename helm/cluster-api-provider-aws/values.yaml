@@ -17,7 +17,7 @@ name: cluster-api-provider-aws
 #   * support S3 bucket storage for user data of `AWSMachinePool` (https://github.com/giantswarm/cluster-api-provider-aws/pull/592)
 #   * Delete machine pool user data files that did not get deleted yet by the lifecycle policy (https://github.com/giantswarm/cluster-api-provider-aws/pull/593)
 #   * Improvements for the above S3 thing (TODO)
-tag: v2.3.0-gs-ae00e0546
+tag: v2.3.5-gs-b93fd1820
 
 registry:
   domain: gsoci.azurecr.io
