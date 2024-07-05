@@ -17,7 +17,7 @@ metadata:
     clusterctl.cluster.x-k8s.io: ""
     clusterctl.cluster.x-k8s.io/move: ""
     helm.sh/chart: '{{ .Chart.Name }}'
-  name: awsmanagedmachinepools.infrastructure.cluster.x-k8s.io
+  name: rosamachinepools.infrastructure.cluster.x-k8s.io
 spec:
   conversion:
     strategy: Webhook
@@ -36,29 +36,14 @@ spec:
   names:
     categories:
       - cluster-api
-    kind: AWSManagedMachinePool
-    listKind: AWSManagedMachinePoolList
-    plural: awsmanagedmachinepools
+    kind: ROSAMachinePool
+    listKind: ROSAMachinePoolList
+    plural: rosamachinepools
     shortNames:
-      - awsmmp
-    singular: awsmanagedmachinepool
+      - rosamp
+    singular: rosamachinepool
   scope: Namespaced
   versions:
-    - additionalPrinterColumns:
-        - description: MachinePool ready status
-          jsonPath: .status.ready
-          name: Ready
-          type: string
-        - description: Number of replicas
-          jsonPath: .status.replicas
-          name: Replicas
-          type: integer
-      name: v1beta1
-      schema: {}
-      served: false
-      storage: false
-      subresources:
-        status: {}
     - additionalPrinterColumns:
         - description: MachinePool ready status
           jsonPath: .status.ready

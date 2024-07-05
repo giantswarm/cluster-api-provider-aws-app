@@ -4,19 +4,10 @@ name: cluster-api-provider-aws
 # release. Please include the short commit SHA in the tag name, such as `v2.0.2-gs-123abcd`. After changing this
 # tag, please run `make generate` to update CRDs and other manifests.
 
-# Changes in this tag include upstream v2.3.0 with additional:
-#   * backported features/fixes (https://github.com/giantswarm/cluster-api-provider-aws/pull/576)
-#   * more backports (https://github.com/giantswarm/cluster-api-provider-aws/pull/580)
-#   * https://github.com/giantswarm/cluster-api-provider-aws/pull/582
-#   * https://github.com/giantswarm/cluster-api-provider-aws/pull/583
-#   * default instance warmup field addition (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4760)
-#   * do not place EKS nodes in the CNI subnets (https://github.com/giantswarm/cluster-api-provider-aws/pull/587)
-#   * add ID to secondary subnets in AWSCluster (https://github.com/giantswarm/cluster-api-provider-aws/pull/589)
-#   * add non root volumes to AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/591)
-#   * support adding custom secondary VPC CIDR blocks in `AWSCluster` (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4898)
-#   * support S3 bucket storage for user data of `AWSMachinePool` (https://github.com/giantswarm/cluster-api-provider-aws/pull/592)
-#   * Delete machine pool user data files that did not get deleted yet by the lifecycle policy (https://github.com/giantswarm/cluster-api-provider-aws/pull/593)
-tag: v2.3.0-gs-97afceef9
+# Changes in this tag include upstream v2.4.2 with additional:
+#   * backported features/fixes (https://github.com/giantswarm/cluster-api-provider-aws/pull/595)
+#   * update generated files after applying backports (https://github.com/giantswarm/cluster-api-provider-aws/pull/600)
+tag: v2.4.2-gs-70b4664c1
 
 registry:
   domain: gsoci.azurecr.io
