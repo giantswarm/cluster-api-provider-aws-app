@@ -27,6 +27,8 @@
                 - AL2_x86_64
                 - AL2_x86_64_GPU
                 - AL2_ARM_64
+                - AL2023_x86_64_STANDARD
+                - AL2023_ARM_64_STANDARD
                 - CUSTOM
               type: string
             amiVersion:
@@ -173,6 +175,22 @@
                       - size
                     type: object
                   type: array
+                privateDnsName:
+                  description: PrivateDNSName is the options for the instance hostname.
+                  properties:
+                    enableResourceNameDnsAAAARecord:
+                      description: EnableResourceNameDNSAAAARecord indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+                      type: boolean
+                    enableResourceNameDnsARecord:
+                      description: EnableResourceNameDNSARecord indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+                      type: boolean
+                    hostnameType:
+                      description: The type of hostname to assign to an instance.
+                      enum:
+                        - ip-name
+                        - resource-name
+                      type: string
+                  type: object
                 rootVolume:
                   description: RootVolume encapsulates the configuration options for the root volume
                   properties:

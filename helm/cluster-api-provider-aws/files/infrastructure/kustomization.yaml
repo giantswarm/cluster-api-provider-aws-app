@@ -10,6 +10,8 @@ resources:
   - bases/awsmachinetemplates.infrastructure.cluster.x-k8s.io.yaml
   - bases/awsmanagedclusters.infrastructure.cluster.x-k8s.io.yaml
   - bases/awsmanagedmachinepools.infrastructure.cluster.x-k8s.io.yaml
+  - bases/rosaclusters.infrastructure.cluster.x-k8s.io.yaml
+  - bases/rosamachinepools.infrastructure.cluster.x-k8s.io.yaml
 patches:
   - path: patches/versions/v1beta1/awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io.yaml
     target:
@@ -137,3 +139,15 @@ patches:
       version: v1
       kind: CustomResourceDefinition
       name: awsmanagedmachinepools.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta2/rosaclusters.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: rosaclusters.infrastructure.cluster.x-k8s.io
+  - path: patches/versions/v1beta2/rosamachinepools.infrastructure.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: rosamachinepools.infrastructure.cluster.x-k8s.io

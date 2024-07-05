@@ -245,6 +245,31 @@ webhooks:
     service:
       name: capa-webhook-service
       namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta2-rosamachinepool
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: default.rosamachinepool.infrastructure.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: capi
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - rosamachinepools
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  - v1beta1
+  clientConfig:
+    service:
+      name: capa-webhook-service
+      namespace: '{{ .Release.Namespace }}'
       path: /mutate-bootstrap-cluster-x-k8s-io-v1beta2-eksconfig
   failurePolicy: Fail
   matchPolicy: Equivalent
@@ -312,4 +337,29 @@ webhooks:
     - UPDATE
     resources:
     - awsmanagedcontrolplanes
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  - v1beta1
+  clientConfig:
+    service:
+      name: capa-webhook-service
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-controlplane-cluster-x-k8s-io-v1beta2-rosacontrolplane
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: default.rosacontrolplanes.controlplane.cluster.x-k8s.io
+  objectSelector:
+    matchLabels:
+      cluster.x-k8s.io/watch-filter: capi
+  rules:
+  - apiGroups:
+    - controlplane.cluster.x-k8s.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - rosacontrolplanes
   sideEffects: None
