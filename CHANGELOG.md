@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.20.0] - 2024-07-16
+
 ### Changed
 
 - Cancel instance refresh on any relevant change to ASG instead of blocking until previous one is finished (which may have led to failing nodes due to outdated join token)
@@ -401,7 +403,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.20.0...HEAD
+[2.20.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.1...v2.20.0
 [2.19.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.0...v2.19.1
 [2.19.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.1...v2.19.0
 [2.18.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.0...v2.18.1
