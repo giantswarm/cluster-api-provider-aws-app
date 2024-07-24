@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.21.0] - 2024-07-24
+
 ### Changed
 
 - Reduce sync-period to 2 minutes to improve scale-up taint removal.
@@ -407,7 +409,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.20.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.21.0...HEAD
+[2.21.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.20.0...v2.21.0
 [2.20.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.1...v2.20.0
 [2.19.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.0...v2.19.1
 [2.19.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.1...v2.19.0
