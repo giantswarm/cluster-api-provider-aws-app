@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Reduce sync-period to 2 minutes to improve scale-up taint removal.
+
 ## [2.20.0] - 2024-07-16
 
 ### Changed
