@@ -22,7 +22,7 @@ name: cluster-api-provider-aws
 #     * Use feature gate for S3 storage (https://github.com/giantswarm/cluster-api-provider-aws/pull/599)
 #     * Continue reconciliation after filling an empty `AWSMachinePool.status.launchTemplateVersion` field (https://github.com/giantswarm/cluster-api-provider-aws/pull/602)
 #     * Try deleting machine pool user data file from S3 when pruning an old launch template version (https://github.com/giantswarm/cluster-api-provider-aws/pull/601)
-tag: v2.3.5-gs-7e2e02d12
+tag: v2.3.5-gs-810ab5563
 
 registry:
   domain: gsoci.azurecr.io
