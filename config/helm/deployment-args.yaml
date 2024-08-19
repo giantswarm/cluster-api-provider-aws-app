@@ -14,4 +14,6 @@ spec:
             - --metrics-bind-addr=0.0.0.0:8080
             - --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
             - --watch-filter=capi
+            # We need to set the sync-period to 2m to improve scale-up time, currently there is no watch in the capa controller that update the provideridlist. Upstream issues https://github.com/kubernetes-sigs/cluster-api/issues/9858 and https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/4618
+            - --sync-period=2m
             - --v=0

@@ -11,6 +11,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump CAPA version v2.4.2-gs-70b4664c1. This bumps CAPA to `v2.4.2` and apply the customizations we already had in our fork.
 
+## [2.21.0] - 2024-07-24
+
+### Changed
+
+- Reduce sync-period to 2 minutes to improve scale-up taint removal.
+
+## [2.20.0] - 2024-07-16
+
+### Changed
+
+- Cancel instance refresh on any relevant change to ASG instead of blocking until previous one is finished (which may have led to failing nodes due to outdated join token)
+- Try deleting machine pool user data file from S3 when pruning an old launch template version
+
 ## [2.19.1] - 2024-06-25
 
 ### Fixed
@@ -400,7 +413,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.21.0...HEAD
+[2.21.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.20.0...v2.21.0
+[2.20.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.1...v2.20.0
 [2.19.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.19.0...v2.19.1
 [2.19.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.1...v2.19.0
 [2.18.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.18.0...v2.18.1
