@@ -17,7 +17,7 @@ metadata:
     clusterctl.cluster.x-k8s.io: ""
     clusterctl.cluster.x-k8s.io/move: ""
     helm.sh/chart: '{{ .Chart.Name }}'
-  name: awsmanagedmachinepools.infrastructure.cluster.x-k8s.io
+  name: rosacontrolplanes.controlplane.cluster.x-k8s.io
 spec:
   conversion:
     strategy: Webhook
@@ -32,42 +32,27 @@ spec:
       conversionReviewVersions:
         - v1
         - v1beta1
-  group: infrastructure.cluster.x-k8s.io
+  group: controlplane.cluster.x-k8s.io
   names:
     categories:
       - cluster-api
-    kind: AWSManagedMachinePool
-    listKind: AWSManagedMachinePoolList
-    plural: awsmanagedmachinepools
+    kind: ROSAControlPlane
+    listKind: ROSAControlPlaneList
+    plural: rosacontrolplanes
     shortNames:
-      - awsmmp
-    singular: awsmanagedmachinepool
+      - rosacp
+    singular: rosacontrolplane
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
-        - description: MachinePool ready status
+        - description: Cluster to which this RosaControl belongs
+          jsonPath: .metadata.labels.cluster\.x-k8s\.io/cluster-name
+          name: Cluster
+          type: string
+        - description: Control plane infrastructure is ready for worker nodes
           jsonPath: .status.ready
           name: Ready
           type: string
-        - description: Number of replicas
-          jsonPath: .status.replicas
-          name: Replicas
-          type: integer
-      name: v1beta1
-      schema: {}
-      served: false
-      storage: false
-      subresources:
-        status: {}
-    - additionalPrinterColumns:
-        - description: MachinePool ready status
-          jsonPath: .status.ready
-          name: Ready
-          type: string
-        - description: Number of replicas
-          jsonPath: .status.replicas
-          name: Replicas
-          type: integer
       name: v1beta2
       schema: {}
       served: true

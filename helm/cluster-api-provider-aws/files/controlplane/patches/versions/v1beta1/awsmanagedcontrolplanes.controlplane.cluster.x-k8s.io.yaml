@@ -174,7 +174,7 @@
                   type: array
               type: object
             identityRef:
-              description: IdentityRef is a reference to a identity to be used when reconciling the managed control plane.
+              description: IdentityRef is a reference to an identity to be used when reconciling the managed control plane. If no identity is specified, the default identity for this controller will be used.
               properties:
                 kind:
                   description: Kind of the identity.
@@ -447,6 +447,12 @@
                           description: PoolID is the IP pool which must be defined in case of BYO IP is defined. Must be specified if CidrBlock is set. Mutually exclusive with IPAMPool.
                           type: string
                       type: object
+                    privateDnsHostnameTypeOnLaunch:
+                      description: PrivateDNSHostnameTypeOnLaunch is the type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance DNS name must be based on the instance ID (resource-name).
+                      enum:
+                        - ip-name
+                        - resource-name
+                      type: string
                     secondaryCidrBlocks:
                       description: SecondaryCidrBlocks are additional CIDR blocks to be associated when the provider creates a managed VPC. Defaults to none. Mutually exclusive with IPAMPool. This makes sense to use if, for example, you want to use a separate IP range for pods (e.g. Cilium ENI mode).
                       items:
@@ -789,9 +795,28 @@
                 placementGroupName:
                   description: PlacementGroupName specifies the name of the placement group in which to launch the instance.
                   type: string
+                privateDnsName:
+                  description: PrivateDNSName is the options for the instance hostname.
+                  properties:
+                    enableResourceNameDnsAAAARecord:
+                      description: EnableResourceNameDNSAAAARecord indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+                      type: boolean
+                    enableResourceNameDnsARecord:
+                      description: EnableResourceNameDNSARecord indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+                      type: boolean
+                    hostnameType:
+                      description: The type of hostname to assign to an instance.
+                      enum:
+                        - ip-name
+                        - resource-name
+                      type: string
+                  type: object
                 privateIp:
                   description: The private IPv4 address assigned to the instance.
                   type: string
+                publicIPOnLaunch:
+                  description: PublicIPOnLaunch is the option to associate a public IP on instance launch
+                  type: boolean
                 publicIp:
                   description: The public IPv4 address assigned to the instance, if applicable.
                   type: string
@@ -1113,6 +1138,180 @@
                   items:
                     type: string
                   type: array
+                secondaryAPIServerELB:
+                  description: SecondaryAPIServerELB is the secondary Kubernetes api server load balancer.
+                  properties:
+                    arn:
+                      description: ARN of the load balancer. Unlike the ClassicLB, ARN is used mostly to define and get it.
+                      type: string
+                    attributes:
+                      description: ClassicElbAttributes defines extra attributes associated with the load balancer.
+                      properties:
+                        crossZoneLoadBalancing:
+                          description: CrossZoneLoadBalancing enables the classic load balancer load balancing.
+                          type: boolean
+                        idleTimeout:
+                          description: IdleTimeout is time that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
+                          format: int64
+                          type: integer
+                      type: object
+                    availabilityZones:
+                      description: AvailabilityZones is an array of availability zones in the VPC attached to the load balancer.
+                      items:
+                        type: string
+                      type: array
+                    dnsName:
+                      description: DNSName is the dns name of the load balancer.
+                      type: string
+                    elbAttributes:
+                      additionalProperties:
+                        type: string
+                      description: ELBAttributes defines extra attributes associated with v2 load balancers.
+                      type: object
+                    elbListeners:
+                      description: ELBListeners is an array of listeners associated with the load balancer. There must be at least one.
+                      items:
+                        description: Listener defines an AWS network load balancer listener.
+                        properties:
+                          port:
+                            format: int64
+                            type: integer
+                          protocol:
+                            description: ELBProtocol defines listener protocols for a load balancer.
+                            type: string
+                          targetGroup:
+                            description: TargetGroupSpec specifies target group settings for a given listener. This is created first, and the ARN is then passed to the listener.
+                            properties:
+                              name:
+                                description: Name of the TargetGroup. Must be unique over the same group of listeners.
+                                type: string
+                              port:
+                                description: Port is the exposed port
+                                format: int64
+                                type: integer
+                              protocol:
+                                description: ELBProtocol defines listener protocols for a load balancer.
+                                enum:
+                                  - tcp
+                                  - tls
+                                  - udp
+                                  - TCP
+                                  - TLS
+                                  - UDP
+                                type: string
+                              targetGroupHealthCheck:
+                                description: HealthCheck is the elb health check associated with the load balancer.
+                                properties:
+                                  intervalSeconds:
+                                    format: int64
+                                    type: integer
+                                  path:
+                                    type: string
+                                  port:
+                                    type: string
+                                  protocol:
+                                    type: string
+                                  thresholdCount:
+                                    format: int64
+                                    type: integer
+                                  timeoutSeconds:
+                                    format: int64
+                                    type: integer
+                                type: object
+                              vpcId:
+                                type: string
+                            required:
+                              - name
+                              - port
+                              - protocol
+                              - vpcId
+                            type: object
+                        required:
+                          - port
+                          - protocol
+                          - targetGroup
+                        type: object
+                      type: array
+                    healthChecks:
+                      description: HealthCheck is the classic elb health check associated with the load balancer.
+                      properties:
+                        healthyThreshold:
+                          format: int64
+                          type: integer
+                        interval:
+                          description: A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
+                          format: int64
+                          type: integer
+                        target:
+                          type: string
+                        timeout:
+                          description: A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
+                          format: int64
+                          type: integer
+                        unhealthyThreshold:
+                          format: int64
+                          type: integer
+                      required:
+                        - healthyThreshold
+                        - interval
+                        - target
+                        - timeout
+                        - unhealthyThreshold
+                      type: object
+                    listeners:
+                      description: ClassicELBListeners is an array of classic elb listeners associated with the load balancer. There must be at least one.
+                      items:
+                        description: ClassicELBListener defines an AWS classic load balancer listener.
+                        properties:
+                          instancePort:
+                            format: int64
+                            type: integer
+                          instanceProtocol:
+                            description: ELBProtocol defines listener protocols for a load balancer.
+                            type: string
+                          port:
+                            format: int64
+                            type: integer
+                          protocol:
+                            description: ELBProtocol defines listener protocols for a load balancer.
+                            type: string
+                        required:
+                          - instancePort
+                          - instanceProtocol
+                          - port
+                          - protocol
+                        type: object
+                      type: array
+                    loadBalancerType:
+                      description: LoadBalancerType sets the type for a load balancer. The default type is classic.
+                      enum:
+                        - classic
+                        - elb
+                        - alb
+                        - nlb
+                      type: string
+                    name:
+                      description: The name of the load balancer. It must be unique within the set of load balancers defined in the region. It also serves as identifier.
+                      type: string
+                    scheme:
+                      description: Scheme is the load balancer scheme, either internet-facing or private.
+                      type: string
+                    securityGroupIds:
+                      description: SecurityGroupIDs is an array of security groups assigned to the load balancer.
+                      items:
+                        type: string
+                      type: array
+                    subnetIds:
+                      description: SubnetIDs is an array of subnets in the VPC attached to the load balancer.
+                      items:
+                        type: string
+                      type: array
+                    tags:
+                      additionalProperties:
+                        type: string
+                      description: Tags is a map of tags associated with the load balancer.
+                      type: object
+                  type: object
                 securityGroups:
                   additionalProperties:
                     description: SecurityGroup defines an AWS security group.

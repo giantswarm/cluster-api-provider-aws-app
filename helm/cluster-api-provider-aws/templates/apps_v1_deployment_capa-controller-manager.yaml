@@ -52,7 +52,7 @@ spec:
       containers:
       - args:
         - --leader-elect
-        - --metrics-bind-addr=0.0.0.0:8080
+        - --metrics-bind-addr=0.0.0.0:8443
         - --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
         - --watch-filter=capi
         - --sync-period=2m
@@ -70,14 +70,14 @@ spec:
           periodSeconds: 10
         name: manager
         ports:
-        - containerPort: 8080
-          name: metrics
-          protocol: TCP
         - containerPort: 9443
           name: webhook-server
           protocol: TCP
         - containerPort: 9440
           name: healthz
+          protocol: TCP
+        - containerPort: 8443
+          name: metrics
           protocol: TCP
         readinessProbe:
           httpGet:

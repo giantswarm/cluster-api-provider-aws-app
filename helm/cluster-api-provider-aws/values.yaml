@@ -4,11 +4,9 @@ name: cluster-api-provider-aws
 # release. Please include the short commit SHA in the tag name, such as `v2.0.2-gs-123abcd`. After changing this
 # tag, please run `make generate` to update CRDs and other manifests.
 
-# Changes in this tag include upstream v2.3.0 with additional:
-#   * backported features/fixes (https://github.com/giantswarm/cluster-api-provider-aws/pull/576)
-#   * more backports (https://github.com/giantswarm/cluster-api-provider-aws/pull/580)
-#   * https://github.com/giantswarm/cluster-api-provider-aws/pull/582
-#   * https://github.com/giantswarm/cluster-api-provider-aws/pull/583
+# Changes in this tag include upstream v2.4.2 with additional:
+#   * backported features/fixes (https://github.com/giantswarm/cluster-api-provider-aws/pull/595)
+#   * when aws-cni is disabled deleted all resources including helm managed resources https://github.com/giantswarm/cluster-api-provider-aws/pull/582
 #   * default instance warmup field addition (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4760)
 #   * do not place EKS nodes in the CNI subnets (https://github.com/giantswarm/cluster-api-provider-aws/pull/587)
 #   * add ID to secondary subnets in AWSCluster (https://github.com/giantswarm/cluster-api-provider-aws/pull/589)
@@ -22,7 +20,7 @@ name: cluster-api-provider-aws
 #     * Use feature gate for S3 storage (https://github.com/giantswarm/cluster-api-provider-aws/pull/599)
 #     * Continue reconciliation after filling an empty `AWSMachinePool.status.launchTemplateVersion` field (https://github.com/giantswarm/cluster-api-provider-aws/pull/602)
 #     * Try deleting machine pool user data file from S3 when pruning an old launch template version (https://github.com/giantswarm/cluster-api-provider-aws/pull/601)
-tag: v2.3.5-gs-7e2e02d12
+tag: v2.4.2-gs-70b4664c1
 
 registry:
   domain: gsoci.azurecr.io
