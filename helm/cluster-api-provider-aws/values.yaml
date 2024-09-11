@@ -11,7 +11,7 @@ name: cluster-api-provider-aws
 #   * add non root volumes to AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/ab0528f4b80ed36fd7b508c4137ee09d41fefa8c)
 #   * support adding custom secondary VPC CIDR blocks in `AWSCluster` (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/ae00674b1ed47e0e939f44d4712507839df97106)
 #   * S3 user data support for AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/905c44ab2afde5e2d4e983066ab9856859a0de47)
-tag: v2.5.2-gs-905c44ab2
+tag: v2.5.2-gs-11cb106a4
 
 registry:
   domain: gsoci.azurecr.io
