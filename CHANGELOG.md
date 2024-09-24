@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Change network policies to allow the `capa-controller-manager` pod to access coredns pods.
+
 ## [2.23.0] - 2024-09-16
 
 ### Changed

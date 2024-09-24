@@ -24,6 +24,38 @@ spec:
     to:
     - ipBlock:
         cidr: 0.0.0.0/0
+  - ports:
+    - port: "1053"
+      protocol: UDP
+    - port: "1053"
+      protocol: TCP
+    - port: "53"
+      protocol: UDP
+    - port: "53"
+      protocol: TCP
+    to:
+    - namespaceSelector:
+        matchLabels:
+          name: kube-system
+      podSelector:
+        matchLabels:
+          k8s-app: coredns
+  - ports:
+    - port: "1053"
+      protocol: UDP
+    - port: "1053"
+      protocol: TCP
+    - port: "53"
+      protocol: UDP
+    - port: "53"
+      protocol: TCP
+    to:
+    - namespaceSelector:
+        matchLabels:
+          name: kube-system
+      podSelector:
+        matchLabels:
+          k8s-app: k8s-dns-node-cache
   podSelector:
     matchLabels:
       cluster.x-k8s.io/provider: infrastructure-aws

@@ -21,5 +21,39 @@ spec:
           protocol: TCP
         - port: 6443
           protocol: TCP
+    # Allow dns resolution
+    - to:
+        - podSelector:
+            matchLabels:
+              k8s-app: coredns
+          namespaceSelector:
+            matchLabels:
+              name: kube-system
+      ports:
+        - port: "1053"
+          protocol: UDP
+        - port: "1053"
+          protocol: TCP
+        - port: "53"
+          protocol: UDP
+        - port: "53"
+          protocol: TCP
+    # Allow dns resolution
+    - to:
+        - podSelector:
+            matchLabels:
+              k8s-app: k8s-dns-node-cache
+          namespaceSelector:
+            matchLabels:
+              name: kube-system
+      ports:
+        - port: "1053"
+          protocol: UDP
+        - port: "1053"
+          protocol: TCP
+        - port: "53"
+          protocol: UDP
+        - port: "53"
+          protocol: TCP
   policyTypes:
     - Egress
