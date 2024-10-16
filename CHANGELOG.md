@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Expose the `maxHealthyPercentage` property to allow setting the maximum percentage of healthy machines in the Auto Scaling Group during upgrades.
+
 ## [2.23.0] - 2024-09-16
 
 ### Changed
