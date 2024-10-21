@@ -12,7 +12,7 @@ name: cluster-api-provider-aws
 #   * support adding custom secondary VPC CIDR blocks in `AWSCluster` (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/ae00674b1ed47e0e939f44d4712507839df97106)
 #   * S3 user data support for AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/905c44ab2afde5e2d4e983066ab9856859a0de47)
 #   * Support setting maxHealthyPercentage to configure ASG instance refresh (https://github.com/giantswarm/cluster-api-provider-aws/commit/65159d8609a24802a34800b0c054a4b788a03d6d)
-tag: v2.5.2-gs-65159d860
+tag: v2.5.2-gs-7767651e6
 
 registry:
   domain: gsoci.azurecr.io
