@@ -5,27 +5,31 @@ orbs:
 workflows:
   package-and-push-chart-on-tag:
     jobs:
-      - architect/push-to-app-catalog:
-          context: "architect"
-          executor: "app-build-suite"
-          name: push-to-app-catalog
-          app_catalog: "control-plane-catalog"
-          app_catalog_test: "control-plane-test-catalog"
-          chart: "cluster-api-provider-aws"
+    - architect/push-to-app-catalog:
+        context: architect
+        executor: app-build-suite
+        name: push-to-app-catalog
+        app_catalog: control-plane-catalog
+        app_catalog_test: control-plane-test-catalog
+        chart: cluster-api-provider-aws
           # Trigger job on git tag.
-          filters:
-            tags:
-              only: /^v.*/
-      - architect/push-to-app-collection:
-          name: capa-app-collection
-          context: "architect"
-          app_name: "cluster-api-provider-aws"
-          app_namespace: "giantswarm"
-          app_collection_repo: "capa-app-collection"
-          requires:
-            - push-to-app-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore:
+            - main
+            - master
+    - architect/push-to-app-collection:
+        name: capa-app-collection
+        context: architect
+        app_name: cluster-api-provider-aws
+        app_namespace: giantswarm
+        app_collection_repo: capa-app-collection
+        requires:
+        - push-to-app-catalog
+        filters:
+          branches:
+            ignore: /.*/
+          tags:
+            only: /^v.*/
