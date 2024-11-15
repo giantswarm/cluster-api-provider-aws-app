@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump CAPA version `v2.7.1-gs-*`. This bumps CAPA to `v2.7.1` and applies the customizations we already had in our fork.
+
 ### Fixed
 
 - Filter out AWS internal tags from subnet tags
