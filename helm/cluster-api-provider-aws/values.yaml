@@ -4,16 +4,11 @@ name: cluster-api-provider-aws
 # release. Please include the short commit SHA in the tag name, such as `v2.0.2-gs-123abcd`. After changing this
 # tag, please run `make generate` to update CRDs and other manifests.
 
-# Changes in this tag include upstream v2.5.2 with additional:
-#   * GiantSwarm fork modifications (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/08280ec433b63119d652b39c06d9a4b78d5a9055)
-#   * when aws-cni is disabled deleted all resources including helm managed resources (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/bbbb36a7a7bd050bb232bfa60a10b4202ac99850)
-#   * do not place EKS nodes in the CNI subnets (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/edd14fb6bd39434a249ed8696e0abeb9b85f6c35)
-#   * add non root volumes to AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/ab0528f4b80ed36fd7b508c4137ee09d41fefa8c)
-#   * support adding custom secondary VPC CIDR blocks in `AWSCluster` (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/ae00674b1ed47e0e939f44d4712507839df97106)
+# Changes in this tag include upstream v2.7.x with additional:
+#   * Giant Swarm fork modifications (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/08280ec433b63119d652b39c06d9a4b78d5a9055)
 #   * S3 user data support for AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/905c44ab2afde5e2d4e983066ab9856859a0de47)
-#   * Support setting maxHealthyPercentage to configure ASG instance refresh (https://github.com/giantswarm/cluster-api-provider-aws/commit/65159d8609a24802a34800b0c054a4b788a03d6d)
-#   * Filter out AWS internal tags when reconciling (https://github.com/giantswarm/cluster-api-provider-aws/commit/8ed9e3e04780caa4cf333e1e992c54319d648ffb)
-tag: v2.5.2-gs-8ed9e3e04
+#   * Filter out AWS internal tags when reconciling (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5181/commits/4c61f2b5a01e0b67e647868a066dda1947b97d4c)
+tag: v2.7.1-gs-bf3472a9b
 
 registry:
   domain: gsoci.azurecr.io
