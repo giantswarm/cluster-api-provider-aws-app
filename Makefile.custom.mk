@@ -1,6 +1,21 @@
 # Generate kustomize patches and all helm charts
+
+OS ?= $(shell go env GOOS 2>/dev/null || echo linux)
+ARCH ?= $(shell go env GOARCH 2>/dev/null || echo amd64)
+YQ_BIN_VERSION := 4.44.5
+YQ_BIN := ./bin/yq
+
+$(YQ_BIN): ## Download yq locally if necessary.
+	mkdir -p $(dir $@)
+	curl -sfL https://github.com/mikefarah/yq/releases/download/v$(YQ_BIN_VERSION)/yq_$(OS)_$(ARCH) -o $@
+	chmod +x $@
+
+.PHONY: clean
+clean:
+	rm -f $(YQ_BIN)
+
 .PHONY: generate
-generate:
+generate: $(YQ_BIN)
 	./hack/generate-kustomize-patches.sh
 	$(MAKE) delete-generated-helm-charts
 	kustomize build config/helm -o helm/cluster-api-provider-aws/templates

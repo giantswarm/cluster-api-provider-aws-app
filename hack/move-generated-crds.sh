@@ -4,6 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+YQ="${YQ:-$(realpath "$(dirname "$0")/../bin/yq")}"
+
 # dirs
 HELM_DIR="helm/cluster-api-provider-aws"
 HELM_TEMPLATES_DIR="$HELM_DIR/templates"
@@ -51,7 +53,7 @@ move-infrastructure-manifests() {
         mv "$crd_file" "$new_crd_file"
 
         # Consistently remove `creationTimestamp`
-        yq e -i 'del .metadata.creationTimestamp' "$new_crd_file"
+        "${YQ}" e -i 'del .metadata.creationTimestamp' "$new_crd_file"
     done
     cd ../../../../..
 }
