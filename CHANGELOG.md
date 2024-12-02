@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support EC2 lifecycle hooks for machine pools
+
 ### Changed
 
 - Build: ensure using the correct variant of yq
