@@ -9,7 +9,8 @@ name: cluster-api-provider-aws
 #   * S3 user data support for AWSMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/607/commits/905c44ab2afde5e2d4e983066ab9856859a0de47)
 #   * Filter out AWS internal tags when reconciling (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5181/commits/4c61f2b5a01e0b67e647868a066dda1947b97d4c)
 #   * Support EC2 lifecycle hooks for machine pools (https://github.com/giantswarm/cluster-api-provider-aws/pull/613)
-tag: v2.7.1-gs-09d96748c
+#   * Tags defined in subnet spec should be applied (https://github.com/giantswarm/cluster-api-provider-aws/pull/615)
+tag: v2.7.1-gs-5ffc044f4
 
 registry:
   domain: gsoci.azurecr.io
