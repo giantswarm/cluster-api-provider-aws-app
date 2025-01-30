@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support additional security group ingress rules for all nodes.
+
 ## [2.27.0] - 2025-01-21
 
 ### Fixed

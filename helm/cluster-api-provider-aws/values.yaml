@@ -10,7 +10,8 @@ name: cluster-api-provider-aws
 #   * Filter out AWS internal tags when reconciling (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5181/commits/4c61f2b5a01e0b67e647868a066dda1947b97d4c)
 #   * Support EC2 lifecycle hooks for machine pools (https://github.com/giantswarm/cluster-api-provider-aws/pull/613)
 #   * Tags defined in subnet spec should be applied (https://github.com/giantswarm/cluster-api-provider-aws/pull/615)
-tag: v2.7.1-gs-5ffc044f4
+#   * Support additional security group ingress rules for all nodes (https://github.com/giantswarm/cluster-api-provider-aws/pull/617)
+tag: v2.7.1-gs-23310a1d6
 
 registry:
   domain: gsoci.azurecr.io
