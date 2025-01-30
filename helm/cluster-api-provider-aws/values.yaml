@@ -11,7 +11,8 @@ name: cluster-api-provider-aws
 #   * Support EC2 lifecycle hooks for machine pools (https://github.com/giantswarm/cluster-api-provider-aws/pull/613)
 #   * Tags defined in subnet spec should be applied (https://github.com/giantswarm/cluster-api-provider-aws/pull/615)
 #   * Only manage security groups for ENIs tagged by CAPA (https://github.com/giantswarm/cluster-api-provider-aws/pull/616)
-tag: v2.7.1-gs-ef95bc532
+#   * Support additional security group ingress rules for all nodes (https://github.com/giantswarm/cluster-api-provider-aws/pull/617)
+tag: v2.7.1-gs-23310a1d6
 
 registry:
   domain: gsoci.azurecr.io

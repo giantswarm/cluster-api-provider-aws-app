@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support additional security group ingress rules for all nodes.
+
 ### Fixed
 
 - Only manage security groups for ENIs tagged by CAPA.
