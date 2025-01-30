@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.28.0] - 2025-01-30
+
 ### Added
 
 - Support additional security group ingress rules for all nodes.
@@ -461,7 +463,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.27.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.28.0...HEAD
+[2.28.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.27.0...v2.28.0
 [2.27.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.26.0...v2.27.0
 [2.26.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.25.0...v2.26.0
 [2.25.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.24.0...v2.25.0
