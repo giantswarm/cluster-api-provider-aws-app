@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Add karpenter IAM Roles to the S3 bucket policy so that karpenter nodes can read userdata.
+
 ## [2.28.0] - 2025-01-30
 
 ### Added
