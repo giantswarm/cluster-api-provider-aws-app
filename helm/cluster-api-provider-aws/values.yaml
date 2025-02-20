@@ -12,7 +12,8 @@ name: cluster-api-provider-aws
 #   * Tags defined in subnet spec should be applied (https://github.com/giantswarm/cluster-api-provider-aws/pull/615)
 #   * Only manage security groups for ENIs tagged by CAPA (https://github.com/giantswarm/cluster-api-provider-aws/pull/616)
 #   * Support additional security group ingress rules for all nodes (https://github.com/giantswarm/cluster-api-provider-aws/pull/617)
-tag: v2.7.1-gs-23310a1d6
+#   * Add karpenter IAM Roles to the S3 bucket policy so that karpenter nodes can read userdata (https://github.com/giantswarm/cluster-api-provider-aws/pull/618)
+tag: v2.7.1-gs-0198e0fe4
 
 registry:
   domain: gsoci.azurecr.io
