@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Wire logger into machine scope.
+- Avoid reconciling AWSMachinePools when only the status field has changed.
+
 ## [2.29.0] - 2025-02-20
 
 ### Changed
