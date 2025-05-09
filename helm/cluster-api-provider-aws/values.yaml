@@ -13,7 +13,9 @@ name: cluster-api-provider-aws
 #   * Only manage security groups for ENIs tagged by CAPA (https://github.com/giantswarm/cluster-api-provider-aws/pull/616)
 #   * Support additional security group ingress rules for all nodes (https://github.com/giantswarm/cluster-api-provider-aws/pull/617)
 #   * Add karpenter IAM Roles to the S3 bucket policy so that karpenter nodes can read userdata (https://github.com/giantswarm/cluster-api-provider-aws/pull/618)
-tag: v2.7.1-gs-0198e0fe4
+#   * Avoid reconciling AWSMachinePools when only the status field has changed (https://github.com/giantswarm/cluster-api-provider-aws/pull/622)
+#   * Wire logger into machine scope (https://github.com/giantswarm/cluster-api-provider-aws/pull/621)
+tag: v2.7.1-gs-b5ecc7522
 
 registry:
   domain: gsoci.azurecr.io
