@@ -4,7 +4,7 @@ description: "Helm chart for cluster-api-provider-aws."
 home: "https://github.com/giantswarm/cluster-api-provider-aws-app"
 icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
 version: "2.29.0"
-appVersion: "2.5.2"
+appVersion: "2.7.1"
 annotations:
   application.giantswarm.io/team: "phoenix"
   config.giantswarm.io/version: 1.x.x

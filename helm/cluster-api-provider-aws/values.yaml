@@ -15,7 +15,8 @@ name: cluster-api-provider-aws
 #   * Add karpenter IAM Roles to the S3 bucket policy so that karpenter nodes can read userdata (https://github.com/giantswarm/cluster-api-provider-aws/pull/618)
 #   * Avoid reconciling AWSMachinePools when only the status field has changed (https://github.com/giantswarm/cluster-api-provider-aws/pull/622)
 #   * Wire logger into machine scope (https://github.com/giantswarm/cluster-api-provider-aws/pull/621)
-tag: v2.7.1-gs-b5ecc7522
+#   * Don't overwrite subnet spec tags with AWS tags (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5474)
+tag: v2.7.1-gs-f509a70ac
 
 registry:
   domain: gsoci.azurecr.io
