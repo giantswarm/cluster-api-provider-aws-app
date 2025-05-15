@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.30.0] - 2025-05-15
+
 ### Fixed
 
 - Wire logger into machine scope.
@@ -475,7 +477,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.29.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.0...HEAD
+[2.30.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.29.0...v2.30.0
 [2.29.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.28.0...v2.29.0
 [2.28.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.27.0...v2.28.0
 [2.27.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.26.0...v2.27.0
