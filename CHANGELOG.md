@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Wire logger into machine scope.
 - Avoid reconciling AWSMachinePools when only the status field has changed.
+- Don't overwrite subnet spec tags with AWS tags.
 
 ## [2.29.0] - 2025-02-20
 
