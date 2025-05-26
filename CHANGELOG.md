@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Launchtemplate needs to be updated if spot options are changed.
+
 ## [2.30.0] - 2025-05-15
 
 ### Fixed
