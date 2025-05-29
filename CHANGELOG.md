@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.30.2] - 2025-05-29
+
 ## [2.30.1] - 2025-05-26
 
 ### Fixed
@@ -483,7 +485,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.2...HEAD
+[2.30.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.1...v2.30.2
 [2.30.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.0...v2.30.1
 [2.30.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.29.0...v2.30.0
 [2.29.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.28.0...v2.29.0
