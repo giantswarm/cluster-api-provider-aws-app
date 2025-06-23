@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.31.0] - 2025-06-23
+
 ### Added
 
 - Check control plane version skew before creating new launch template version.
@@ -493,7 +495,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.2...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.31.0...HEAD
+[2.31.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.2...v2.31.0
 [2.30.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.1...v2.30.2
 [2.30.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.0...v2.30.1
 [2.30.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.29.0...v2.30.0
