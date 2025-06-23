@@ -17,7 +17,8 @@ name: cluster-api-provider-aws
 #   * Wire logger into machine scope (https://github.com/giantswarm/cluster-api-provider-aws/pull/621)
 #   * Don't overwrite subnet spec tags with AWS tags (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5474)
 #   * Launchtemplate needs to be updated if spot options are changed (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5496)
-tag: v2.7.1-gs-fd1f52dcf
+#   * Check control plane version skew before creating new launch template version (https://github.com/giantswarm/cluster-api-provider-aws/pull/624)
+tag: v2.7.1-gs-dddf7093c
 
 registry:
   domain: gsoci.azurecr.io
