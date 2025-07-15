@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.32.0] - 2025-07-15
+
 ### Changed
 
 - Drop dummy `caBundle` field to support Kubernetes 1.31
@@ -499,7 +501,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.31.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.32.0...HEAD
+[2.32.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.31.0...v2.32.0
 [2.31.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.2...v2.31.0
 [2.30.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.1...v2.30.2
 [2.30.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.30.0...v2.30.1
