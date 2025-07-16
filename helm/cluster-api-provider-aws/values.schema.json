@@ -55,64 +55,11 @@
                 }
             }
         },
-        "featuregates": {
-            "type": "object",
-            "properties": {
-                "machinePool": {
-                    "type": "boolean"
-                },
-                "eventBridgeInstanceState": {
-                    "type": "boolean"
-                },
-                "autoControllerIdentityCreator": {
-                    "type": "boolean"
-                },
-                "eks":{
-                    "type": "object",
-                    "properties": {
-                        "enable": {
-                            "type": "boolean"
-                        },
-                        "enableIAM": {
-                            "type": "boolean"
-                        },
-                        "allowAddRoles": {
-                            "type": "boolean"
-                        },
-                        "fargate": {
-                            "type": "boolean"
-                        }
-                    }
-                }
-            }
-        },
         "aws": {
             "type": "object",
             "properties": {
                 "arn": {
                     "type": "string"
-                }
-            }
-        },
-        "ports": {
-            "type": "object",
-            "properties": {
-                "healtz": {
-                    "type": "integer"
-                },
-                "metrics": {
-                    "type": "integer"
-                },
-                "webhook": {
-                    "type": "integer"
-                }
-            }
-        },
-        "log": {
-            "type": "object",
-            "properties": {
-                "level": {
-                    "type": "integer"
                 }
             }
         },
