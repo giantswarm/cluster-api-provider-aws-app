@@ -53,7 +53,8 @@ spec:
       - args:
         - --leader-elect
         - --metrics-bind-addr=0.0.0.0:8443
-        - --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
+        - |
+          --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,MachinePoolMachines={{ required "capaFeatureGates.machinePoolMachines is required" .Values.capaFeatureGates.machinePoolMachines | ternary "true" "false" }},EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
         - --watch-filter=capi
         - --sync-period=2m
         - --v=0
