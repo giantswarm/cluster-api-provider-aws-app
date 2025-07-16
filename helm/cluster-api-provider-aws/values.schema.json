@@ -55,6 +55,15 @@
                 }
             }
         },
+        "capaFeatureGates": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "machinePoolMachines": {
+                    "type": "boolean"
+                }
+            }
+        },
         "aws": {
             "type": "object",
             "properties": {

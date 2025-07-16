@@ -19,7 +19,8 @@ name: cluster-api-provider-aws
 #   * Launchtemplate needs to be updated if spot options are changed (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5496)
 #   * Check control plane version skew before creating new launch template version (https://github.com/giantswarm/cluster-api-provider-aws/pull/624)
 #   * Remove placeholder CA bundle (https://github.com/giantswarm/cluster-api-provider-aws/pull/625)
-tag: v2.7.1-gs-9ab223543
+#   * Add feature gate environment variable for machine pool machines (https://github.com/giantswarm/cluster-api-provider-aws/pull/627)
+tag: v2.7.1-gs-aa2805a5b
 
 registry:
   domain: gsoci.azurecr.io
@@ -35,6 +36,9 @@ crdInstall:
   kubectl:
     image: "giantswarm/kubectl"
     tag: "1.24.10"
+
+capaFeatureGates:
+  machinePoolMachines: false
 
 aws:
   arn: defaultARN

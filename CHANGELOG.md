@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add feature gate for machine pool machines (defaults to off)
+
 ### Changed
 
 - Remove unused values
