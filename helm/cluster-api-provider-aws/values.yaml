@@ -32,31 +32,12 @@ ciliumNetworkPolicy:
 
 crdConvertOnly: true
 crdInstall:
-  enable: true
   kubectl:
     image: "giantswarm/kubectl"
     tag: "1.24.10"
 
-featuregates:
-  machinePool: true
-  eventBridgeInstanceState: false
-  autoControllerIdentityCreator: true
-  eks:
-    enable: true
-    enableIAM: true
-    allowAddRoles: false
-    fargate: false
-
 aws:
   arn: defaultARN
-
-ports:
-  healthz: 9440
-  metrics: 8080
-  webhook: 9443
-
-log:
-  level: 0
 
 watchfilter: capi
 
