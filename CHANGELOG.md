@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add feature gate for machine pool machines (defaults to off)
+- Add AWSMachines to back the EC2 instances in AWSMachinePools and AWSManagedMachinePools, add feature gate for this feature (defaults to off)
 
 ### Changed
 

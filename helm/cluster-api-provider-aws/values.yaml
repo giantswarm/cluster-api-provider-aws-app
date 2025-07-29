@@ -20,7 +20,8 @@ name: cluster-api-provider-aws
 #   * Check control plane version skew before creating new launch template version (https://github.com/giantswarm/cluster-api-provider-aws/pull/624)
 #   * Remove placeholder CA bundle (https://github.com/giantswarm/cluster-api-provider-aws/pull/625)
 #   * Add feature gate environment variable for machine pool machines (https://github.com/giantswarm/cluster-api-provider-aws/pull/627)
-tag: v2.7.1-gs-aa2805a5b
+#   * Add AWSMachines to back the EC2 instances in AWSMachinePools and AWSManagedMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/629)
+tag: v2.7.1-gs-d8be1df2d
 
 registry:
   domain: gsoci.azurecr.io
