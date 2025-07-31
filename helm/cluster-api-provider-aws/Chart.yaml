@@ -3,7 +3,7 @@ name: cluster-api-provider-aws
 description: "Helm chart for cluster-api-provider-aws."
 home: "https://github.com/giantswarm/cluster-api-provider-aws-app"
 icon: https://s.giantswarm.io/app-icons/aws/2/dark.svg
-version: "2.32.0"
+version: "2.33.0"
 appVersion: "2.7.1"
 annotations:
   application.giantswarm.io/team: "phoenix"
