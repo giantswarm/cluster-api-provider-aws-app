@@ -22,7 +22,8 @@ name: cluster-api-provider-aws
 #   * Add feature gate environment variable for machine pool machines (https://github.com/giantswarm/cluster-api-provider-aws/pull/627)
 #   * Add AWSMachines to back the EC2 instances in AWSMachinePools and AWSManagedMachinePools (https://github.com/giantswarm/cluster-api-provider-aws/pull/629)
 #   * Only try to delete AWSMachine bootstrap data for non-machine pool machines (https://github.com/giantswarm/cluster-api-provider-aws/pull/630)
-tag: v2.7.1-gs-c0d1dd997
+#   * Fix cluster upgrade version skew (https://github.com/giantswarm/cluster-api-provider-aws/pull/631)
+tag: v2.7.1-gs-6d95db86f
 
 registry:
   domain: gsoci.azurecr.io

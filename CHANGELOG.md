@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix cluster upgrade version skew: https://github.com/giantswarm/cluster-api-provider-aws/pull/631
+
 ## [2.33.1] - 2025-08-07
 
 ### Fixed
