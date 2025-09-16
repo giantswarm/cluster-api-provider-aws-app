@@ -24,7 +24,7 @@ name: cluster-api-provider-aws
 #   * Only try to delete AWSMachine bootstrap data for non-machine pool machines (https://github.com/giantswarm/cluster-api-provider-aws/pull/630)
 #   * Fix cluster upgrade version skew (https://github.com/giantswarm/cluster-api-provider-aws/pull/631)
 #   * Giant Swarm specific, temporary hack: allow fine-grained control which workload clusters get reconciled with the MachinePool Machines feature (https://github.com/giantswarm/cluster-api-provider-aws/pull/633)
-tag: v2.7.1-gs-32160154a
+tag: v2.7.1-gs-38fb27728
 
 registry:
   domain: gsoci.azurecr.io
