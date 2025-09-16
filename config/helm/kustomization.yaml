@@ -51,3 +51,9 @@ patches:
   - path: webhook-service-named-port.yaml
   - path: certificate.yaml
   - path: secret.yaml
+
+  - path: deployment-machine-pool-machines-feature-gate.yaml
+    target:
+      kind: Deployment
+      name: capa-controller-manager
+      namespace: capa-system

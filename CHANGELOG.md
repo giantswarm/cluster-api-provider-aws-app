@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Giant Swarm specific, temporary hack: allow fine-grained control which workload clusters get reconciled with the MachinePool Machines feature
+
 ## [2.33.2] - 2025-09-10
 
 ### Fixed
