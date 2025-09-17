@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.33.3] - 2025-09-17
+
 ### Added
 
 - Giant Swarm specific, temporary hack: allow fine-grained control which workload clusters get reconciled with the MachinePool Machines feature
@@ -527,7 +529,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.2...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.3...HEAD
+[2.33.3]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.2...v2.33.3
 [2.33.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.1...v2.33.2
 [2.33.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.0...v2.33.1
 [2.33.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.32.0...v2.33.0
