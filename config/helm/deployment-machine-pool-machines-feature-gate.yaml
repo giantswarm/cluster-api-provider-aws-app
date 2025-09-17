@@ -1,0 +1,6 @@
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value:
+    name: GIANT_SWARM_CAPA_MACHINE_POOL_MACHINES_ONLY_FOR_CLUSTER_NAME_REGEX
+    # No spaces in the Go template since kustomize otherwise breaks the string across multiple lines!
+    value: '{{.Values.capaFeatureGates.machinePoolMachinesOnlyForClusterNameRegex}}'
