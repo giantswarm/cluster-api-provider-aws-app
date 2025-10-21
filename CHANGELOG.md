@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Add update permission for `AWSMachinePool` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on AWSMachinePool Machines
+
 ## [2.33.3] - 2025-09-17
 
 ### Added
