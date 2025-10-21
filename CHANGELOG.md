@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.33.4] - 2025-10-21
+
 ### Fixed
 
 - Add update permission for `AWSMachinePool` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on AWSMachinePool Machines
@@ -533,7 +535,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.3...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.4...HEAD
+[2.33.4]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.3...v2.33.4
 [2.33.3]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.2...v2.33.3
 [2.33.2]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.1...v2.33.2
 [2.33.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.0...v2.33.1
