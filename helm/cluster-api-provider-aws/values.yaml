@@ -25,6 +25,7 @@ name: cluster-api-provider-aws
 #   * Fix cluster upgrade version skew (https://github.com/giantswarm/cluster-api-provider-aws/pull/631)
 #   * Giant Swarm specific, temporary hack: allow fine-grained control which workload clusters get reconciled with the MachinePool Machines feature (https://github.com/giantswarm/cluster-api-provider-aws/pull/633)
 #   * Add update permission for `AWSMachinePool` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on AWSMachinePool Machines (https://github.com/giantswarm/cluster-api-provider-aws/pull/634)
+#   * Add update permission for `AWSManagedControlPlanes` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on EKS kubeconfig Secrets (TBD)
 tag: v2.7.1-gs-b9fedc5e9
 
 registry:
