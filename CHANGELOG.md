@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Add update permission for `AWSManagedControlPlanes` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on EKS kubeconfig Secrets
+
 ## [2.33.4] - 2025-10-21
 
 ### Fixed
