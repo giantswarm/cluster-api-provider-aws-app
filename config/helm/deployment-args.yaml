@@ -11,7 +11,7 @@ spec:
         - name: manager
           args:
             - --leader-elect
-            - --metrics-bind-addr=0.0.0.0:8443
+            - --diagnostics-address=0.0.0.0:8443
             - |
               --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,MachinePoolMachines={{ required "capaFeatureGates.machinePoolMachines is required" .Values.capaFeatureGates.machinePoolMachines | ternary "true" "false" }},EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
             - --watch-filter=capi
