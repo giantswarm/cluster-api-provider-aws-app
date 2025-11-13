@@ -36,7 +36,7 @@
                       additionalProperties:
                         type: string
                       description: |-
-                        Annotations is an unstructured key value map stored with a resource that may be
+                        annotations is an unstructured key value map stored with a resource that may be
                         set by external tools to store and retrieve arbitrary metadata. They are not
                         queryable and should be preserved when modifying objects.
                         More info: http://kubernetes.io/docs/user-guide/annotations
@@ -121,12 +121,10 @@
                           description: |-
                             CrossZoneLoadBalancing enables the classic ELB cross availability zone balancing.
 
-
                             With cross-zone load balancing, each load balancer node for your Classic Load Balancer
                             distributes requests evenly across the registered instances in all enabled Availability Zones.
                             If cross-zone load balancing is disabled, each load balancer node distributes requests evenly across
                             the registered instances in its Availability Zone only.
-
 
                             Defaults to false.
                           type: boolean

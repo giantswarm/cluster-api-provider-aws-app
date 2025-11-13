@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump CAPA version `v2.8.4-gs-*`. This bumps CAPA to `v2.8.4` and applies the customizations we already had in our fork.
+
 ## [2.33.5] - 2025-11-04
 
 ### Fixed
