@@ -25,7 +25,8 @@ name: cluster-api-provider-aws
 #   * Add update permission for `AWSMachinePool` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on AWSMachinePool Machines (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5722)
 #   * Cancel instance refresh on any relevant change to ASG instead of blocking until previous one is finished (https://github.com/giantswarm/cluster-api-provider-aws/pull/598 / https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5543)
 #   * Add update permission for `AWSManagedControlPlanes` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on EKS kubeconfig Secrets (https://github.com/giantswarm/cluster-api-provider-aws/pull/636)
-tag: v2.8.4-gs-4ca8b5836
+#   * Cache architecture for each instance type in memory (TODO add PR link)
+tag: v2.8.4-gs-ed0e31fdc
 
 registry:
   domain: gsoci.azurecr.io
