@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.34.0] - 2025-11-21
+
 ### Changed
 
 - Bump CAPA version `v2.8.4-gs-*`. This bumps CAPA to `v2.8.4` and applies the customizations we already had in our fork.
@@ -545,7 +547,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.5...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.34.0...HEAD
+[2.34.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.5...v2.34.0
 [2.33.5]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.4...v2.33.5
 [2.33.4]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.3...v2.33.4
 [2.33.3]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.2...v2.33.3
