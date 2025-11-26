@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump CAPA version to `v2.9.2-gs-*`. This bumps CAPA to `v2.9.2` and applies the customizations we already had in our fork.
+
+  - On top: fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same. This was a bug introduced with CAPA v2.9.x, so it did not affect older versions of this app.
+
 ## [2.34.1] - 2025-11-27
 
 ### Fixed
@@ -17,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Bump CAPA version `v2.8.4-gs-*`. This bumps CAPA to `v2.8.4` and applies the customizations we already had in our fork.
+- Bump CAPA version to `v2.8.4-gs-*`. This bumps CAPA to `v2.8.4` and applies the customizations we already had in our fork.
 
 ## [2.33.5] - 2025-11-04
 
