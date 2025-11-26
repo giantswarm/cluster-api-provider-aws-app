@@ -44,6 +44,14 @@ webhooks:
     objectSelector:
       matchLabels:
         cluster.x-k8s.io/watch-filter: capi
+  - name: default.rosanetwork.infrastructure.cluster.x-k8s.io
+    objectSelector:
+      matchLabels:
+        cluster.x-k8s.io/watch-filter: capi
+  - name: default.rosaroleconfig.infrastructure.cluster.x-k8s.io
+    objectSelector:
+      matchLabels:
+        cluster.x-k8s.io/watch-filter: capi
   - name: default.eksconfigs.bootstrap.cluster.x-k8s.io
     objectSelector:
       matchLabels:
@@ -53,6 +61,10 @@ webhooks:
       matchLabels:
         cluster.x-k8s.io/watch-filter: capi
   - name: default.awsmanagedcontrolplanes.controlplane.cluster.x-k8s.io
+    objectSelector:
+      matchLabels:
+        cluster.x-k8s.io/watch-filter: capi
+  - name: default.awsmanagedcontrolplanetemplates.controlplane.cluster.x-k8s.io
     objectSelector:
       matchLabels:
         cluster.x-k8s.io/watch-filter: capi
