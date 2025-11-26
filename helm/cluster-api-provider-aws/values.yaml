@@ -4,31 +4,22 @@ name: cluster-api-provider-aws
 # release. Please include the short commit SHA in the tag name, such as `v2.0.2-gs-123abcd`. After changing this
 # tag, please run `make generate` to update CRDs and other manifests.
 
-# Changes in this tag include upstream v2.8.x with additional:
-#   * Giant Swarm fork modifications (https://github.com/giantswarm/cluster-api-provider-aws/pull/635)
-#   * Add marketType field validation (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5374), only as prerequisite for rebasing correctly
-#   * Support EC2 lifecycle hooks for machine pools (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/4875)
-#   * Launchtemplate needs to be updated if spot options are changed (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5496)
-#   * Migrate S3, Sessions and Endpoints packages to AWS SDK v2 (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5389), only as prerequisite for rebasing correctly
-#   * Support storing Ignition user data in S3 bucket for `AWSMachinePool` (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5318)
+# Changes in this tag include upstream v2.9.x with additional:
+#   * Giant Swarm fork modifications (https://github.com/giantswarm/cluster-api-provider-aws/pull/641)
 #   * Only manage security groups for ENIs tagged by CAPA (https://github.com/giantswarm/cluster-api-provider-aws/pull/616)
-#   * Support additional security group ingress rules for all nodes (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5224)
 #   * Add karpenter IAM Roles to the S3 bucket policy so that karpenter nodes can read userdata (https://github.com/giantswarm/cluster-api-provider-aws/pull/618)
-#   * Wire logger into machine scope (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5462)
-#   * Don't overwrite subnet spec tags with AWS tags (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5474)
+#   * Deflake ROSA test (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5763; partially cherry-picked; just to keep our fork builds stable)
+#   * Cancel instance refresh on any relevant change to ASG instead of blocking until previous one is finished (https://github.com/giantswarm/cluster-api-provider-aws/pull/598 / https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5543)
 #   * Check control plane version skew before creating new launch template version (https://github.com/giantswarm/cluster-api-provider-aws/pull/624)
-#   * Add feature gate environment variable for machine pool machines (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5575)
-#   * Only try to delete AWSMachine bootstrap data for non-machine pool machines (https://github.com/giantswarm/cluster-api-provider-aws/pull/630)
+#   * Only try to delete AWSMachine bootstrap data for non-machine pool machines (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5761)
 #   * Fix cluster upgrade version skew (https://github.com/giantswarm/cluster-api-provider-aws/pull/631)
 #   *   + extra commit 'Conditionally proceed if `isMachinePoolAllowedToUpgradeDueToControlPlaneVersionSkew` returns an error'
 #   * Giant Swarm specific, temporary hack: allow fine-grained control which workload clusters get reconciled with the MachinePool Machines feature (https://github.com/giantswarm/cluster-api-provider-aws/pull/633)
 #   * Add update permission for `AWSMachinePool` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on AWSMachinePool Machines (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5722)
-#   * Cancel instance refresh on any relevant change to ASG instead of blocking until previous one is finished (https://github.com/giantswarm/cluster-api-provider-aws/pull/598 / https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5543)
 #   * Add update permission for `AWSManagedControlPlanes` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on EKS kubeconfig Secrets (https://github.com/giantswarm/cluster-api-provider-aws/pull/636)
-#   * Fix lifecycle hooks being updated constantly, consider changes to `RoleARN` field as well (https://github.com/giantswarm/cluster-api-provider-aws/pull/639)
+#   * Fix lifecycle hooks being updated constantly, consider changes to `RoleARN` field as well (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5762)
 #   * Cache architecture for each instance type in memory (https://github.com/giantswarm/cluster-api-provider-aws/pull/638)
-#   * Fix constant re-applying of tags if `.metadata.annotations` is nil (https://github.com/giantswarm/cluster-api-provider-aws/pull/645)
-tag: v2.8.4-gs-e8956c08a
+tag: v2.9.2-gs-64d5685fa
 
 registry:
   domain: gsoci.azurecr.io
