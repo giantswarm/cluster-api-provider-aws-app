@@ -20,7 +20,7 @@ name: cluster-api-provider-aws
 #   * Fix lifecycle hooks being updated constantly, consider changes to `RoleARN` field as well (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5762)
 #   * Cache architecture for each instance type in memory (https://github.com/giantswarm/cluster-api-provider-aws/pull/638)
 # TODO TODO TODO ADD DESCRIPTION FOR SSHKEYNAME BUG
-tag: v2.9.2-gs-a8220b756
+tag: v2.9.2-gs-a7a1c0661
 
 registry:
   domain: gsoci.azurecr.io
