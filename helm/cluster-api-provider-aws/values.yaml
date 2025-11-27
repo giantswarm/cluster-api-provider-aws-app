@@ -19,8 +19,9 @@ name: cluster-api-provider-aws
 #   * Add update permission for `AWSManagedControlPlanes` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on EKS kubeconfig Secrets (https://github.com/giantswarm/cluster-api-provider-aws/pull/636)
 #   * Fix lifecycle hooks being updated constantly, consider changes to `RoleARN` field as well (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5762)
 #   * Cache architecture for each instance type in memory (https://github.com/giantswarm/cluster-api-provider-aws/pull/638)
-#   * Fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same (https://github.com/giantswarm/cluster-api-provider-aws/pull/643)
-tag: v2.9.2-gs-ef5944f77
+#   * Remove `TestROSARoleConfigReconcileExist` since it's still flaky and not relevant to our fork (https://github.com/giantswarm/cluster-api-provider-aws/pull/644)
+#   * Print reason for launch template needing update, fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same (https://github.com/giantswarm/cluster-api-provider-aws/pull/643)
+tag: v2.9.2-gs-ea2a6aa52
 
 registry:
   domain: gsoci.azurecr.io
