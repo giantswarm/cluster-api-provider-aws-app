@@ -27,7 +27,8 @@ name: cluster-api-provider-aws
 #   * Add update permission for `AWSManagedControlPlanes` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on EKS kubeconfig Secrets (https://github.com/giantswarm/cluster-api-provider-aws/pull/636)
 #   * Fix lifecycle hooks being updated constantly, consider changes to `RoleARN` field as well (https://github.com/giantswarm/cluster-api-provider-aws/pull/639)
 #   * Cache architecture for each instance type in memory (https://github.com/giantswarm/cluster-api-provider-aws/pull/638)
-tag: v2.8.4-gs-49a4f18f1
+#   * Fix constant re-applying of tags if `.metadata.annotations` is nil (https://github.com/giantswarm/cluster-api-provider-aws/pull/645)
+tag: v2.8.4-gs-e8956c08a
 
 registry:
   domain: gsoci.azurecr.io
