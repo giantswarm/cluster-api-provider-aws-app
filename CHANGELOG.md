@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix constant re-applying of tags if `.metadata.annotations` is nil. This would likely apply to AWSMachinePool `AWSMachine` objects as they initially get created without any annotations. The fix means a strong reduction of unnecessary AWS requests, avoiding a full and slow work queue of the reconciler.
+
 ## [2.34.0] - 2025-11-21
 
 ### Changed
