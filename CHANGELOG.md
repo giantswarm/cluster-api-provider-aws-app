@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.34.1] - 2025-11-27
+
 ### Fixed
 
 - Fix constant re-applying of tags if `.metadata.annotations` is nil. This would likely apply to AWSMachinePool `AWSMachine` objects as they initially get created without any annotations. The fix means a strong reduction of unnecessary AWS requests, avoiding a full and slow work queue of the reconciler.
@@ -551,7 +553,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.34.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.34.1...HEAD
+[2.34.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.34.0...v2.34.1
 [2.34.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.5...v2.34.0
 [2.33.5]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.4...v2.33.5
 [2.33.4]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.3...v2.33.4
