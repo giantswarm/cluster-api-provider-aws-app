@@ -21,7 +21,8 @@ name: cluster-api-provider-aws
 #   * Cache architecture for each instance type in memory (https://github.com/giantswarm/cluster-api-provider-aws/pull/638)
 #   * Remove `TestROSARoleConfigReconcileExist` since it's still flaky and not relevant to our fork (https://github.com/giantswarm/cluster-api-provider-aws/pull/644)
 #   * Print reason for launch template needing update, fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same (https://github.com/giantswarm/cluster-api-provider-aws/pull/643)
-tag: v2.9.2-gs-ea2a6aa52
+#   * Fix constant re-applying of tags if `AWSMachine.metadata.annotations` is nil (https://github.com/giantswarm/cluster-api-provider-aws/pull/646)
+tag: v2.9.2-gs-ce25ac670
 
 registry:
   domain: gsoci.azurecr.io
