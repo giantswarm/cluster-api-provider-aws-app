@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
   - On top: fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same. This was a bug introduced with CAPA v2.9.x, so it did not affect older versions of this app.
 
+### Fixed
+
+- Fix constant re-applying of tags if `AWSMachine.metadata.annotations` is nil. This applied to reconciliation of machine pool machines.
+
 ## [2.34.1] - 2025-11-27
 
 ### Fixed
