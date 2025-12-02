@@ -16,9 +16,8 @@ metadata:
     cluster.x-k8s.io/v1beta1: v1beta1_v1beta2
     clusterctl.cluster.x-k8s.io: ""
     clusterctl.cluster.x-k8s.io/move: ""
-    clusterctl.cluster.x-k8s.io/move-hierarchy: ""
     helm.sh/chart: '{{ .Chart.Name }}'
-  name: awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io
+  name: awsmanagedcontrolplanetemplates.controlplane.cluster.x-k8s.io
 spec:
   conversion:
     strategy: Webhook
@@ -32,22 +31,18 @@ spec:
       conversionReviewVersions:
         - v1
         - v1beta1
-  group: infrastructure.cluster.x-k8s.io
+  group: controlplane.cluster.x-k8s.io
   names:
     categories:
       - cluster-api
-    kind: AWSClusterControllerIdentity
-    listKind: AWSClusterControllerIdentityList
-    plural: awsclustercontrolleridentities
+    kind: AWSManagedControlPlaneTemplate
+    listKind: AWSManagedControlPlaneTemplateList
+    plural: awsmanagedcontrolplanetemplates
     shortNames:
-      - awsci
-    singular: awsclustercontrolleridentity
-  scope: Cluster
+      - awmcpt
+    singular: awsmanagedcontrolplanetemplate
+  scope: Namespaced
   versions:
-    - name: v1beta1
-      schema: {}
-      served: false
-      storage: false
     - name: v1beta2
       schema: {}
       served: true

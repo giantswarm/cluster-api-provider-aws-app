@@ -16,9 +16,8 @@ metadata:
     cluster.x-k8s.io/v1beta1: v1beta1_v1beta2
     clusterctl.cluster.x-k8s.io: ""
     clusterctl.cluster.x-k8s.io/move: ""
-    clusterctl.cluster.x-k8s.io/move-hierarchy: ""
     helm.sh/chart: '{{ .Chart.Name }}'
-  name: awsclustercontrolleridentities.infrastructure.cluster.x-k8s.io
+  name: rosaroleconfigs.infrastructure.cluster.x-k8s.io
 spec:
   conversion:
     strategy: Webhook
@@ -36,19 +35,17 @@ spec:
   names:
     categories:
       - cluster-api
-    kind: AWSClusterControllerIdentity
-    listKind: AWSClusterControllerIdentityList
-    plural: awsclustercontrolleridentities
+    kind: ROSARoleConfig
+    listKind: ROSARoleConfigList
+    plural: rosaroleconfigs
     shortNames:
-      - awsci
-    singular: awsclustercontrolleridentity
-  scope: Cluster
+      - rosarole
+    singular: rosaroleconfig
+  scope: Namespaced
   versions:
-    - name: v1beta1
-      schema: {}
-      served: false
-      storage: false
     - name: v1beta2
       schema: {}
       served: true
       storage: true
+      subresources:
+        status: {}
