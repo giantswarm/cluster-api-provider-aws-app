@@ -11,13 +11,13 @@ jobs:
       - run:
           name: Check if image exists in China registry
           command: |
+            echo Login
+            docker login --username $ALIYUN_USERNAME --password $ALIYUN_PASSWORD giantswarm-registry.cn-shanghai.cr.aliyuncs.com
+
             tag=$(grep -E '^tag:' helm/cluster-api-provider-aws/values.yaml | awk '{print $2}' | tr -d '"' | tr -d "'")
             image="giantswarm-registry.cn-shanghai.cr.aliyuncs.com/giantswarm/cluster-api-aws-controller-amd64:${tag}"
 
             echo "Checking if image exists: ${image}"
-
-            docker login --username $ALIYUN_USERNAME --password $ALIYUN_PASSWORD giantswarm-registry.cn-shanghai.cr.aliyuncs.com
-
             # This fails if the image does not exist (for example, hasn't finished pushing from our fork CircleCI pipeline)
             (set -x; docker manifest inspect "${image}")
 
@@ -56,6 +56,7 @@ workflows:
   check-china-image-workflow:
     jobs:
       - check-china-image:
+          context: architect # for ALIYUN_PASSWORD and other values
           filters:
             tags:
               only: /^v.*/
