@@ -2,6 +2,28 @@ version: 2.1
 orbs:
   architect: giantswarm/architect@6.9.0
 
+jobs:
+  check-china-image:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Check if image exists in China registry
+          command: |
+            echo Login
+            docker login --username $ALIYUN_USERNAME --password $ALIYUN_PASSWORD giantswarm-registry.cn-shanghai.cr.aliyuncs.com
+
+            tag=$(grep -E '^tag:' helm/cluster-api-provider-aws/values.yaml | awk '{print $2}' | tr -d '"' | tr -d "'")
+            image="giantswarm-registry.cn-shanghai.cr.aliyuncs.com/giantswarm/cluster-api-aws-controller-amd64:${tag}"
+
+            echo "Checking if image exists: ${image}"
+            # This fails if the image does not exist (for example, hasn't finished pushing from our fork CircleCI pipeline)
+            (set -x; docker manifest inspect "${image}") || {
+              echo "ERROR: See error above. If the image does not exist yet, check the CAPA fork pipeline at https://app.circleci.com/pipelines/github/giantswarm/cluster-api-provider-aws/."
+              exit 1
+            }
+
 workflows:
   package-and-push-chart-on-tag:
     jobs:
@@ -33,3 +55,11 @@ workflows:
             ignore: /.*/
           tags:
             only: /^v.*/
+
+  check-china-image-workflow:
+    jobs:
+      - check-china-image:
+          context: architect # for ALIYUN_PASSWORD and other values
+          filters:
+            tags:
+              only: /^v.*/
