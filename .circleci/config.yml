@@ -57,7 +57,5 @@ workflows:
     jobs:
       - check-china-image:
           filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /^v.*/
