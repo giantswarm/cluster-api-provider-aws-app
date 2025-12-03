@@ -19,7 +19,10 @@ jobs:
 
             echo "Checking if image exists: ${image}"
             # This fails if the image does not exist (for example, hasn't finished pushing from our fork CircleCI pipeline)
-            (set -x; docker manifest inspect "${image}")
+            (set -x; docker manifest inspect "${image}") || {
+              echo "ERROR: See error above. If the image does not exist yet, check the CAPA fork pipeline at https://app.circleci.com/pipelines/github/giantswarm/cluster-api-provider-aws/."
+              exit 1
+            }
 
 workflows:
   package-and-push-chart-on-tag:
