@@ -21,7 +21,6 @@ spec:
     spec:
       serviceAccountName: {{ include "capa.crdInstall" . }}
       securityContext:
-        readOnlyRootFilesystem: true
         runAsUser: 65534
         runAsGroup: 65534
         seccompProfile:
