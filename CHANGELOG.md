@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.35.1] - 2025-12-09
+
 ### Fixed
 
 - Fix use of non-existing field `Job.spec.template.spec.securityContext.readOnlyRootFilesystem` (only containers have that field)
@@ -569,7 +571,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.35.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.35.1...HEAD
+[2.35.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.35.0...v2.35.1
 [2.35.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.34.1...v2.35.0
 [2.34.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.34.0...v2.34.1
 [2.34.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.33.5...v2.34.0
