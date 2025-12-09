@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix use of non-existing field `Job.spec.template.spec.securityContext.readOnlyRootFilesystem` (only containers have that field)
+
 ## [2.35.0] - 2025-12-02
 
 ### Changed
