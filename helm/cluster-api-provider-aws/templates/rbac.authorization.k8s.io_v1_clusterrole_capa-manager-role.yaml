@@ -45,6 +45,14 @@ rules:
   - list
   - watch
 - apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
   - authentication.k8s.io
   resources:
   - tokenreviews
@@ -81,6 +89,7 @@ rules:
   - clusters/status
   - machinedeployments
   - machines/status
+  - machinesets
   verbs:
   - get
   - list
@@ -129,8 +138,8 @@ rules:
   - controlplane.cluster.x-k8s.io
   resources:
   - awsmanagedcontrolplanes/finalizers
+  - rosacontrolplanes/finalizers
   verbs:
-  - delete
   - update
 - apiGroups:
   - controlplane.cluster.x-k8s.io
@@ -143,12 +152,6 @@ rules:
   - patch
   - update
   - watch
-- apiGroups:
-  - controlplane.cluster.x-k8s.io
-  resources:
-  - rosacontrolplanes/finalizers
-  verbs:
-  - update
 - apiGroups:
   - infrastructure.cluster.x-k8s.io
   resources:
@@ -189,6 +192,7 @@ rules:
   resources:
   - awsclusters/status
   - awsfargateprofiles/status
+  - awsmachinetemplates/status
   - rosaclusters/status
   - rosanetworks/status
   - rosaroleconfigs/status
