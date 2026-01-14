@@ -4,25 +4,19 @@ name: cluster-api-provider-aws
 # release. Please include the short commit SHA in the tag name, such as `v2.0.2-gs-123abcd`. After changing this
 # tag, please run `make generate` to update CRDs and other manifests.
 
-# Changes in this tag include upstream v2.9.x with additional:
-#   * Giant Swarm fork modifications (https://github.com/giantswarm/cluster-api-provider-aws/pull/641)
+# Changes in this tag include upstream v2.10.x with additional:
+#   * Giant Swarm fork modifications (https://github.com/giantswarm/cluster-api-provider-aws/pull/648)
 #   * Only manage security groups for ENIs tagged by CAPA (https://github.com/giantswarm/cluster-api-provider-aws/pull/616)
 #   * Add karpenter IAM Roles to the S3 bucket policy so that karpenter nodes can read userdata (https://github.com/giantswarm/cluster-api-provider-aws/pull/618)
-#   * Deflake ROSA test (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5763; partially cherry-picked; just to keep our fork builds stable)
-#   * Cancel instance refresh on any relevant change to ASG instead of blocking until previous one is finished (https://github.com/giantswarm/cluster-api-provider-aws/pull/598 / https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5543)
+#   * Remove `TestROSARoleConfigReconcileExist` since it's still flaky and not relevant to our fork (https://github.com/giantswarm/cluster-api-provider-aws/pull/644)
 #   * Check control plane version skew before creating new launch template version (https://github.com/giantswarm/cluster-api-provider-aws/pull/624)
-#   * Only try to delete AWSMachine bootstrap data for non-machine pool machines (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5761)
 #   * Fix cluster upgrade version skew (https://github.com/giantswarm/cluster-api-provider-aws/pull/631)
 #   *   + extra commit 'Conditionally proceed if `isMachinePoolAllowedToUpgradeDueToControlPlaneVersionSkew` returns an error'
 #   * Giant Swarm specific, temporary hack: allow fine-grained control which workload clusters get reconciled with the MachinePool Machines feature (https://github.com/giantswarm/cluster-api-provider-aws/pull/633)
-#   * Add update permission for `AWSMachinePool` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on AWSMachinePool Machines (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5722)
-#   * Add update permission for `AWSManagedControlPlanes` finalizers as needed by `OwnerReferencesPermissionEnforcement` for setting `BlockOwnerDeletion: true` on EKS kubeconfig Secrets (https://github.com/giantswarm/cluster-api-provider-aws/pull/636)
-#   * Fix lifecycle hooks being updated constantly, consider changes to `RoleARN` field as well (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5762)
 #   * Cache architecture for each instance type in memory (https://github.com/giantswarm/cluster-api-provider-aws/pull/638)
-#   * Remove `TestROSARoleConfigReconcileExist` since it's still flaky and not relevant to our fork (https://github.com/giantswarm/cluster-api-provider-aws/pull/644)
-#   * Print reason for launch template needing update, fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same (https://github.com/giantswarm/cluster-api-provider-aws/pull/643)
-#   * Fix constant re-applying of tags if `AWSMachine.metadata.annotations` is nil (https://github.com/giantswarm/cluster-api-provider-aws/pull/646)
-tag: v2.9.2-gs-ce25ac670
+#   * Print reason for launch template needing update, fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5788)
+#   * Fix constant re-applying of tags if `AWSMachine.metadata.annotations` is nil (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5775)
+tag: v2.10.0-gs-a53fb6e52
 
 registry:
   domain: gsoci.azurecr.io

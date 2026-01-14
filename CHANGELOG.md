@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade to CAPA v2.10.0 + fork changes
+
 ## [2.35.1] - 2025-12-09
 
 ### Fixed
