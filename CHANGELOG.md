@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Removed `PodSecurityPolicy`.
 - Removed `global.podSecurityStandards.enforced` helm value.
+- Removed `push-to-app-collection` job from CircleCI config.
 
 ## [2.36.0] - 2026-01-15
 
