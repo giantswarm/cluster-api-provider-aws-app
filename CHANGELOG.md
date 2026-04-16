@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Ignore release drift while deleting MachinePool and AWSMachinePool
+- Ignore release drift while deleting MachinePool and AWSMachinePool [giantswarm/cluster-api-provider-aws#652](https://github.com/giantswarm/cluster-api-provider-aws/pull/652)
 
 ## [2.37.0] - 2026-04-08
 
