@@ -1,6 +1,8 @@
 resources:
   - bases/eksconfigs.bootstrap.cluster.x-k8s.io.yaml
   - bases/eksconfigtemplates.bootstrap.cluster.x-k8s.io.yaml
+  - bases/nodeadmconfigs.bootstrap.cluster.x-k8s.io.yaml
+  - bases/nodeadmconfigtemplates.bootstrap.cluster.x-k8s.io.yaml
 patches:
   - path: patches/versions/v1beta1/eksconfigs.bootstrap.cluster.x-k8s.io.yaml
     target:
@@ -26,3 +28,15 @@ patches:
       version: v1
       kind: CustomResourceDefinition
       name: eksconfigtemplates.bootstrap.cluster.x-k8s.io
+  - path: patches/versions/v1beta2/nodeadmconfigs.bootstrap.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: nodeadmconfigs.bootstrap.cluster.x-k8s.io
+  - path: patches/versions/v1beta2/nodeadmconfigtemplates.bootstrap.cluster.x-k8s.io.yaml
+    target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: nodeadmconfigtemplates.bootstrap.cluster.x-k8s.io
