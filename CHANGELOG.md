@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.38.0] - 2026-04-20
+
 ### Fixed
 
 - Fix GC not covering all resources by using API response paging
@@ -594,7 +596,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.37.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.38.0...HEAD
+[2.38.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.37.0...v2.38.0
 [2.37.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.36.0...v2.37.0
 [2.36.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.35.1...v2.36.0
 [2.35.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.35.0...v2.35.1
