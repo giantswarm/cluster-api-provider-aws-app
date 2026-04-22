@@ -12,7 +12,8 @@ name: cluster-api-provider-aws
 #   * Fix cluster upgrade version skew (https://github.com/giantswarm/cluster-api-provider-aws/pull/631)
 #   *   + extra commit 'Conditionally proceed if `isMachinePoolAllowedToUpgradeDueToControlPlaneVersionSkew` returns an error'
 #   * Ignore release drift while deleting MachinePool and AWSMachinePool (https://github.com/giantswarm/cluster-api-provider-aws/pull/652; prefer single commit on `release-2.11` branch or newer)
-tag: v2.11.0-gs-56313d3be
+#   * Revert "Changed dedicated host validation logic to require tenancy = host" (bug that was introduced upstream and hinders reconciliation) (https://github.com/giantswarm/cluster-api-provider-aws/pull/655, to be replaced by upstream https://github.com/giantswarm/cluster-api-provider-aws/pull/655)
+tag: v2.11.0-gs-dd3553695
 
 registry:
   domain: gsoci.azurecr.io
