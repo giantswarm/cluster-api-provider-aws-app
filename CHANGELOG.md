@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.39.1] - 2026-04-22
+
 ### Fixed
 
 - Revert "Changed dedicated host validation logic to require tenancy = host" (bug that was introduced upstream and hinders reconciliation)
@@ -606,7 +608,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.1...HEAD
+[2.39.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.0...v2.39.1
 [2.39.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.38.0...v2.39.0
 [2.38.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.37.0...v2.38.0
 [2.37.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.36.0...v2.37.0
