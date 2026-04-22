@@ -54,14 +54,12 @@ spec:
         - --leader-elect
         - --insecure-diagnostics
         - |
-          --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,MachinePoolMachines={{ required "capaFeatureGates.machinePoolMachines is required" .Values.capaFeatureGates.machinePoolMachines | ternary "true" "false" }},EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
+          --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,MachinePoolMachines=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
         - --watch-filter=capi
         - --v=0
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /home/.aws/credentials
-        - name: GIANT_SWARM_CAPA_MACHINE_POOL_MACHINES_ONLY_FOR_CLUSTER_NAME_REGEX
-          value: '{{.Values.capaFeatureGates.machinePoolMachinesOnlyForClusterNameRegex}}'
         image: '{{.Values.registry.domain}}/{{.Values.image.name}}:{{.Values.tag}}'
         imagePullPolicy: IfNotPresent
         livenessProbe:

@@ -81,6 +81,7 @@
                   description: |-
                     AllowedCIDRBlocks is a list of CIDR blocks allowed to access the bastion host.
                     They are set as ingress rules for the Bastion host's Security Group (defaults to 0.0.0.0/0).
+                    If the cluster has IPv6 enabled, defaults to ::/0 and 0.0.0.0/0.
                   items:
                     type: string
                   type: array
@@ -515,12 +516,9 @@
                         description: |-
                           IPv6CidrBlock is the IPv6 CIDR block to be used when the provider creates a managed VPC.
                           A subnet can have an IPv4 and an IPv6 address.
-                          IPv6 is only supported in managed clusters, this field cannot be set on AWSCluster object.
                         type: string
                       isIpv6:
-                        description: |-
-                          IsIPv6 defines the subnet as an IPv6 subnet. A subnet is IPv6 when it is associated with a VPC that has IPv6 enabled.
-                          IPv6 is only supported in managed clusters, this field cannot be set on AWSCluster object.
+                        description: IsIPv6 defines the subnet as an IPv6 subnet. A subnet is IPv6 when it is associated with an IPv6 CIDR.
                         type: boolean
                       isPublic:
                         description: IsPublic defines the subnet as a public subnet. A subnet is public when it is associated with a route table that has a route to an internet gateway.
@@ -689,13 +687,12 @@
                             The netmask length of the IPv4 CIDR you want to allocate to VPC from
                             an Amazon VPC IP Address Manager (IPAM) pool.
                             Defaults to /16 for IPv4 if not specified.
+                            Defaults to /56 for IPv6 if not specified.
                           format: int64
                           type: integer
                       type: object
                     ipv6:
-                      description: |-
-                        IPv6 contains ipv6 specific settings for the network. Supported only in managed clusters.
-                        This field cannot be set on AWSCluster object.
+                      description: IPv6 contains ipv6 specific settings for the network.
                       properties:
                         cidrBlock:
                           description: |-
@@ -721,6 +718,7 @@
                                 The netmask length of the IPv4 CIDR you want to allocate to VPC from
                                 an Amazon VPC IP Address Manager (IPAM) pool.
                                 Defaults to /16 for IPv4 if not specified.
+                                Defaults to /56 for IPv6 if not specified.
                               format: int64
                               type: integer
                           type: object
@@ -1088,6 +1086,9 @@
                       - type
                     type: object
                   type: array
+                assignPrimaryIPv6:
+                  description: AssignPrimaryIPv6 specifies whether to enable assigning a primary IPv6 address to the primary network Interface.
+                  type: string
                 availabilityZone:
                   description: Availability zone of instance
                   type: string
@@ -1136,6 +1137,15 @@
                         - Disabled
                         - AMDEncryptedVirtualizationNestedPaging
                       type: string
+                    nestedVirtualization:
+                      description: |-
+                        NestedVirtualization specifies whether to enable nested virtualization on the instance.
+                        Nested virtualization is supported on C8i, M8i, and R8i instance types.
+                        Valid values are: enabled, disabled
+                      enum:
+                        - enabled
+                        - disabled
+                      type: string
                   type: object
                 dynamicHostAllocation:
                   description: |-
@@ -1157,9 +1167,12 @@
                 hostAffinity:
                   description: |-
                     HostAffinity specifies the dedicated host affinity setting for the instance.
-                    When hostAffinity is set to host, an instance started onto a specific host always restarts on the same host if stopped.
-                    When hostAffinity is set to default, and you stop and restart the instance, it can be restarted on any available host.
-                    When HostAffinity is defined, HostID is required.
+                    When HostAffinity is set to "host", an instance started onto a specific host always restarts on the same host if stopped:
+                    - If HostID is set, the instance launches on the specific host and must return to that same host after any stop/start (Targeted & Pinned).
+                    - If HostID is not set, the instance gets launched on any available and must returns to the same host after any stop/start (Auto-placed & Pinned).
+                    When HostAffinity is set to "default" (the default value), the instance (when restarted) can return on any available host:
+                    - If HostID is set, the instance launches on the specified host now, but (when restarted) can return to any available hosts (Targeted & Flexible).
+                    - If HostID is not set, the instance launches on any available host now, and (when restarted) can return to any available hosts (Auto-placed & Flexible).
                   enum:
                     - default
                     - host
@@ -1186,6 +1199,17 @@
                         If you specify a value of disabled, you cannot access your instance metadata.
 
                         Default: enabled
+                      enum:
+                        - enabled
+                        - disabled
+                      type: string
+                    httpProtocolIpv6:
+                      default: disabled
+                      description: |-
+                        Enables or disables the IPv6 endpoint for the instance metadata service.
+                        This applies only if you enabled the HTTP metadata endpoint.
+
+                        Default: disabled
                       enum:
                         - enabled
                         - disabled
@@ -1238,6 +1262,9 @@
                   type: object
                 instanceState:
                   description: The current state of the instance.
+                  type: string
+                ipv6Address:
+                  description: The IPv6 address assigned to the instance.
                   type: string
                 marketType:
                   description: |-
@@ -1563,6 +1590,9 @@
                               TargetGroupSpec specifies target group settings for a given listener.
                               This is created first, and the ARN is then passed to the listener.
                             properties:
+                              ipType:
+                                description: IPType is the IP address type for the target group.
+                                type: string
                               name:
                                 description: Name of the TargetGroup. Must be unique over the same group of listeners.
                                 maxLength: 32
@@ -1673,6 +1703,13 @@
                           - protocol
                         type: object
                       type: array
+                    loadBalancerIPAddressType:
+                      description: LoadBalancerIPAddressType specifies the IP address type for the load balancer.
+                      enum:
+                        - ipv4
+                        - dualstack
+                        - dualstack-without-public-ipv4
+                      type: string
                     loadBalancerType:
                       description: LoadBalancerType sets the type for a load balancer. The default type is classic.
                       enum:
@@ -1760,6 +1797,9 @@
                               TargetGroupSpec specifies target group settings for a given listener.
                               This is created first, and the ARN is then passed to the listener.
                             properties:
+                              ipType:
+                                description: IPType is the IP address type for the target group.
+                                type: string
                               name:
                                 description: Name of the TargetGroup. Must be unique over the same group of listeners.
                                 maxLength: 32
@@ -1870,6 +1910,13 @@
                           - protocol
                         type: object
                       type: array
+                    loadBalancerIPAddressType:
+                      description: LoadBalancerIPAddressType specifies the IP address type for the load balancer.
+                      enum:
+                        - ipv4
+                        - dualstack
+                        - dualstack-without-public-ipv4
+                      type: string
                     loadBalancerType:
                       description: LoadBalancerType sets the type for a load balancer. The default type is classic.
                       enum:

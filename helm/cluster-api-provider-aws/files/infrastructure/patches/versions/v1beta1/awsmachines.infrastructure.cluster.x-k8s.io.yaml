@@ -39,6 +39,7 @@
                   arn:
                     description: |-
                       ARN of resource.
+
                       Deprecated: This field has no function and is going to be removed in the next release.
                     type: string
                   filters:
@@ -280,6 +281,7 @@
                 arn:
                   description: |-
                     ARN of resource.
+
                     Deprecated: This field has no function and is going to be removed in the next release.
                   type: string
                 filters:
