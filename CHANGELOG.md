@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Revert "Changed dedicated host validation logic to require tenancy = host" (bug that was introduced upstream and hinders reconciliation)
+
 ## [2.39.0] - 2026-04-22
 
 ### Changed
