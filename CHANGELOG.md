@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump CAPI to v1.12.2, k8s to v1.34 and controller-runtime to v0.22.5 (backport of not yet merged upstream PR; needed for Kubernetes v1.35 support)
+- Switch to upstream fix for bug in "Changed dedicated host validation logic to require tenancy = host"
+
 ## [2.39.1] - 2026-04-22
 
 ### Fixed
