@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.40.0] - 2026-04-27
+
 ### Changed
 
 - Bump CAPI to v1.12.2, k8s to v1.34 and controller-runtime to v0.22.5 (backport of not yet merged upstream PR; needed for Kubernetes v1.35 support)
@@ -613,7 +615,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.40.0...HEAD
+[2.40.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.1...v2.40.0
 [2.39.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.0...v2.39.1
 [2.39.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.38.0...v2.39.0
 [2.38.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.37.0...v2.38.0
