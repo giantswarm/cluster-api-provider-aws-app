@@ -7,12 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.42.0] - 2026-05-04
+
+### Fixed
+
+- Temporarily rip out dynamic host allocation validation code on Create since the upstream code still fails on creation of new AWSMachine objects from a template
+
 ## [2.41.0] - 2026-05-04
 
 ### Fixed
 
 - Only apply new or changed tags to EC2 and EKS objects
-- Temporarily rip out dynamic host allocation validation code on Create since the upstream code still fails on creation of new AWSMachine objects from a template
 
 ## [2.40.0] - 2026-04-27
 
@@ -622,7 +627,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.41.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.42.0...HEAD
+[2.42.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.41.0...v2.42.0
 [2.41.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.40.0...v2.41.0
 [2.40.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.1...v2.40.0
 [2.39.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.0...v2.39.1
