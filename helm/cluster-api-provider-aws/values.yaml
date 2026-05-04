@@ -14,7 +14,8 @@ name: cluster-api-provider-aws
 #   * Ignore release drift while deleting MachinePool and AWSMachinePool (https://github.com/giantswarm/cluster-api-provider-aws/pull/652; prefer single commit on `release-2.11` branch or newer)
 #   * Bump CAPI to v1.12.2, k8s to v1.34 and controller-runtime to v0.22.5 (backport of https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5857 *before* it was merged upstream)
 #   * Fix bug in "Changed dedicated host validation logic to require tenancy = host" (https://github.com/giantswarm/cluster-api-provider-aws/pull/655)
-tag: v2.11.0-gs-92c8b2e97
+#   * Only apply new or changed tags to EC2 and EKS objects (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5926)
+tag: v2.11.1-gs-23567189d
 
 registry:
   domain: gsoci.azurecr.io
