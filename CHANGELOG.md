@@ -9,12 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.42.0] - 2026-05-04
 
+### Fixed
+
+- Temporarily rip out dynamic host allocation validation code on Create since the upstream code still fails on creation of new AWSMachine objects from a template
+
 ## [2.41.0] - 2026-05-04
 
 ### Fixed
 
 - Only apply new or changed tags to EC2 and EKS objects
-- Temporarily rip out dynamic host allocation validation code on Create since the upstream code still fails on creation of new AWSMachine objects from a template
 
 ## [2.40.0] - 2026-04-27
 
