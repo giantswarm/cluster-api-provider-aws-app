@@ -14,5 +14,4 @@ spec:
             - --insecure-diagnostics
             - |
               --feature-gates=EKS=true,EKSEnableIAM=true,EKSAllowAddRoles=false,EKSFargate=false,MachinePool=true,MachinePoolMachines=true,EventBridgeInstanceState=false,AutoControllerIdentityCreator=true,ExternalResourceGC=true,BootstrapFormatIgnition=true
-            - --watch-filter=capi
             - --v=0
