@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Remove the watch filter label because it's not used anymore.
+
 ## [2.42.0] - 2026-05-04
 
 ### Fixed
