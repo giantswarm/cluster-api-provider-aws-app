@@ -86,9 +86,6 @@
                 }
             }
         },
-        "watchFilter": {
-            "type": "string"
-        },
         "serviceType": {
             "type": "string"
         },

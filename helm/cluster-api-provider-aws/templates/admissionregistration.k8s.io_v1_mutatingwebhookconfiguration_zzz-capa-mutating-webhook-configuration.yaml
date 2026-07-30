@@ -25,9 +25,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awscluster.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -50,9 +47,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsclustercontrolleridentity.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -75,9 +69,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsclusterroleidentity.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -100,9 +91,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsclusterstaticidentity.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -125,9 +113,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsclustertemplate.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -149,9 +134,6 @@ webhooks:
       path: /mutate-infrastructure-cluster-x-k8s-io-v1beta2-awsmachine
   failurePolicy: Fail
   name: mutation.awsmachine.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -174,9 +156,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsfargateprofile.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -199,9 +178,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmachinepool.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -224,9 +200,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmanagedmachinepool.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -249,9 +222,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.rosamachinepool.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -274,9 +244,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.rosanetwork.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -299,9 +266,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.rosaroleconfig.infrastructure.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -324,9 +288,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.eksconfigs.bootstrap.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - bootstrap.cluster.x-k8s.io
@@ -349,9 +310,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.eksconfigtemplates.bootstrap.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - bootstrap.cluster.x-k8s.io
@@ -374,9 +332,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmanagedcontrolplanes.controlplane.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - controlplane.cluster.x-k8s.io
@@ -399,9 +354,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.awsmanagedcontrolplanetemplates.controlplane.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - controlplane.cluster.x-k8s.io
@@ -424,9 +376,6 @@ webhooks:
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: default.rosacontrolplanes.controlplane.cluster.x-k8s.io
-  objectSelector:
-    matchLabels:
-      cluster.x-k8s.io/watch-filter: capi
   rules:
   - apiGroups:
     - controlplane.cluster.x-k8s.io

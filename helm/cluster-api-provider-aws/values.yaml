@@ -36,8 +36,6 @@ crdInstall:
 aws:
   arn: defaultARN
 
-watchfilter: capi
-
 serviceType: managed
 
 provider:
