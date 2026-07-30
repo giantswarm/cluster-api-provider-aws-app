@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.43.0] - 2026-07-30
+
 ### Removed
 
 - Remove the watch filter label. It had been used for distinguishing controlled objects of vintage vs. CAPI clusters.
@@ -631,7 +633,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.42.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.43.0...HEAD
+[2.43.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.42.0...v2.43.0
 [2.42.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.41.0...v2.42.0
 [2.41.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.40.0...v2.41.0
 [2.40.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.39.1...v2.40.0
