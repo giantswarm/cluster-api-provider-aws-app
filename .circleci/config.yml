@@ -15,7 +15,7 @@ jobs:
             docker login --username $ALIYUN_USERNAME --password $ALIYUN_PASSWORD giantswarm-registry.cn-shanghai.cr.aliyuncs.com
 
             tag=$(grep -E '^tag:' helm/cluster-api-provider-aws/values.yaml | awk '{print $2}' | tr -d '"' | tr -d "'")
-            image="giantswarm-registry.cn-shanghai.cr.aliyuncs.com/giantswarm/cluster-api-aws-controller-amd64:${tag}"
+            image="giantswarm-registry.cn-shanghai.cr.aliyuncs.com/giantswarm/cluster-api-aws-controller:${tag}"
 
             echo "Checking if image exists: ${image}"
             # This fails if the image does not exist (for example, hasn't finished pushing from our fork CircleCI pipeline)
