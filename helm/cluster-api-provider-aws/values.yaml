@@ -31,7 +31,7 @@ crdConvertOnly: true
 crdInstall:
   kubectl:
     image: "giantswarm/kubectl"
-    tag: "1.24.10"
+    tag: "v1.34.1"
 
 aws:
   arn: defaultARN
