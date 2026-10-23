@@ -16,7 +16,8 @@ name: cluster-api-provider-aws
 #   * Fix bug in "Changed dedicated host validation logic to require tenancy = host" (https://github.com/giantswarm/cluster-api-provider-aws/pull/655)
 #   * Only apply new or changed tags to EC2 and EKS objects (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/5926)
 #   * Temporarily rip out dynamic host allocation validation code on Create since the upstream code still fails on creation of new AWSMachine objects from a template (https://github.com/giantswarm/cluster-api-provider-aws/pull/659)
-tag: v2.11.1-gs-6d635ed37
+#   * Fix wrong use of object kind in update predicates, leading to reconciliation when it could be skipped (https://github.com/giantswarm/cluster-api-provider-aws/pull/660)
+tag: v2.11.1-gs-4ff623893
 
 registry:
   domain: gsoci.azurecr.io
