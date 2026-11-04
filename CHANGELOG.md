@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
 - Fix wrong use of object kind in update predicates, leading to reconciliation when it could be skipped
+- Persist the AWSMachine ProviderID immediately after EC2 instance creation to prevent duplicate instances.
 
 ## [2.43.0] - 2026-07-30
 
