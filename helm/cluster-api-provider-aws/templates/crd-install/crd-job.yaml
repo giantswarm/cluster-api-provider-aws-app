@@ -34,15 +34,10 @@ spec:
       - name: kubectl
         image: "{{ .Values.registry.domain }}/{{ .Values.crdInstall.kubectl.image }}:{{ .Values.crdInstall.kubectl.tag }}"
         command:
-        - sh
-        - -c
-        - |
-          set -o errexit ; set -o xtrace ; set -o nounset
-
-          # piping stderr to stdout means kubectl's errors are surfaced
-          # in the pod's logs.
-
-          kubectl apply -k /files 2>&1
+        - kubectl
+        - apply
+        - -k
+        - /files
         volumeMounts:
 {{- range $path, $_ := $.Files.Glob "files/**.yaml" }}
         - name: {{ printf "%s-%s" (base (dir $path)) (trimSuffix "-yaml" (base $path | replace "." "-")) | trunc 63 | trimSuffix "-" }}
