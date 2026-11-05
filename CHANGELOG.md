@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.43.1] - 2026-11-05
+
 ### Fixed
 
 - The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
@@ -640,7 +642,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2021-03-18
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.43.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.43.1...HEAD
+[2.43.1]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.43.0...v2.43.1
 [2.43.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.42.0...v2.43.0
 [2.42.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.41.0...v2.42.0
 [2.41.0]: https://github.com/giantswarm/cluster-api-provider-aws-app/compare/v2.40.0...v2.41.0
