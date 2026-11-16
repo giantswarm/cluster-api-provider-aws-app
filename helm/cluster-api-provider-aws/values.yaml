@@ -19,8 +19,7 @@ name: cluster-api-provider-aws
 #   * Fix wrong use of object kind in update predicates, leading to reconciliation when it could be skipped (https://github.com/giantswarm/cluster-api-provider-aws/pull/660)
 #   * Persist ProviderID immediately after instance creation (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/6132)
 #   * Don't default spec.ignition when generating Ignition user data (https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/6352)
-# TODO: temporary image from https://github.com/giantswarm/cluster-api-provider-aws/pull/664, replace with the release tag once merged.
-tag: d0c00548db1ca0ee824995249154d2484c374f2e
+tag: v2.11.1-gs-f6fc0318b
 
 registry:
   domain: gsoci.azurecr.io
