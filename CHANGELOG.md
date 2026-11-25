@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade to CAPA v2.13.1 + fork changes
+
+### Fixed
+
+- Cherry-pick fix: awsmachinetemplate: use cluster-scoped credentials for ec2 clients
+
 ## [2.43.2] - 2026-11-16
 
 ### Fixed
@@ -95,7 +103,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Bump CAPA version to `v2.9.2-gs-*`. This bumps CAPA to `v2.9.2` and applies the customizations we already had in our fork.
-
   - On top: fix constant instance refreshes for AWSMachinePool by considering SSHKeyName nil and empty string the same. This was a bug introduced with CAPA v2.9.x, so it did not affect older versions of this app.
 
 ### Fixed
@@ -358,7 +365,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Backported fixes and features for CAPA v2.3.x
-
   - Use go 1.21.5, fix kubectl version detection after `--short` parameter was removed
   - Make VPC creation idempotent to avoid indefinite creation of new VPCs if storage of the ID fails
   - Log full ARN in GC error messages
@@ -370,7 +376,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Backported fixes and features for CAPA v2.3.x
-
   - Enable transit encryption to S3 bucket
   - Trigger machine pool instance refresh (node rollout) if bootstrap config reference changes
   - Skip instance refresh attempt if ASG does not yet exist
@@ -461,7 +466,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Add psp and seccomp profile.
+- Add psp and seccomp profile.
 
 ## [2.0.0] - 2023-03-02
 
@@ -608,7 +613,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Deactivate eks flag only for core aws webhook
-
 
 ## [0.6.8-gs2] - 2021-08-25
 

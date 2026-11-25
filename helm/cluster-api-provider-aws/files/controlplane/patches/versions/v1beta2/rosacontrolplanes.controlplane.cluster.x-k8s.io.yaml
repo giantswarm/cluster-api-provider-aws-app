@@ -237,6 +237,16 @@
                   minimum: 75
                   type: integer
               type: object
+            deleteProtection:
+              default: Disabled
+              description: |-
+                DeleteProtection prevents accidental ROSA cluster deletion.
+                When set to "Enabled", the ROSA cluster cannot be deleted through OCM.
+                Defaults to "Disabled".
+              enum:
+                - Enabled
+                - Disabled
+              type: string
             domainPrefix:
               description: |-
                 DomainPrefix is an optional prefix added to the cluster's domain name. It will be used
@@ -248,6 +258,20 @@
               type: string
               x-kubernetes-validations:
                 - message: domainPrefix is immutable
+                  rule: self == oldSelf
+            ec2MetadataHttpTokens:
+              description: |-
+                Ec2MetadataHTTPTokens configures the use of IMDSv2 for EC2 instances.
+                When set to "required", IMDSv2 is enforced and the older IMDSv1 is disabled.
+                When set to "optional", both IMDSv1 and IMDSv2 are allowed.
+                When omitted, the OCM default ("optional") is used.
+                This field is immutable and cannot be changed after cluster creation.
+              enum:
+                - optional
+                - required
+              type: string
+              x-kubernetes-validations:
+                - message: ec2MetadataHttpTokens is immutable
                   rule: self == oldSelf
             enableExternalAuthProviders:
               default: false
@@ -774,6 +798,24 @@
                 access to the cluster account in order to provide support.
                 Required if RosaRoleConfigRef is not specified.
               type: string
+            trustPolicyExternalID:
+              description: |-
+                TrustPolicyExternalID is an optional STS external ID that OCM will use when assuming
+                the installer and support account roles.
+                When using RosaRoleConfigRef, this field is ignored, the value is always read from
+                the ROSARoleConfig, which owns the trust policies.
+                When providing role ARNs directly (no RosaRoleConfigRef), the user is responsible for
+                including the sts:ExternalId condition in the roles' trust policies; this field only
+                tells OCM which external ID to present when assuming the roles.
+                Worker roles are not affected.
+                Must be 2–1224 characters matching [a-zA-Z0-9=,.@:/-]+ per AWS STS requirements.
+              maxLength: 1224
+              minLength: 2
+              pattern: ^[a-zA-Z0-9=,.@:\/-]+$
+              type: string
+              x-kubernetes-validations:
+                - message: trustPolicyExternalID is immutable
+                  rule: self == oldSelf
             version:
               description: OpenShift semantic version, for example "4.14.5".
               type: string
