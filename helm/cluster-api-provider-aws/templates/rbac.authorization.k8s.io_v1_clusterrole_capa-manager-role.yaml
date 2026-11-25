@@ -111,6 +111,16 @@ rules:
   - cluster.x-k8s.io
   resources:
   - machinepools
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - watch
+- apiGroups:
+  - cluster.x-k8s.io
+  resources:
   - machinepools/status
   verbs:
   - create
@@ -139,7 +149,6 @@ rules:
   - controlplane.cluster.x-k8s.io
   resources:
   - awsmanagedcontrolplanes
-  - rosacontrolplanes
   verbs:
   - delete
   - get
@@ -151,14 +160,12 @@ rules:
   - controlplane.cluster.x-k8s.io
   resources:
   - awsmanagedcontrolplanes/finalizers
-  - rosacontrolplanes/finalizers
   verbs:
   - update
 - apiGroups:
   - controlplane.cluster.x-k8s.io
   resources:
   - awsmanagedcontrolplanes/status
-  - rosacontrolplanes/status
   verbs:
   - get
   - list
@@ -192,7 +199,6 @@ rules:
   - awsmachinepools
   - awsmanagedclusters
   - awsmanagedmachinepools
-  - rosaclusters
   verbs:
   - delete
   - get
@@ -206,9 +212,6 @@ rules:
   - awsclusters/status
   - awsfargateprofiles/status
   - awsmachinetemplates/status
-  - rosaclusters/status
-  - rosanetworks/status
-  - rosaroleconfigs/status
   verbs:
   - get
   - patch
@@ -237,31 +240,9 @@ rules:
   - infrastructure.cluster.x-k8s.io
   resources:
   - awsmachines
-  - rosamachinepools
-  - rosanetworks
-  - rosaroleconfigs
   verbs:
   - create
   - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - infrastructure.cluster.x-k8s.io
-  resources:
-  - rosamachinepools/finalizers
-  - rosanetworks/finalizers
-  - rosaroleconfigs/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - infrastructure.cluster.x-k8s.io
-  resources:
-  - rosamachinepools/status
-  verbs:
-  - create
   - get
   - list
   - patch
