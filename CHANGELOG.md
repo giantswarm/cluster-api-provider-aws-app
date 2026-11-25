@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Cherry-pick fix: awsmachinetemplate: use cluster-scoped credentials for ec2 clients
 
+### Removed
+
+- Remove ROSA CRDs, RBAC rules, and webhooks from the chart. We don't support it and installing fewer CRDs leads to reduced memory usage of the Kubernetes API server.
+
 ## [2.43.2] - 2026-11-16
 
 ### Fixed

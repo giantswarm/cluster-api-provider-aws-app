@@ -17,6 +17,7 @@ clean:
 .PHONY: generate
 generate: $(YQ_BIN)
 	./hack/generate-kustomize-patches.sh
+	./hack/remove-rosa.sh
 	$(MAKE) delete-generated-helm-charts
 	kustomize build config/helm -o helm/cluster-api-provider-aws/templates
 	./hack/move-generated-crds.sh
